@@ -1,0 +1,20 @@
+module score_alu(alu_select, clk, reset_n, enable);
+	
+	input clk,reset_n,enable;
+	input [1:0] alu_select;
+	reg score;
+	
+	always @(*) begin
+		case(alu_select)
+			2'b00: 
+			2'b01: 
+			2'b10: 
+			2'b11: 
+		endcase
+	end
+	
+	always @(posedge clk) begin
+		
+	end
+	
+endmodule
