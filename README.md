@@ -1,2 +1,3 @@
 # CSC258-Project
-David sucks.
+
+Pacman game for our CSC258 project.
