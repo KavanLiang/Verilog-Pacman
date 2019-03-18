@@ -1,10 +1,9 @@
 module pacShifter(clock, enable, resetn, rotation, out);
-  input clock;
-  input enable;
+  input clock,enable,resetn;
   input [1:0] rotation;
 
-  wire [24:0] setA;
-  wire [24:0] setB;
+  reg [24:0] setA;
+  reg [24:0] setB;
 
   output reg [24:0] out;
 
@@ -20,27 +19,27 @@ module pacShifter(clock, enable, resetn, rotation, out);
   always @(*) begin
     case(rotation)
       2'd0 :  begin
-                setA[24:0] = rightA;
-                setB[24:0] = rightB;
+                setA = rightA;
+                setB = rightB;
               end
       2'd1 :  begin
-                setA[24:0] = upA;
-                setB[24:0] = upB;
+                setA = upA;
+                setB = upB;
               end
       2'd2 :  begin
-                setA[24:0] = leftA;
-                setB[24:0] = leftB;
+                setA = leftA;
+                setB = leftB;
               end
       2'd3 :  begin
-                setA[24:0] = downA;
-                setB[24:0] = downB;
+                setA = downA;
+                setB = downB;
               end
     endcase
   end
 
   always @(posedge clock) begin
     if(!resetn) begin
-      out[24:0] <= A[24:0];
+      out[24:0] <= setA[24:0];
     end
     else if(enable) begin
       out[24:0] <= out[24:0] == setA[24:0] ? setB[24:0] : setA[24:0];
