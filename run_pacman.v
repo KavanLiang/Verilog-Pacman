@@ -57,26 +57,28 @@ module test(x, y, KEY, SW, CLOCK_50);
 	wire resetn,go,load,writeEn;
 	wire [5:0] loc;
 	wire [2:0] colour;
+	wire erase;
 	
 	reg [24:0] shape;
 	
 	always @(*) begin
-		case(SW[9:7])
-			3'b000: shape = 25'b0111011111110001111101110;
-			3'b001: shape = 25'b0111011100110001110001110;
-			3'b010: shape = 25'b0101011011110111111101110;
-			3'b011: shape = 25'b0000010001110111111101110;
-			3'b100: shape = 25'b0111011111000111111101110;
-			3'b101: shape = 25'b0111000111000110011101110;
-			3'b110: shape = 25'b0111011111110111101101010;
-			3'b111: shape = 25'b0111011111110111000100000;
+		case({erase,SW[9:7]})
+			4'b0000: shape = 25'b0111011111110001111101110;
+			4'b0001: shape = 25'b0111011100110001110001110;
+			4'b0010: shape = 25'b0101011011110111111101110;
+			4'b0011: shape = 25'b0000010001110111111101110;
+			4'b0100: shape = 25'b0111011111000111111101110;
+			4'b0101: shape = 25'b0111000111000110011101110;
+			4'b0110: shape = 25'b0111011111110111101101010;
+			4'b0111: shape = 25'b0111011111110111000100000;
+			default: shape = 25'd0;
 		endcase
 	end
 	
 	assign resetn = KEY[0];
 	assign go = ~KEY[1];
 	
-	control5x5 c0(.plot_sig(writeEn), .go(go),
+	control5x5 c0(.plot_sig(writeEn), .go(go), .erase(erase);
 				  .reset_n(resetn), .clock(CLOCK_50), .load(load), .loc(loc));
 	data5x5 d0(.col_out(colour), .x_out(x), .y_out(y), 
 					.x_in({5'b00000,SW[2:0]}), .y_in({4'b0000,SW[5:3]}), .load(load), .colour(3'b110), 
@@ -84,10 +86,10 @@ module test(x, y, KEY, SW, CLOCK_50);
 	
 endmodule
 
-module control5x5(plot_sig, go, reset_n, clock, load, loc);
+module control5x5(plot_sig, go, reset_n, clock, load, loc, erase);
 	
 	input reset_n,go,clock;
-	output reg plot_sig,load;
+	output reg plot_sig,load,erase;
 	output [5:0] loc;
 	
 	reg enable;
@@ -96,12 +98,13 @@ module control5x5(plot_sig, go, reset_n, clock, load, loc);
 	
 	reg [3:0] current_state, next_state;
 	
-	//Should have four states: WAIT, ERASE, LOAD, GO
-	localparam WAIT = 1'b0, GO = 1'b1;
+	localparam WAIT = 2'b00, ERASE = 2'b01, LOAD = 2'b10 GO = 2'b11;
 	
 	always @(*) begin
 		case(current_state)       
-			WAIT: next_state = go ? GO : WAIT;
+			WAIT: next_state = go ? ERASE : WAIT;
+			ERASE: next_state = LOAD;
+			LOAD: next_state = GO;
 			GO: next_state = (loc == 6'b100100) ? WAIT : GO;
 			default: next_state = WAIT;
 		endcase
@@ -111,8 +114,11 @@ module control5x5(plot_sig, go, reset_n, clock, load, loc);
 		load = 1'b0;
 		plot_sig = 1'b0;
 		enable = 1'b0;
+		erase = 1'b0;
 		case(current_state)
-			WAIT: load = 1'b1;
+			WAIT:;
+			ERASE: erase = 1'b1;
+			LOAD: load = 1'b1;
 			GO: begin
 				enable = 1'b1;
 				plot_sig = 1'b1;
@@ -198,11 +204,11 @@ module rate_divider(q, clock, reset_n, enable);
 	always @(posedge clock) begin
 		if(!reset_n) count <= 0;
 		else if(enable) begin
-			if(count == 26'd50000000) count <= 26'd0;
+			if(count == 26'd15000000) count <= 26'd0;
 			else count <= count + 26'd1;
 		end
 	end
 	
-	assign q = (count == 26'd50000000) ? 1'b1 : 1'b0;
+	assign q = (count == 26'd15000000) ? 1'b1 : 1'b0;
 	
 endmodule
