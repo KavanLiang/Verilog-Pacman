@@ -35,7 +35,6 @@ module pacShifter(clock, enable, resetn, rotation, out);
                 setA[24:0] = downA;
                 setB[24:0] = downB;
               end
-      default:
     endcase
   end
 

@@ -4,11 +4,7 @@ module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G
 	input [3:0] KEY;
 	
 	output VGA_CLK,VGA_HS,VGA_VS,VGA_BLANK_N,VGA_SYNC_N,CLOCK_50;
-	output [9:0] VGA_R,VGA_G,vGA_B;
-	
-	vga_adapter VGA(.resetn(resetn), .clock(CLOCK_50), .colour(colour), .x(x), .y(y), .plot(writeEn),
-						 .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS),
-						 .VGA_BLANK(VGA_BLANK_N), .VGA_SYNC(VGA_SYNC_N), .VGA_CLK(VGA_CLK));
+	output [9:0] VGA_R,VGA_G,VGA_B;
 						 
 	wire resetn,go,load,writeEn;
 	wire [5:0] loc;
@@ -36,9 +32,17 @@ module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G
 	
 	control5x5 c0(.plot_sig(writeEn), .go(go),
 				  .reset_n(resetn), .clock(CLOCK_50), .load(load), .loc(loc));
+				  
 	data5x5 d0(.col_out(colour), .x_out(x), .y_out(y), 
 					.x_in({5'b00000,SW[2:0]}), .y_in({4'b0000,SW[5:3]}), .load(load), .colour(3'b110), 
 					.clock(CLOCK_50), .reset_n(resetn), .loc(loc), .shape(shape));
+					
+	vga_adapter VGA(.resetn(resetn), .clock(CLOCK_50), .colour(colour), .x(x), .y(y), .plot(writeEn),
+						 .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS),
+						 .VGA_BLANK(VGA_BLANK_N), .VGA_SYNC(VGA_SYNC_N), .VGA_CLK(VGA_CLK));
+						 
+	defparam VGA.RESOLUTION = "160x120";
+	defparam VGA.MONOCHROME = "FALSE";
 	
 endmodule
 
@@ -87,11 +91,12 @@ module control5x5(plot_sig, go, reset_n, clock, load, loc);
 	output [5:0] loc;
 	
 	reg enable;
-	
+
 	counter5x5 c0(.q(loc), .clock(clock), .reset_n(reset_n), .enable(enable));
 	
 	reg [3:0] current_state, next_state;
 	
+	//Should have four states: WAIT, ERASE, LOAD, GO
 	localparam WAIT = 1'b0, GO = 1'b1;
 	
 	always @(*) begin
@@ -145,7 +150,7 @@ module data5x5(col_out, x_out, y_out, x_in, y_in, load, colour, clock, reset_n, 
 			x <= 8'b00000000;
 			y <= 7'b0000000;
 		end
-		else begin
+		else if(load) begin
 			x <= x_in*3'd5;
 			y <= y_in*3'd5;
 		end
@@ -183,8 +188,21 @@ module counter5x5(q, clock, reset_n, enable);
 	
 endmodule
 
-module rate_divider();
+module rate_divider(q, clock, reset_n, enable);
 	
+	input clock,reset_n,enable;
+	output q;
 	
+	reg [25:0] count;
+	
+	always @(posedge clock) begin
+		if(!reset_n) count <= 0;
+		else if(enable) begin
+			if(count == 26'd50000000) count <= 26'd0;
+			else count <= count + 26'd1;
+		end
+	end
+	
+	assign q = (count == 26'd50000000) ? 1'b1 : 1'b0;
 	
 endmodule
