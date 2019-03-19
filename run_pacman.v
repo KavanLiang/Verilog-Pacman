@@ -55,44 +55,143 @@ module test(x, y, KEY, SW, CLOCK_50);
 	output [7:0] x;
 	output [6:0] y;
 	
-	wire resetn,go,load,writeEn;
+	wire reset_n,go,load,writeEn,div_clk;
 	wire [5:0] loc;
 	wire [2:0] colour;
 	wire erase;
+	wire [2:0] direction;
 	
-//	reg [24:0] shape;
+	wire [7:0] x_bus;
+	wire [6:0] y_bus;
+	
+	reg [24:0] shape;
+	
+	always @(*) begin
+		case({erase,direction})
+			4'b0000: shape = 25'b0111011111110001111101110;
+			4'b0001: shape = 25'b0111011100110001110001110;
+			4'b0010: shape = 25'b0101011011110111111101110;
+			4'b0011: shape = 25'b0000010001110111111101110;
+			4'b0100: shape = 25'b0111011111000111111101110;
+			4'b0101: shape = 25'b0111000111000110011101110;
+			4'b0110: shape = 25'b0111011111110111101101010;
+			4'b0111: shape = 25'b0111011111110111000100000;
+			default: shape = 25'b0000000000000000000000000;
+		endcase
+	end
+	
+	assign reset_n = KEY[0];
+	
+	control_pacman control(.go(go), .dir_out(direction), .x_out(x_bus), .y_out(y_bus), .clock(div_clk), .reset_n(reset_n), .dir_in(SW[9:7]));
 //	
-//	always @(*) begin
-//		case({erase,SW[9:7]})
-//			4'b0000: shape = 25'b0111011111110001111101110;
-//			4'b0001: shape = 25'b0111011100110001110001110;
-//			4'b0010: shape = 25'b0101011011110111111101110;
-//			4'b0011: shape = 25'b0000010001110111111101110;
-//			4'b0100: shape = 25'b0111011111000111111101110;
-//			4'b0101: shape = 25'b0111000111000110011101110;
-//			4'b0110: shape = 25'b0111011111110111101101010;
-//			4'b0111: shape = 25'b0111011111110111000100000;
-//			default: shape = 25'b0000000000000000000000000;
-//		endcase
-//	end
-	
-	assign resetn = KEY[0];
-	assign go = ~KEY[1];
-	
-	control_pacman control(.clock(), .);
-	
-	//Have pacshifter go on a faster clock (still slowed down) to have the animation happen faster than moving.
-	pacShifter p0(.clock(CLOCK_50), .enable(), .resetn(), .rotation(), .out());
-	
+//	//Have pacshifter go on a faster clock (still slowed down) to have the animation happen faster than moving.
+//	pacShifter p0(.clock(CLOCK_50), .enable(), .resetn(), .rotation(), .out());
+
+	rate_divider r0(.clock(CLOCK_50), .q(div_clk), .reset_n(KEY[1]));
 	
 	control5x5 c0(.plot_sig(writeEn), .go(go), .erase(erase),
-				  .reset_n(resetn), .clock(CLOCK_50), .load(load), .loc(loc));
+				  .reset_n(reset_n), .clock(CLOCK_50), .load(load), .loc(loc));
 				  
 	data5x5 d0(.col_out(colour), .x_out(x), .y_out(y), 
-					.x_in({5'b00000,SW[2:0]}), .y_in({4'b0000,SW[5:3]}), .load(load), .colour(3'b110), 
-					.clock(CLOCK_50), .reset_n(resetn), .loc(loc), .shape(shape));
+					.x_in(x_bus), .y_in(y_bus), .load(load), .colour(3'b110), 
+					.clock(CLOCK_50), .reset_n(reset_n), .loc(loc), .shape(shape));
 	
 endmodule
+
+
+
+module control_pacman(go, dir_out, x_out, y_out, clock, reset_n, dir_in);
+	
+	input clock,reset_n;
+	input [2:0] dir_in;
+	
+	output go;
+	
+	assign go = clock;
+	
+	reg [2:0] direction;
+	reg [2:0] current_state,next_state;
+	
+	reg [7:0] x;
+	reg [6:0] y;
+	
+	output reg [7:0] x_out;
+	output reg [6:0] y_out;
+	output [2:0] dir_out;
+	
+	localparam WAIT = 3'b100, RIGHT = 3'b000, UP = 3'b001, LEFT = 3'b010, DOWN = 3'b011;
+	
+	always @(*) begin
+		case(dir_in)
+			WAIT: next_state = WAIT;
+			RIGHT: next_state = RIGHT;
+			UP: next_state = UP;
+			LEFT: next_state = LEFT;
+			DOWN: next_state = DOWN;
+			default: next_state = WAIT;
+		endcase
+	end
+	
+	always @(*) begin
+		case(current_state)
+			WAIT: begin
+				x_out = x;
+				y_out = y;
+			end
+			RIGHT: begin
+				x_out = x+8'd1;
+				y_out = y;
+			end
+			UP: begin
+				x_out = x;
+				y_out = y-7'd1;
+			end
+			LEFT: begin
+				x_out = x-8'd1;
+				y_out = y;
+			end
+			DOWN: begin
+				x_out = x;
+				y_out = y+7'd1;
+			end
+		endcase
+	end
+	
+	assign dir_out = direction;
+	
+	always @(posedge clock) begin
+		if(!reset_n) direction <= WAIT;
+		else if(current_state == WAIT) direction = WAIT;
+		else if(current_state == RIGHT) direction = RIGHT;
+		else if(current_state == UP) direction = UP;
+		else if(current_state == LEFT) direction = LEFT;
+		else if(current_state == DOWN) direction = DOWN;
+	end
+	
+	always @(posedge clock) begin
+		//Change reset value to starting point?
+		if(!reset_n) begin
+			x <= 8'd0;
+			y <= 7'd0;
+		end
+		//Might have to look at next state instead
+		else begin
+			if(current_state == RIGHT) x <= x + 8'd1;
+			else if(current_state == UP) y <= y - 7'd1;
+			else if(current_state == LEFT) x <= x - 8'd1;
+			else if(current_state == DOWN) y <= y + 7'd1;
+		end
+	end
+	
+	always @(posedge clock) begin
+		if(!reset_n) current_state = WAIT;
+		else current_state = next_state;
+	end
+	
+endmodule
+
+
+
 
 module control5x5(plot_sig, go, reset_n, clock, load, loc, erase);
 	 
@@ -219,10 +318,10 @@ module rate_divider(q, clock, reset_n);
 	
 	always @(posedge clock) begin
 		if(!reset_n) count <= 0;
-		else if(count == 26'd50000000) count <= 26'd0;
+		else if(count == 26'd60) count <= 26'd0;
 		else count <= count + 26'd1;
 	end
 	
-	assign q = (count < 26'd2) ? 1'b1 : 1'b0;
+	assign q = (count == 26'd60) ? 1'b1 : 1'b0;
 	
 endmodule
