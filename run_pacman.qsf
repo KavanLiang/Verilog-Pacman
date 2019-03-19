@@ -41,7 +41,7 @@ set_global_assignment -name DEVICE 5CSEMA5F31C6
 set_global_assignment -name TOP_LEVEL_ENTITY run_pacman
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:47:39  MARCH 18, 2019"
-set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Standard Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -689,3 +689,20 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[7] -ent
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DIR -entity DE1_SoC
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_NXT -entity DE1_SoC
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_STP -entity DE1_SoC
+set_global_assignment -name VERILOG_FILE PS2MouseKeyboard/PS2_Mouse_Controller.v
+set_global_assignment -name VERILOG_FILE PS2MouseKeyboard/PS2_Keyboard_Controller.v
+set_global_assignment -name VERILOG_FILE PS2MouseKeyboard/PS2_Controller.v
+set_global_assignment -name VERILOG_FILE PS2MouseKeyboard/Altera_UP_PS2_Data_In.v
+set_global_assignment -name VERILOG_FILE PS2MouseKeyboard/Altera_UP_PS2_Command_Out.v
+set_global_assignment -name VERILOG_FILE vga_pll.v
+set_global_assignment -name VERILOG_FILE vga_controller.v
+set_global_assignment -name VERILOG_FILE vga_address_translator.v
+set_global_assignment -name VERILOG_FILE vga_adapter.v
+set_global_assignment -name VERILOG_FILE run_pacman.v
+set_global_assignment -name VERILOG_FILE pacShifter.v
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
