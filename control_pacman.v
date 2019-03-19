@@ -30,6 +30,7 @@ module control_pacman(go, dir_out, x, y, clock, reset_n, dir_in);
 		endcase
 	end
 	
+	//Need to set x cap and y cap
 	always @(*) begin
 		case(current_state)
 			WAIT: begin

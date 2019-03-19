@@ -87,7 +87,7 @@ module test(x, y, KEY, SW, CLOCK_50);
 //	//Have pacshifter go on a faster clock (still slowed down) to have the animation happen faster than moving.
 //	pacShifter p0(.clock(CLOCK_50), .enable(), .resetn(), .rotation(), .out());
 
-	rate_divider r0(.clock(CLOCK_50), .q(div_clk), .reset_n(KEY[1]));
+	rate_divider r0(.clock(CLOCK_50), .q(div_clk), .reset_n(reset_n));
 	
 	control5x5 c0(.plot_sig(writeEn), .go(go), .erase(erase),
 				  .reset_n(reset_n), .clock(CLOCK_50), .load(load), .loc(loc));
@@ -317,7 +317,7 @@ module rate_divider(q, clock, reset_n);
 	reg [25:0] count;
 	
 	always @(posedge clock) begin
-		if(!reset_n) count <= 0;
+		if(!reset_n) count <= 26'd60;
 		else if(count == 26'd60) count <= 26'd0;
 		else count <= count + 26'd1;
 	end
