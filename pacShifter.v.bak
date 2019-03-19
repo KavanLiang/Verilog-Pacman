@@ -1,13 +1,6 @@
 module pacShifter(clock, enable, resetn, rotation, out);
   input clock,enable,resetn;
-  /*
-  3'b000 is right
-  3'b001 is up
-  3'b010 is left
-  3'b011 is down
-  3'b100 is stay
-  */
-  input [2:0] rotation;
+  input [1:0] rotation;
 
   reg [24:0] setA;
   reg [24:0] setB;
