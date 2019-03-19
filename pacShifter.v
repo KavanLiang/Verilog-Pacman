@@ -1,13 +1,6 @@
-module pacShifter(clock, enable, resetn, rotation, out);
-  input clock,enable,resetn;
-  /*
-  3'b000 is right
-  3'b001 is up
-  3'b010 is left
-  3'b011 is down
-  3'b100 is stay
-  */
-  input [2:0] rotation;
+module pacShifter(clock, enable, resetn, rotation, erase, out);
+  input clock,enable,resetn,erase;
+  input [1:0] rotation;
 
   reg [24:0] setA;
   reg [24:0] setB;
@@ -16,14 +9,15 @@ module pacShifter(clock, enable, resetn, rotation, out);
 
   localparam rightA = 25'b0111011111110001111101110,
              rightB = 25'b0111011100110001110001110,
-				 upA = 25'b0101011011110111111101110,
-				 upB = 25'b0000010001110111111101110,
-				 leftA = 25'b0111011111000111111101110,
-				 leftB = 25'b0111000111000110011101110,
-				 downA = 25'b0111011111110111101101010,
-				 downB = 25'b0111011111110111000100000;
+			 upA = 25'b0101011011110111111101110,
+			 upB = 25'b0000010001110111111101110,
+			 leftA = 25'b0111011111000111111101110,
+			 leftB = 25'b0111000111000110011101110,
+			 downA = 25'b0111011111110111101101010,
+			 downB = 25'b0111011111110111000100000,
+             erase = 25'b0000000000000000000000000;
 
-  always @(*) begin
+  always @(rotation) begin
     case(rotation)
       2'd0 :  begin
                 setA = rightA;
@@ -47,6 +41,9 @@ module pacShifter(clock, enable, resetn, rotation, out);
   always @(posedge clock) begin
     if(!resetn) begin
       out[24:0] <= setA[24:0];
+    end
+    else if(erase) begin
+      out[24:0] <= erase;
     end
     else if(enable) begin
       out[24:0] <= out[24:0] == setA[24:0] ? setB[24:0] : setA[24:0];
