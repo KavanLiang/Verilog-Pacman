@@ -6,6 +6,17 @@ current_state.ERASE 0 0 1 1
 current_state.LOAD 0 1 0 1 
 current_state.GO 1 0 0 1 
 
+State Machine - |run_pacman|control_pacman:control|next_ani
+Name next_ani.downA next_ani.leftA next_ani.upA next_ani.rightA next_ani.upB next_ani.leftB next_ani.rightB next_ani.downB 
+next_ani.rightA 0 0 0 0 0 0 0 0 
+next_ani.upA 0 0 1 1 0 0 0 0 
+next_ani.leftB 0 0 0 1 0 1 0 0 
+next_ani.rightB 0 0 0 1 0 0 1 0 
+next_ani.leftA 0 1 0 1 0 0 0 0 
+next_ani.upB 0 0 0 1 1 0 0 0 
+next_ani.downB 0 0 0 1 0 0 0 1 
+next_ani.downA 1 0 0 1 0 0 0 0 
+
 State Machine - |run_pacman|control_pacman:control|current_state
 Name current_state.RIGHT current_state.DOWN current_state.LEFT current_state.UP current_state.WAIT 
 current_state.WAIT 0 0 0 0 0 

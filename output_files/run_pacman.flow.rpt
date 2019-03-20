@@ -1,6 +1,6 @@
 Flow report for run_pacman
-Tue Mar 19 19:26:28 2019
-Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+Wed Mar 20 16:14:36 2019
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -37,29 +37,29 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Flow Summary                                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Tue Mar 19 19:26:14 2019           ;
-; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
-; Revision Name                   ; run_pacman                                      ;
-; Top-level Entity Name           ; run_pacman                                      ;
-; Family                          ; Cyclone V                                       ;
-; Device                          ; 5CSEMA5F31C6                                    ;
-; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 170 / 32,070 ( < 1 % )                          ;
-; Total registers                 ; 121                                             ;
-; Total pins                      ; 50 / 457 ( 11 % )                               ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 57,600 / 4,065,280 ( 1 % )                      ;
-; Total DSP Blocks                ; 0 / 87 ( 0 % )                                  ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 1 / 6 ( 17 % )                                  ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
-+---------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++---------------------------------+---------------------------------------------+
+; Flow Status                     ; Successful - Wed Mar 20 16:14:25 2019       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; run_pacman                                  ;
+; Top-level Entity Name           ; run_pacman                                  ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CSEMA5F31C6                                ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; 153 / 32,070 ( < 1 % )                      ;
+; Total registers                 ; 114                                         ;
+; Total pins                      ; 50 / 457 ( 11 % )                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 57,600 / 4,065,280 ( 1 % )                  ;
+; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1 / 6 ( 17 % )                              ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
++---------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------+
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/19/2019 19:24:55 ;
+; Start date & time ; 03/20/2019 16:12:05 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; run_pacman          ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 167746773791241.155303789501848        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 174508026058285.155311272410312        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -95,11 +95,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 734 MB              ; 00:00:25                           ;
-; Fitter               ; 00:00:49     ; 1.0                     ; 2662 MB             ; 00:01:24                           ;
-; Assembler            ; 00:00:08     ; 1.0                     ; 724 MB              ; 00:00:07                           ;
-; Timing Analyzer      ; 00:00:11     ; 1.1                     ; 1084 MB             ; 00:00:09                           ;
-; Total                ; 00:01:23     ; --                      ; --                  ; 00:02:05                           ;
+; Analysis & Synthesis ; 00:00:35     ; 1.0                     ; 4873 MB             ; 00:00:27                           ;
+; Fitter               ; 00:01:29     ; 1.0                     ; 6695 MB             ; 00:02:04                           ;
+; Assembler            ; 00:00:11     ; 1.0                     ; 4854 MB             ; 00:00:08                           ;
+; Timing Analyzer      ; 00:00:09     ; 1.2                     ; 5209 MB             ; 00:00:09                           ;
+; Total                ; 00:02:24     ; --                      ; --                  ; 00:02:48                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -108,10 +108,10 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; BA3145WS18       ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; BA3145WS18       ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; BA3145WS18       ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; BA3145WS18       ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DavidC           ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DavidC           ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DavidC           ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DavidC           ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

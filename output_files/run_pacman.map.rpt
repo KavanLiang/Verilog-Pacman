@@ -1,6 +1,6 @@
 Analysis & Synthesis report for run_pacman
-Tue Mar 19 19:25:11 2019
-Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+Wed Mar 20 16:12:39 2019
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -15,8 +15,8 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
   9. State Machine - |run_pacman|control5x5:c0|current_state
- 10. State Machine - |run_pacman|control_pacman:control|current_state
- 11. Logic Cells Representing Combinational Loops
+ 10. State Machine - |run_pacman|control_pacman:control|next_ani
+ 11. State Machine - |run_pacman|control_pacman:control|current_state
  12. Registers Removed During Synthesis
  13. General Register Statistics
  14. Multiplexer Restructuring Statistics (Restructuring Performed)
@@ -30,12 +30,10 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
  22. altsyncram Parameter Settings by Entity Instance
  23. altpll Parameter Settings by Entity Instance
  24. Port Connectivity Checks: "data5x5:d0"
- 25. Port Connectivity Checks: "control_pacman:control"
- 26. Port Connectivity Checks: "pacShifter:p0"
- 27. Post-Synthesis Netlist Statistics for Top Partition
- 28. Elapsed Time Per Partition
- 29. Analysis & Synthesis Messages
- 30. Analysis & Synthesis Suppressed Messages
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+ 28. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -58,27 +56,27 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Mar 19 19:25:10 2019           ;
-; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
-; Revision Name                   ; run_pacman                                      ;
-; Top-level Entity Name           ; run_pacman                                      ;
-; Family                          ; Cyclone V                                       ;
-; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 115                                             ;
-; Total pins                      ; 50                                              ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 57,600                                          ;
-; Total DSP Blocks                ; 0                                               ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 1                                               ;
-; Total DLLs                      ; 0                                               ;
-+---------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Mar 20 16:12:39 2019       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; run_pacman                                  ;
+; Top-level Entity Name           ; run_pacman                                  ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 108                                         ;
+; Total pins                      ; 50                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 57,600                                      ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -185,38 +183,37 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                          ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                            ; Library ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------+---------+
-; vga_pll.v                        ; yes             ; User Wizard-Generated File             ; D:/project/vga_pll.v                                                    ;         ;
-; vga_controller.v                 ; yes             ; User Verilog HDL File                  ; D:/project/vga_controller.v                                             ;         ;
-; vga_address_translator.v         ; yes             ; User Verilog HDL File                  ; D:/project/vga_address_translator.v                                     ;         ;
-; vga_adapter.v                    ; yes             ; User Verilog HDL File                  ; D:/project/vga_adapter.v                                                ;         ;
-; run_pacman.v                     ; yes             ; User Verilog HDL File                  ; D:/project/run_pacman.v                                                 ;         ;
-; pacShifter.v                     ; yes             ; User Verilog HDL File                  ; D:/project/pacShifter.v                                                 ;         ;
-; control_pacman.v                 ; yes             ; Auto-Found Verilog HDL File            ; D:/project/control_pacman.v                                             ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal180.inc                   ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/aglobal180.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_6nm1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/project/db/altsyncram_6nm1.tdf                                       ;         ;
-; pacman_map.mif                   ; yes             ; Auto-Found Memory Initialization File  ; D:/project/pacman_map.mif                                               ;         ;
-; db/decode_7la.tdf                ; yes             ; Auto-Generated Megafunction            ; D:/project/db/decode_7la.tdf                                            ;         ;
-; db/decode_01a.tdf                ; yes             ; Auto-Generated Megafunction            ; D:/project/db/decode_01a.tdf                                            ;         ;
-; db/mux_ifb.tdf                   ; yes             ; Auto-Generated Megafunction            ; D:/project/db/mux_ifb.tdf                                               ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altpll.tdf            ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
-; db/altpll_80u.tdf                ; yes             ; Auto-Generated Megafunction            ; D:/project/db/altpll_80u.tdf                                            ;         ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; vga_pll.v                        ; yes             ; User Wizard-Generated File             ; C:/Program Files/Git/csc258-project/vga_pll.v                                ;         ;
+; vga_controller.v                 ; yes             ; User Verilog HDL File                  ; C:/Program Files/Git/csc258-project/vga_controller.v                         ;         ;
+; vga_address_translator.v         ; yes             ; User Verilog HDL File                  ; C:/Program Files/Git/csc258-project/vga_address_translator.v                 ;         ;
+; vga_adapter.v                    ; yes             ; User Verilog HDL File                  ; C:/Program Files/Git/csc258-project/vga_adapter.v                            ;         ;
+; run_pacman.v                     ; yes             ; User Verilog HDL File                  ; C:/Program Files/Git/csc258-project/run_pacman.v                             ;         ;
+; control_pacman.v                 ; yes             ; Auto-Found Verilog HDL File            ; C:/Program Files/Git/csc258-project/control_pacman.v                         ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_6nm1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Program Files/Git/csc258-project/db/altsyncram_6nm1.tdf                   ;         ;
+; pacman_map.mif                   ; yes             ; Auto-Found Memory Initialization File  ; C:/Program Files/Git/csc258-project/pacman_map.mif                           ;         ;
+; db/decode_7la.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Program Files/Git/csc258-project/db/decode_7la.tdf                        ;         ;
+; db/decode_01a.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Program Files/Git/csc258-project/db/decode_01a.tdf                        ;         ;
+; db/mux_ifb.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Program Files/Git/csc258-project/db/mux_ifb.tdf                           ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf            ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
+; db/altpll_80u.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Program Files/Git/csc258-project/db/altpll_80u.tdf                        ;         ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------+
@@ -224,16 +221,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 174          ;
+; Estimate of Logic utilization (ALMs needed) ; 151          ;
 ;                                             ;              ;
-; Combinational ALUT usage for logic          ; 292          ;
-;     -- 7 input functions                    ; 9            ;
-;     -- 6 input functions                    ; 46           ;
-;     -- 5 input functions                    ; 24           ;
+; Combinational ALUT usage for logic          ; 263          ;
+;     -- 7 input functions                    ; 2            ;
+;     -- 6 input functions                    ; 35           ;
+;     -- 5 input functions                    ; 43           ;
 ;     -- 4 input functions                    ; 19           ;
-;     -- <=3 input functions                  ; 194          ;
+;     -- <=3 input functions                  ; 164          ;
 ;                                             ;              ;
-; Dedicated logic registers                   ; 115          ;
+; Dedicated logic registers                   ; 108          ;
 ;                                             ;              ;
 ; I/O pins                                    ; 50           ;
 ; Total MLAB memory bits                      ; 0            ;
@@ -245,9 +242,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1            ;
 ;                                             ;              ;
 ; Maximum fan-out node                        ; KEY[0]~input ;
-; Maximum fan-out                             ; 90           ;
-; Total fan-out                               ; 1718         ;
-; Average fan-out                             ; 3.32         ;
+; Maximum fan-out                             ; 64           ;
+; Total fan-out                               ; 1612         ;
+; Average fan-out                             ; 3.35         ;
 +---------------------------------------------+--------------+
 
 
@@ -256,13 +253,12 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                        ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |run_pacman                                             ; 292 (1)             ; 115 (0)                   ; 57600             ; 0          ; 50   ; 0            ; |run_pacman                                                                                                ; run_pacman             ; work         ;
+; |run_pacman                                             ; 263 (1)             ; 108 (0)                   ; 57600             ; 0          ; 50   ; 0            ; |run_pacman                                                                                                ; run_pacman             ; work         ;
 ;    |control5x5:c0|                                      ; 13 (5)              ; 10 (4)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control5x5:c0                                                                                  ; control5x5             ; work         ;
 ;       |counter5x5:c0|                                   ; 8 (8)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control5x5:c0|counter5x5:c0                                                                    ; counter5x5             ; work         ;
-;    |control_pacman:control|                             ; 100 (100)           ; 22 (22)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_pacman:control                                                                         ; control_pacman         ; work         ;
-;    |data5x5:d0|                                         ; 41 (41)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|data5x5:d0                                                                                     ; data5x5                ; work         ;
-;    |pacShifter:p0|                                      ; 20 (20)             ; 12 (12)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|pacShifter:p0                                                                                  ; pacShifter             ; work         ;
-;    |rate_divider:r0|                                    ; 45 (45)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|rate_divider:r0                                                                                ; rate_divider           ; work         ;
+;    |control_pacman:control|                             ; 105 (105)           ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_pacman:control                                                                         ; control_pacman         ; work         ;
+;    |data5x5:d0|                                         ; 37 (37)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|data5x5:d0                                                                                     ; data5x5                ; work         ;
+;    |rate_divider:r0|                                    ; 35 (35)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|rate_divider:r0                                                                                ; rate_divider           ; work         ;
 ;    |vga_adapter:VGA|                                    ; 72 (3)              ; 30 (0)                    ; 57600             ; 0          ; 0    ; 0            ; |run_pacman|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 9 (0)               ; 4 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |run_pacman|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
 ;          |altsyncram_6nm1:auto_generated|               ; 9 (0)               ; 4 (4)                     ; 57600             ; 0          ; 0    ; 0            ; |run_pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated                          ; altsyncram_6nm1        ; work         ;
@@ -302,6 +298,23 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |run_pacman|control_pacman:control|next_ani                                                                                           ;
++-----------------+----------------+----------------+--------------+-----------------+--------------+----------------+-----------------+----------------+
+; Name            ; next_ani.downA ; next_ani.leftA ; next_ani.upA ; next_ani.rightA ; next_ani.upB ; next_ani.leftB ; next_ani.rightB ; next_ani.downB ;
++-----------------+----------------+----------------+--------------+-----------------+--------------+----------------+-----------------+----------------+
+; next_ani.rightA ; 0              ; 0              ; 0            ; 0               ; 0            ; 0              ; 0               ; 0              ;
+; next_ani.upA    ; 0              ; 0              ; 1            ; 1               ; 0            ; 0              ; 0               ; 0              ;
+; next_ani.leftB  ; 0              ; 0              ; 0            ; 1               ; 0            ; 1              ; 0               ; 0              ;
+; next_ani.rightB ; 0              ; 0              ; 0            ; 1               ; 0            ; 0              ; 1               ; 0              ;
+; next_ani.leftA  ; 0              ; 1              ; 0            ; 1               ; 0            ; 0              ; 0               ; 0              ;
+; next_ani.upB    ; 0              ; 0              ; 0            ; 1               ; 1            ; 0              ; 0               ; 0              ;
+; next_ani.downB  ; 0              ; 0              ; 0            ; 1               ; 0            ; 0              ; 0               ; 1              ;
+; next_ani.downA  ; 1              ; 0              ; 0            ; 1               ; 0            ; 0              ; 0               ; 0              ;
++-----------------+----------------+----------------+--------------+-----------------+--------------+----------------+-----------------+----------------+
+
+
+Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------------------------+
 ; State Machine - |run_pacman|control_pacman:control|current_state                                                            ;
 +---------------------+---------------------+--------------------+--------------------+------------------+--------------------+
@@ -315,40 +328,39 @@ Encoding Type:  One-Hot
 +---------------------+---------------------+--------------------+--------------------+------------------+--------------------+
 
 
-+------------------------------------------------------------+
-; Logic Cells Representing Combinational Loops               ;
-+--------------------------------------------------------+---+
-; Logic Cell Name                                        ;   ;
-+--------------------------------------------------------+---+
-; control_pacman:control|x_out~2                         ;   ;
-; control_pacman:control|x_out~3                         ;   ;
-; control_pacman:control|y_out~2                         ;   ;
-; control_pacman:control|y_out~3                         ;   ;
-; Number of logic cells representing combinational loops ; 4 ;
-+--------------------------------------------------------+---+
-Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; pacShifter:p0|curr_ani[0,4,12,20,24]   ; Stuck at GND due to stuck port data_in ;
-; pacShifter:p0|curr_ani[23]             ; Merged with pacShifter:p0|curr_ani[21] ;
-; pacShifter:p0|curr_ani[22]             ; Merged with pacShifter:p0|curr_ani[17] ;
-; pacShifter:p0|curr_ani[9]              ; Merged with pacShifter:p0|curr_ani[19] ;
-; pacShifter:p0|curr_ani[5]              ; Merged with pacShifter:p0|curr_ani[15] ;
-; pacShifter:p0|curr_ani[14]             ; Merged with pacShifter:p0|curr_ani[13] ;
-; pacShifter:p0|curr_ani[11]             ; Merged with pacShifter:p0|curr_ani[10] ;
-; pacShifter:p0|curr_ani[7]              ; Merged with pacShifter:p0|curr_ani[2]  ;
-; pacShifter:p0|curr_ani[3]              ; Merged with pacShifter:p0|curr_ani[1]  ;
-; control5x5:c0|current_state~2          ; Lost fanout                            ;
-; control5x5:c0|current_state~3          ; Lost fanout                            ;
-; control_pacman:control|current_state~2 ; Lost fanout                            ;
-; control_pacman:control|current_state~3 ; Lost fanout                            ;
-; Total Number of Removed Registers = 17 ;                                        ;
-+----------------------------------------+----------------------------------------+
++----------------------------------------------------------------+
+; Registers Removed During Synthesis                             ;
++-------------------------------------------+--------------------+
+; Register name                             ; Reason for Removal ;
++-------------------------------------------+--------------------+
+; control_pacman:control|current_state.WAIT ; Lost fanout        ;
+; control5x5:c0|current_state~2             ; Lost fanout        ;
+; control5x5:c0|current_state~3             ; Lost fanout        ;
+; control_pacman:control|next_ani~2         ; Lost fanout        ;
+; control_pacman:control|next_ani~4         ; Lost fanout        ;
+; control_pacman:control|next_ani~5         ; Lost fanout        ;
+; control_pacman:control|next_ani~6         ; Lost fanout        ;
+; control_pacman:control|next_ani~8         ; Lost fanout        ;
+; control_pacman:control|next_ani~9         ; Lost fanout        ;
+; control_pacman:control|next_ani~10        ; Lost fanout        ;
+; control_pacman:control|next_ani~12        ; Lost fanout        ;
+; control_pacman:control|next_ani~13        ; Lost fanout        ;
+; control_pacman:control|next_ani~14        ; Lost fanout        ;
+; control_pacman:control|next_ani~15        ; Lost fanout        ;
+; control_pacman:control|next_ani~16        ; Lost fanout        ;
+; control_pacman:control|next_ani~17        ; Lost fanout        ;
+; control_pacman:control|next_ani~18        ; Lost fanout        ;
+; control_pacman:control|next_ani~19        ; Lost fanout        ;
+; control_pacman:control|next_ani~20        ; Lost fanout        ;
+; control_pacman:control|next_ani~21        ; Lost fanout        ;
+; control_pacman:control|next_ani~22        ; Lost fanout        ;
+; control_pacman:control|next_ani~24        ; Lost fanout        ;
+; control_pacman:control|next_ani~25        ; Lost fanout        ;
+; control_pacman:control|next_ani~26        ; Lost fanout        ;
+; control_pacman:control|current_state~2    ; Lost fanout        ;
+; control_pacman:control|current_state~3    ; Lost fanout        ;
+; Total Number of Removed Registers = 26    ;                    ;
++-------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -356,9 +368,9 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 115   ;
-; Number of registers using Synchronous Clear  ; 80    ;
-; Number of registers using Synchronous Load   ; 7     ;
+; Total registers                              ; 108   ;
+; Number of registers using Synchronous Clear  ; 66    ;
+; Number of registers using Synchronous Load   ; 8     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 44    ;
@@ -371,19 +383,17 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |run_pacman|data5x5:d0|y[1]                                                                                   ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |run_pacman|rate_divider:r0|count[4]                                                                          ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |run_pacman|rate_divider:r0|count[6]                                                                          ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |run_pacman|vga_adapter:VGA|vga_controller:controller|yCounter[9]                                             ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |run_pacman|pacShifter:p0|curr_ani[19]                                                                        ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |run_pacman|control5x5:c0|counter5x5:c0|q[0]                                                                  ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 0 LEs                ; 46 LEs                 ; Yes        ; |run_pacman|rate_divider:r0|count[15]                                                                         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |run_pacman|rate_divider:r0|count[2]                                                                          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |run_pacman|vga_adapter:VGA|vga_controller:controller|yCounter[3]                                             ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |run_pacman|control_pacman:control|x[5]                                                                       ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |run_pacman|control5x5:c0|counter5x5:c0|q[1]                                                                  ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |run_pacman|control5x5:c0|counter5x5:c0|q[3]                                                                  ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |run_pacman|control_pacman:control|x[5]                                                                       ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |run_pacman|control_pacman:control|direction[1]                                                               ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |run_pacman|control_pacman:control|y[3]                                                                       ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |run_pacman|control_pacman:control|y[4]                                                                       ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |run_pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|mux_ifb:mux3|result_node[2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_pacman:control|Selector5                                                                  ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 21 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_pacman:control|Selector12                                                                 ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_pacman:control|Selector0                                                                  ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_pacman:control|Selector14                                                                 ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |run_pacman|control_pacman:control|next_ani                                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------+
 
 
@@ -931,51 +941,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+-------+----------+--------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "control_pacman:control"                                                                   ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; dir_out[2] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------+
-; Port Connectivity Checks: "pacShifter:p0" ;
-+--------+-------+----------+---------------+
-; Port   ; Type  ; Severity ; Details       ;
-+--------+-------+----------+---------------+
-; enable ; Input ; Info     ; Stuck at VCC  ;
-+--------+-------+----------+---------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 115                         ;
+; arriav_ff             ; 108                         ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 4                           ;
+;     ENA               ; 19                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     ENA SCLR          ; 23                          ;
-;     ENA SCLR SLD      ; 7                           ;
-;     SCLR              ; 30                          ;
-;     plain             ; 31                          ;
-; arriav_lcell_comb     ; 293                         ;
-;     arith             ; 135                         ;
+;     ENA SCLR          ; 7                           ;
+;     ENA SCLR SLD      ; 8                           ;
+;     SCLR              ; 31                          ;
+;     plain             ; 23                          ;
+; arriav_lcell_comb     ; 264                         ;
+;     arith             ; 120                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 96                          ;
-;         2 data inputs ; 38                          ;
-;     extend            ; 9                           ;
-;         7 data inputs ; 9                           ;
-;     normal            ; 139                         ;
+;         1 data inputs ; 94                          ;
+;         2 data inputs ; 14                          ;
+;         4 data inputs ; 2                           ;
+;         5 data inputs ; 9                           ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 132                         ;
 ;         0 data inputs ; 2                           ;
-;         2 data inputs ; 26                          ;
-;         3 data inputs ; 22                          ;
-;         4 data inputs ; 19                          ;
-;         5 data inputs ; 24                          ;
-;         6 data inputs ; 46                          ;
+;         2 data inputs ; 11                          ;
+;         3 data inputs ; 33                          ;
+;         4 data inputs ; 17                          ;
+;         5 data inputs ; 34                          ;
+;         6 data inputs ; 35                          ;
 ;     shared            ; 10                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
@@ -986,7 +980,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 9                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.90                        ;
-; Average LUT depth     ; 3.01                        ;
+; Average LUT depth     ; 2.97                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1004,56 +998,55 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
-    Info: Processing started: Tue Mar 19 19:24:54 2019
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Wed Mar 20 16:12:03 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off run_pacman -c run_pacman
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 3 design units, including 3 entities, in source file ps2mousekeyboard/ps2_mouse_controller.v
-    Info (12023): Found entity 1: mouse_tracker File: D:/project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 120
-    Info (12023): Found entity 2: mouse_interface_test File: D:/project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 303
-    Info (12023): Found entity 3: hex_decoder File: D:/project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 374
+    Info (12023): Found entity 1: mouse_tracker File: C:/Program Files/Git/csc258-project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 120
+    Info (12023): Found entity 2: mouse_interface_test File: C:/Program Files/Git/csc258-project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 303
+    Info (12023): Found entity 3: hex_decoder File: C:/Program Files/Git/csc258-project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 374
 Info (12021): Found 3 design units, including 3 entities, in source file ps2mousekeyboard/ps2_keyboard_controller.v
-    Info (12023): Found entity 1: keyboard_tracker File: D:/project/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 117
-    Info (12023): Found entity 2: keyboard_interface_test_mode0 File: D:/project/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 333
-    Info (12023): Found entity 3: keyboard_interface_test_mode1 File: D:/project/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 367
+    Info (12023): Found entity 1: keyboard_tracker File: C:/Program Files/Git/csc258-project/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 117
+    Info (12023): Found entity 2: keyboard_interface_test_mode0 File: C:/Program Files/Git/csc258-project/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 333
+    Info (12023): Found entity 3: keyboard_interface_test_mode1 File: C:/Program Files/Git/csc258-project/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 367
 Info (12021): Found 1 design units, including 1 entities, in source file ps2mousekeyboard/ps2_controller.v
-    Info (12023): Found entity 1: PS2_Controller File: D:/project/PS2MouseKeyboard/PS2_Controller.v Line: 9
+    Info (12023): Found entity 1: PS2_Controller File: C:/Program Files/Git/csc258-project/PS2MouseKeyboard/PS2_Controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file ps2mousekeyboard/altera_up_ps2_data_in.v
-    Info (12023): Found entity 1: Altera_UP_PS2_Data_In File: D:/project/PS2MouseKeyboard/Altera_UP_PS2_Data_In.v Line: 10
+    Info (12023): Found entity 1: Altera_UP_PS2_Data_In File: C:/Program Files/Git/csc258-project/PS2MouseKeyboard/Altera_UP_PS2_Data_In.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file ps2mousekeyboard/altera_up_ps2_command_out.v
-    Info (12023): Found entity 1: Altera_UP_PS2_Command_Out File: D:/project/PS2MouseKeyboard/Altera_UP_PS2_Command_Out.v Line: 10
+    Info (12023): Found entity 1: Altera_UP_PS2_Command_Out File: C:/Program Files/Git/csc258-project/PS2MouseKeyboard/Altera_UP_PS2_Command_Out.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file vga_pll.v
-    Info (12023): Found entity 1: vga_pll File: D:/project/vga_pll.v Line: 36
+    Info (12023): Found entity 1: vga_pll File: C:/Program Files/Git/csc258-project/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.v
-    Info (12023): Found entity 1: vga_controller File: D:/project/vga_controller.v Line: 9
+    Info (12023): Found entity 1: vga_controller File: C:/Program Files/Git/csc258-project/vga_controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file vga_address_translator.v
-    Info (12023): Found entity 1: vga_address_translator File: D:/project/vga_address_translator.v Line: 4
+    Info (12023): Found entity 1: vga_address_translator File: C:/Program Files/Git/csc258-project/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter.v
-    Info (12023): Found entity 1: vga_adapter File: D:/project/vga_adapter.v Line: 78
+    Info (12023): Found entity 1: vga_adapter File: C:/Program Files/Git/csc258-project/vga_adapter.v Line: 78
 Info (12021): Found 6 design units, including 6 entities, in source file run_pacman.v
-    Info (12023): Found entity 1: run_pacman File: D:/project/run_pacman.v Line: 1
-    Info (12023): Found entity 2: test File: D:/project/run_pacman.v Line: 62
-    Info (12023): Found entity 3: control5x5 File: D:/project/run_pacman.v Line: 222
-    Info (12023): Found entity 4: data5x5 File: D:/project/run_pacman.v Line: 274
-    Info (12023): Found entity 5: counter5x5 File: D:/project/run_pacman.v Line: 319
-    Info (12023): Found entity 6: rate_divider File: D:/project/run_pacman.v Line: 338
+    Info (12023): Found entity 1: run_pacman File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 1
+    Info (12023): Found entity 2: test File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 45
+    Info (12023): Found entity 3: control5x5 File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 223
+    Info (12023): Found entity 4: data5x5 File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 275
+    Info (12023): Found entity 5: counter5x5 File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 319
+    Info (12023): Found entity 6: rate_divider File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 338
 Info (12021): Found 1 design units, including 1 entities, in source file pacshifter.v
-    Info (12023): Found entity 1: pacShifter File: D:/project/pacShifter.v Line: 1
+    Info (12023): Found entity 1: pacShifter File: C:/Program Files/Git/csc258-project/pacShifter.v Line: 1
 Info (12127): Elaborating entity "run_pacman" for the top level hierarchy
-Info (12128): Elaborating entity "pacShifter" for hierarchy "pacShifter:p0" File: D:/project/run_pacman.v Line: 39
-Info (12128): Elaborating entity "rate_divider" for hierarchy "rate_divider:r0" File: D:/project/run_pacman.v Line: 41
+Info (12128): Elaborating entity "rate_divider" for hierarchy "rate_divider:r0" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 24
 Warning (12125): Using design file control_pacman.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: control_pacman File: D:/project/control_pacman.v Line: 1
-Info (12128): Elaborating entity "control_pacman" for hierarchy "control_pacman:control" File: D:/project/run_pacman.v Line: 44
-Info (12128): Elaborating entity "control5x5" for hierarchy "control5x5:c0" File: D:/project/run_pacman.v Line: 47
-Info (12128): Elaborating entity "counter5x5" for hierarchy "control5x5:c0|counter5x5:c0" File: D:/project/run_pacman.v Line: 230
-Info (12128): Elaborating entity "data5x5" for hierarchy "data5x5:d0" File: D:/project/run_pacman.v Line: 51
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: D:/project/run_pacman.v Line: 55
-Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: D:/project/vga_adapter.v Line: 192
-Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: D:/project/vga_adapter.v Line: 213
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: D:/project/vga_adapter.v Line: 213
-Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: D:/project/vga_adapter.v Line: 213
+    Info (12023): Found entity 1: control_pacman File: C:/Program Files/Git/csc258-project/control_pacman.v Line: 1
+Info (12128): Elaborating entity "control_pacman" for hierarchy "control_pacman:control" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 27
+Info (12128): Elaborating entity "control5x5" for hierarchy "control5x5:c0" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 30
+Info (12128): Elaborating entity "counter5x5" for hierarchy "control5x5:c0|counter5x5:c0" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 231
+Info (12128): Elaborating entity "data5x5" for hierarchy "data5x5:d0" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 34
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 38
+Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Program Files/Git/csc258-project/vga_adapter.v Line: 192
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Program Files/Git/csc258-project/vga_adapter.v Line: 213
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Program Files/Git/csc258-project/vga_adapter.v Line: 213
+Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: C:/Program Files/Git/csc258-project/vga_adapter.v Line: 213
     Info (12134): Parameter "WIDTH_A" = "3"
     Info (12134): Parameter "WIDTH_B" = "3"
     Info (12134): Parameter "INTENDED_DEVICE_FAMILY" = "Cyclone II"
@@ -1070,21 +1063,32 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
     Info (12134): Parameter "POWER_UP_UNINITIALIZED" = "FALSE"
     Info (12134): Parameter "INIT_FILE" = "pacman_map.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_6nm1.tdf
-    Info (12023): Found entity 1: altsyncram_6nm1 File: D:/project/db/altsyncram_6nm1.tdf Line: 33
-Info (12128): Elaborating entity "altsyncram_6nm1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated" File: c:/desl/quartus18/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+    Info (12023): Found entity 1: altsyncram_6nm1 File: C:/Program Files/Git/csc258-project/db/altsyncram_6nm1.tdf Line: 33
+Info (12128): Elaborating entity "altsyncram_6nm1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (113031): 19200 out of 19200 addresses are reinitialized. The latest initialized data will replace the existing data. There are 19200 warnings found, and 10 warnings are reported. File: C:/Program Files/Git/csc258-project/pacman_map.mif Line: 1
+    Warning (113030): Memory Initialization File address 19040 is reinitialized File: C:/Program Files/Git/csc258-project/ Line: 8
+    Warning (113030): Memory Initialization File address 19041 is reinitialized File: C:/Program Files/Git/csc258-project/ Line: 8
+    Warning (113030): Memory Initialization File address 19042 is reinitialized File: C:/Program Files/Git/csc258-project/ Line: 8
+    Warning (113030): Memory Initialization File address 19043 is reinitialized File: C:/Program Files/Git/csc258-project/ Line: 8
+    Warning (113030): Memory Initialization File address 19044 is reinitialized File: C:/Program Files/Git/csc258-project/ Line: 8
+    Warning (113030): Memory Initialization File address 19045 is reinitialized File: C:/Program Files/Git/csc258-project/ Line: 8
+    Warning (113030): Memory Initialization File address 19046 is reinitialized File: C:/Program Files/Git/csc258-project/ Line: 8
+    Warning (113030): Memory Initialization File address 19047 is reinitialized File: C:/Program Files/Git/csc258-project/ Line: 8
+    Warning (113030): Memory Initialization File address 19048 is reinitialized File: C:/Program Files/Git/csc258-project/ Line: 8
+    Warning (113030): Memory Initialization File address 19049 is reinitialized File: C:/Program Files/Git/csc258-project/ Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_7la.tdf
-    Info (12023): Found entity 1: decode_7la File: D:/project/db/decode_7la.tdf Line: 22
-Info (12128): Elaborating entity "decode_7la" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|decode_7la:decode2" File: D:/project/db/altsyncram_6nm1.tdf Line: 46
+    Info (12023): Found entity 1: decode_7la File: C:/Program Files/Git/csc258-project/db/decode_7la.tdf Line: 22
+Info (12128): Elaborating entity "decode_7la" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|decode_7la:decode2" File: C:/Program Files/Git/csc258-project/db/altsyncram_6nm1.tdf Line: 46
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_01a.tdf
-    Info (12023): Found entity 1: decode_01a File: D:/project/db/decode_01a.tdf Line: 22
-Info (12128): Elaborating entity "decode_01a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|decode_01a:rden_decode_b" File: D:/project/db/altsyncram_6nm1.tdf Line: 47
+    Info (12023): Found entity 1: decode_01a File: C:/Program Files/Git/csc258-project/db/decode_01a.tdf Line: 22
+Info (12128): Elaborating entity "decode_01a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|decode_01a:rden_decode_b" File: C:/Program Files/Git/csc258-project/db/altsyncram_6nm1.tdf Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ifb.tdf
-    Info (12023): Found entity 1: mux_ifb File: D:/project/db/mux_ifb.tdf Line: 22
-Info (12128): Elaborating entity "mux_ifb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|mux_ifb:mux3" File: D:/project/db/altsyncram_6nm1.tdf Line: 49
-Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: D:/project/vga_adapter.v Line: 231
-Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: D:/project/vga_pll.v Line: 53
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: D:/project/vga_pll.v Line: 53
-Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: D:/project/vga_pll.v Line: 53
+    Info (12023): Found entity 1: mux_ifb File: C:/Program Files/Git/csc258-project/db/mux_ifb.tdf Line: 22
+Info (12128): Elaborating entity "mux_ifb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|mux_ifb:mux3" File: C:/Program Files/Git/csc258-project/db/altsyncram_6nm1.tdf Line: 49
+Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: C:/Program Files/Git/csc258-project/vga_adapter.v Line: 231
+Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Program Files/Git/csc258-project/vga_pll.v Line: 53
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Program Files/Git/csc258-project/vga_pll.v Line: 53
+Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: C:/Program Files/Git/csc258-project/vga_pll.v Line: 53
     Info (12134): Parameter "operation_mode" = "NORMAL"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
     Info (12134): Parameter "lpm_type" = "altpll"
@@ -1097,13 +1101,13 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_80u.tdf
-    Info (12023): Found entity 1: altpll_80u File: D:/project/db/altpll_80u.tdf Line: 25
-Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/desl/quartus18/quartus/libraries/megafunctions/altpll.tdf Line: 897
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: D:/project/vga_adapter.v Line: 252
+    Info (12023): Found entity 1: altpll_80u File: C:/Program Files/Git/csc258-project/db/altpll_80u.tdf Line: 25
+Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Program Files/Git/csc258-project/vga_adapter.v Line: 252
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: D:/project/run_pacman.v Line: 7
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 7
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17049): 26 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_CS_N -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_DIN -entity DE1_SoC was ignored
@@ -1490,38 +1494,38 @@ Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[7] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS -entity DE1_SoC was ignored
-Info (144001): Generated suppressed messages file D:/project/output_files/run_pacman.map.smsg
+Info (144001): Generated suppressed messages file C:/Program Files/Git/csc258-project/output_files/run_pacman.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: D:/project/db/altpll_80u.tdf Line: 33
+Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Program Files/Git/csc258-project/db/altpll_80u.tdf Line: 33
     Info: Must be connected
 Warning (21074): Design contains 10 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]" File: D:/project/run_pacman.v Line: 4
-    Warning (15610): No output dependent on input pin "SW[1]" File: D:/project/run_pacman.v Line: 4
-    Warning (15610): No output dependent on input pin "SW[2]" File: D:/project/run_pacman.v Line: 4
-    Warning (15610): No output dependent on input pin "SW[3]" File: D:/project/run_pacman.v Line: 4
-    Warning (15610): No output dependent on input pin "SW[4]" File: D:/project/run_pacman.v Line: 4
-    Warning (15610): No output dependent on input pin "SW[5]" File: D:/project/run_pacman.v Line: 4
-    Warning (15610): No output dependent on input pin "SW[6]" File: D:/project/run_pacman.v Line: 4
-    Warning (15610): No output dependent on input pin "KEY[1]" File: D:/project/run_pacman.v Line: 5
-    Warning (15610): No output dependent on input pin "KEY[2]" File: D:/project/run_pacman.v Line: 5
-    Warning (15610): No output dependent on input pin "KEY[3]" File: D:/project/run_pacman.v Line: 5
-Info (21057): Implemented 363 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 4
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 4
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 4
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 4
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 4
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 4
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 4
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 5
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 5
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Program Files/Git/csc258-project/run_pacman.v Line: 5
+Info (21057): Implemented 337 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 35 output pins
-    Info (21061): Implemented 303 logic cells
+    Info (21061): Implemented 277 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 402 warnings
-    Info: Peak virtual memory: 735 megabytes
-    Info: Processing ended: Tue Mar 19 19:25:11 2019
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:26
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 413 warnings
+    Info: Peak virtual memory: 4874 megabytes
+    Info: Processing ended: Wed Mar 20 16:12:39 2019
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:00:28
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in D:/project/output_files/run_pacman.map.smsg.
+The suppressed messages can be found in C:/Program Files/Git/csc258-project/output_files/run_pacman.map.smsg.
 
 
