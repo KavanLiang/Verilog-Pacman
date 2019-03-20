@@ -1,0 +1,15 @@
+
+State Machine - |run_pacman|control5x5:c0|current_state
+Name current_state.GO current_state.LOAD current_state.ERASE current_state.WAIT 
+current_state.WAIT 0 0 0 0 
+current_state.ERASE 0 0 1 1 
+current_state.LOAD 0 1 0 1 
+current_state.GO 1 0 0 1 
+
+State Machine - |run_pacman|control_pacman:control|current_state
+Name current_state.RIGHT current_state.DOWN current_state.LEFT current_state.UP current_state.WAIT 
+current_state.WAIT 0 0 0 0 0 
+current_state.UP 0 0 0 1 1 
+current_state.LEFT 0 0 1 0 1 
+current_state.DOWN 0 1 0 0 1 
+current_state.RIGHT 1 0 0 0 1 

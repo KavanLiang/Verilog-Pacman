@@ -1,4 +1,4 @@
-module control_pacman(go, dir_out, x, y, clock, reset_n, dir_in);
+module control_pacman(go, dir_out, x_out, y_out, clock, reset_n, dir_in);
 	
 	input clock,reset_n;
 	input [2:0] dir_in;
@@ -38,20 +38,24 @@ module control_pacman(go, dir_out, x, y, clock, reset_n, dir_in);
 				y_out = y;
 			end
 			RIGHT: begin
-				x_out = x+8'd1;
+				if(x_out == 8'd26) x_out = 8'd0;
+				else x_out = x+8'd1;
 				y_out = y;
 			end
 			UP: begin
 				x_out = x;
-				y_out = y-7'd1;
+				if(y_out == 7'd0) y_out = 7'd23;
+				else y_out = y-7'd1;
 			end
 			LEFT: begin
-				x_out = x-8'd1;
+				if(x_out == 8'd0) x_out = 8'd26;
+				else x_out = x-8'd1;
 				y_out = y;
 			end
 			DOWN: begin
 				x_out = x;
-				y_out = y+7'd1;
+				if(y_out == 7'd23) y_out = 7'd0;
+				else y_out = y+7'd1;
 			end
 		endcase
 	end
@@ -75,16 +79,28 @@ module control_pacman(go, dir_out, x, y, clock, reset_n, dir_in);
 		end
 		//Might have to look at next state instead
 		else begin
-			if(current_state == RIGHT) x <= x + 8'd1;
-			else if(current_state == UP) y <= y - 7'd1;
-			else if(current_state == LEFT) x <= x - 8'd1;
-			else if(current_state == DOWN) y <= y + 7'd1;
+			if(current_state == RIGHT) begin
+				if(x == 8'd26) x <= 8'd0;
+				else x <= x+8'd1;
+			end
+			else if(current_state == UP) begin
+				if(y == 7'd0) y <= 7'd23;
+				else y <= y-7'd1;
+			end
+			else if(current_state == LEFT) begin
+				if(x == 8'd0) x <= 8'd26;
+				else x <= x-8'd1;
+			end
+			else if(current_state == DOWN) begin
+				if(y == 7'd23) y <= 7'd0;
+				else y <= y+7'd1;
+			end
 		end
 	end
 	
 	always @(posedge clock) begin
 		if(!reset_n) current_state = WAIT;
-		else currect_state = next_state;
+		else current_state = next_state;
 	end
 	
 endmodule
