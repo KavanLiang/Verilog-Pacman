@@ -24,20 +24,21 @@ module map_lut(q, x, y);
 	
 	always @(*) begin
 		case(x)
-			8'b0,8'b26: col = col0;
-			8'b1,8'b25: col = col1;
-			8'b2,8'b24: col = col2;
-			8'b3,8'b23: col = col3;
-			8'b4,8'b22: col = col4;
-			8'b5,8'b21: col = col5;
-			8'b6,8'b20: col = col6;
-			8'b7,8'b19: col = col7;
-			8'b8,8'b18: col = col8;
-			8'b9,8'b17: col = col9;
-			8'b10,8'b16: col = col10;
-			8'b11,8'b15: col = col11;
-			8'b12,8'b14: col = col12;
-			8'b13: col = col13;
+			8'd0,8'd26: col = col0;
+			8'd1,8'd25: col = col1;
+			8'd2,8'd24: col = col2;
+			8'd3,8'd23: col = col3;
+			8'd4,8'd22: col = col4;
+			8'd5,8'd21: col = col5;
+			8'd6,8'd20: col = col6;
+			8'd7,8'd19: col = col7;
+			8'd8,8'd18: col = col8;
+			8'd9,8'd17: col = col9;
+			8'd10,8'd16: col = col10;
+			8'd11,8'd15: col = col11;
+			8'd12,8'd14: col = col12;
+			8'd13: col = col13;
+			default: col = 24'b000000000000000000000000;
 		endcase
 	end
 	
