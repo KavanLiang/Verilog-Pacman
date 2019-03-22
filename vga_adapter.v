@@ -102,7 +102,7 @@ module vga_adapter(
 	/* Set this parameter to "TRUE" if you only wish to use black and white colours. Doing so will reduce
 	 * the amount of memory you will use by a factor of 3. */
 
-	parameter RESOLUTION = "320x240";
+	parameter RESOLUTION = "160x120";
 	/* Set this parameter to "160x120" or "320x240". It will cause the VGA adapter to draw each dot on
 	 * the screen by using a block of 4x4 pixels ("160x120" resolution) or 2x2 pixels ("320x240" resolution).
 	 * It effectively reduces the screen resolution to an integer fraction of 640x480. It was necessary
