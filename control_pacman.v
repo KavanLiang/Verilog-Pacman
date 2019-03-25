@@ -18,6 +18,9 @@ module control_pacman(go, shape, x_out, y_out, clock, reset_n, dir_in);
 	
 	localparam WAIT = 3'b100, RIGHT = 3'b000, UP = 3'b001, LEFT = 3'b010, DOWN = 3'b011;
 	
+	//Assign to shape the correct shape for the pac-man
+	pac_shaper p0(.shape(shape), .dir_in(dir_in), .clock(clock), .reset_n(reset_n));
+	
 	always @(*) begin
 		case(dir_in)
 			WAIT: next_state = WAIT;
@@ -68,8 +71,8 @@ module control_pacman(go, shape, x_out, y_out, clock, reset_n, dir_in);
 	always @(posedge clock) begin
 		//Change reset value to starting point
 		if(!reset_n) begin
-			x <= 8'd0;
-			y <= 7'd0;
+			x <= 8'd2;
+			y <= 7'd1;
 		end
 		else begin
 			if(current_state == RIGHT) begin
@@ -99,7 +102,5 @@ module control_pacman(go, shape, x_out, y_out, clock, reset_n, dir_in);
 		if(!reset_n) current_state = WAIT;
 		else current_state = next_state;
 	end
-	
-	pac_shaper p0(.shape(shape), .dir_in(dir_in), .clock(clock), .reset_n(reset_n));
 	
 endmodule

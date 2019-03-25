@@ -1,11 +1,13 @@
-module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B, CLOCK_50, SW, KEY);
+module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B, CLOCK_50, SW, KEY, PS2_CLK, PS2_DAT, LEDR);
 	
 	input CLOCK_50;
 	input [9:0] SW;
 	input [3:0] KEY;
 	
-	output VGA_CLK,VGA_HS,VGA_VS,VGA_BLANK_N,VGA_SYNC_N;
-	output [9:0] VGA_R,VGA_G,VGA_B;
+	inout PS2_CLK, PS2_DAT;
+	
+	output VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N;
+	output [9:0] VGA_R, VGA_G, VGA_B, LEDR;
 	
 	wire [7:0] x;
 	wire [6:0] y;
@@ -20,6 +22,8 @@ module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G
 	wire [24:0] shape;
 	
 	assign reset_n = KEY[0];
+	
+	//for ghost-player collision detection, we can compare their x-,y-bus values.
 
 	rate_divider r0(.clock(CLOCK_50), .q(div_clk), .reset_n(reset_n));
 	
@@ -36,6 +40,29 @@ module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G
 	vga_adapter VGA(.resetn(reset_n), .clock(CLOCK_50), .colour(colour), .x(x), .y(y), .plot(writeEn),
 						 .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS),
 						 .VGA_BLANK(VGA_BLANK_N), .VGA_SYNC(VGA_SYNC_N), .VGA_CLK(VGA_CLK));
+						 
+	/*
+	wire w,a,s,d,up,left,down,right,up_in,right_in,left_in,down_in;
+	wire [3:0] dir;
+	
+	assign up_in = w & up;
+	assign right_in = d & right;
+	assign left_in = a & left;
+	assign down_in = s & down;
+	
+	always @(*) begin
+		if(right_in == 1'b1) dir = 3'b000;
+		else if(left_in == 1'b1) dir = 3'b010;
+		else if(up_in == 1'b1) dir = 3'b001;
+		else if(down_in == 1'b1) dir = 3'b011;
+		else dir = 3'b100;
+	end
+	*/
+						 
+	keyboard_tracker #(.PULSE_OR_HOLD(0)) tester(.clock(CLOCK_50), .reset(reset_n), .PS2_CLK(PS2_CLK),
+																.PS2_DAT(PS2_DAT), .w(LEDR[5]), .a(LEDR[6]), .s(LEDR[7]),
+																.d(LEDR[4]), .left(LEDR[2]), .right(LEDR[0]), .up(LEDR[1]),
+																.down(LEDR[3]), .space(LEDR[8]), .enter(LEDR[9]));
 	
 endmodule
 

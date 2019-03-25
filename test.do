@@ -5,7 +5,7 @@ vsim test
 log {/*}
 add wave {/*}
 
-force {SW[9:7]} 000 0, 011 350
+force {SW[9:7]} 100 0, 000 600
 force {CLOCK_50} 0 0, 1 5 -r 10
 force {KEY[0]} 0 0, 1 10
 
