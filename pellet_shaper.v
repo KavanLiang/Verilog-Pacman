@@ -1,4 +1,4 @@
-module pellet_shaper(clock, reset_n shape);
+module pellet_shaper(clock, reset_n, shape);
     input clk, reset_n;
     output [24:0] shape;
 
