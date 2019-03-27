@@ -1,4 +1,5 @@
-module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B, CLOCK_50, SW, KEY, PS2_CLK, PS2_DAT, LEDR);
+module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B, 
+						CLOCK_50, SW, KEY, PS2_CLK, PS2_DAT, LEDR, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
 	
 	input CLOCK_50;
 	input [9:0] SW;
@@ -8,6 +9,7 @@ module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G
 	
 	output VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N;
 	output [9:0] VGA_R, VGA_G, VGA_B, LEDR;
+	output [6:0] HEX5, HEX4, HEX3, HEX2, HEX1, HEX0;
 	
 	wire [7:0] x;
 	wire [6:0] y;
@@ -21,16 +23,79 @@ module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G
 	
 	wire [24:0] shape;
 	
+	wire w,a,s,d,up,left,down,right,up_in,right_in,left_in,down_in, space, enter;
+	reg [3:0] dir;
+	
 	assign reset_n = KEY[0];
 	
+	/*
+	reg done;
+	
+	always @(posedge CLOCK_50) begin
+		if(done) done = 1'b0;
+	end
+	
+	always @(*) begin
+		init_go = 0;
+		pac_go = 0;
+		done = 0;
+		plot_en = 0;
+		erase = 0;
+		case(curr_state)
+			INIT: begin
+				init_go = 1;
+				done = init_done;
+				x_bus = init_x;
+				y_bus = init_y;
+				plot_en = init_plot;
+				erase = 0;
+			end
+			PAC: begin
+				x_bus = pac_x;
+				y_bus = pac_y;
+				pac_go = 1;
+			end
+		endcase
+	end
+	
+	control_game game(.go(div_clk), .done(done));
+	
+	control_init init(.done(init_done), .go(init_go), .plot_en(init_plot), .x(init_x), .y(init_y), .reset_n(reset_n));
+	
+	pellet_map p0(.clock(CLOCK_50));
+	*/
+	
+	//Use a MUX to choose which control module to use
+	
 	//for ghost-player collision detection, we can compare their x-,y-bus values.
+	
+	always @(*) begin
+		case({s,w,a,d})
+			4'b0001: dir = 3'b000;
+			4'b0010: dir = 3'b010;
+			4'b0100: dir = 3'b001;
+			4'b1000: dir = 3'b011;
+			default: dir = 3'b100;
+		endcase
+	end
+	
+	wire [23:0] score;
 
+	score_alu alu(.score(score), .alu_select(2'b00), .clk(div_clk), .reset_n(reset_n), .enable(1'b0));
+	
+	hex_decoder h5(.hex_digit(score[23:20]), .segments(HEX5));
+	hex_decoder h4(.hex_digit(score[19:16]), .segments(HEX4));
+	hex_decoder h3(.hex_digit(score[15:12]), .segments(HEX3));
+	hex_decoder h2(.hex_digit(score[11:8]), .segments(HEX2));
+	hex_decoder h1(.hex_digit(score[7:4]), .segments(HEX1));
+	hex_decoder h0(.hex_digit(score[3:0]), .segments(HEX0));
+	
 	rate_divider r0(.clock(CLOCK_50), .q(div_clk), .reset_n(reset_n));
 	
-	control_pacman control(.go(go), .shape(shape), .x_out(x_bus), .y_out(y_bus), 
-	                       .clock(div_clk), .reset_n(reset_n), .dir_in(SW[9:7]));
+	control_pacman control(.shape(shape), .x_out(x_bus), .y_out(y_bus), 
+	                       .clock(div_clk), .reset_n(reset_n), .dir_in(dir));
 	
-	control5x5 c0(.plot_sig(writeEn), .go(go), .erase(erase),
+	control5x5 c0(.plot_sig(writeEn), .go(div_clk), .erase(erase),
 				  .reset_n(reset_n), .clock(CLOCK_50), .load(load), .loc(loc));
 				  
 	data5x5 d0(.col_out(colour), .x_out(x), .y_out(y), .erase(erase),
@@ -41,28 +106,10 @@ module run_pacman(VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G
 						 .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS),
 						 .VGA_BLANK(VGA_BLANK_N), .VGA_SYNC(VGA_SYNC_N), .VGA_CLK(VGA_CLK));
 						 
-	/*
-	wire w,a,s,d,up,left,down,right,up_in,right_in,left_in,down_in;
-	wire [3:0] dir;
-	
-	assign up_in = w & up;
-	assign right_in = d & right;
-	assign left_in = a & left;
-	assign down_in = s & down;
-	
-	always @(*) begin
-		if(right_in == 1'b1) dir = 3'b000;
-		else if(left_in == 1'b1) dir = 3'b010;
-		else if(up_in == 1'b1) dir = 3'b001;
-		else if(down_in == 1'b1) dir = 3'b011;
-		else dir = 3'b100;
-	end
-	*/
-						 
 	keyboard_tracker #(.PULSE_OR_HOLD(0)) tester(.clock(CLOCK_50), .reset(reset_n), .PS2_CLK(PS2_CLK),
-																.PS2_DAT(PS2_DAT), .w(LEDR[5]), .a(LEDR[6]), .s(LEDR[7]),
-																.d(LEDR[4]), .left(LEDR[2]), .right(LEDR[0]), .up(LEDR[1]),
-																.down(LEDR[3]), .space(LEDR[8]), .enter(LEDR[9]));
+																.PS2_DAT(PS2_DAT), .w(w), .a(a), .s(s),
+																.d(d), .left(left), .right(right), .up(up),
+																.down(down), .space(space), .enter(enter));
 	
 endmodule
 
@@ -214,14 +261,16 @@ module counter5x5(q, clock, reset_n, enable);
 	
 endmodule
 
-module rate_divider(q, clock, reset_n);
+module rate_divider(q, clock, reset_n, rate_offset);
 	
 	input clock,reset_n;
+	input [23:0] rate_offset;
 	output q;
 	
 	reg [25:0] count;
 	
-	localparam rate = 26'd100;
+	//TODO: Make game faster as score increases
+	localparam rate = 26'd12500000;
 	
 	always @(posedge clock) begin
 		if(!reset_n) count <= rate;
