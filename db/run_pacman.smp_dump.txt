@@ -1,12 +1,44 @@
 
-State Machine - |run_pacman|control5x5:c0|current_state
-Name current_state.GO current_state.LOAD current_state.ERASE current_state.WAIT 
-current_state.WAIT 0 0 0 0 
-current_state.ERASE 0 0 1 1 
-current_state.LOAD 0 1 0 1 
-current_state.GO 1 0 0 1 
+State Machine - |run_pacman|keyboard_tracker:tester|curr_state
+Name curr_state.SECONDARY_BREAK curr_state.SECONDARY_MAKE curr_state.BREAK curr_state.MAKE 
+curr_state.MAKE 0 0 0 0 
+curr_state.BREAK 0 0 1 1 
+curr_state.SECONDARY_MAKE 0 1 0 1 
+curr_state.SECONDARY_BREAK 1 0 0 1 
 
-State Machine - |run_pacman|control_pacman:control|next_ani
+State Machine - |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|s_ps2_transceiver
+Name s_ps2_transceiver.PS2_STATE_3_END_TRANSFER s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT s_ps2_transceiver.PS2_STATE_1_DATA_IN s_ps2_transceiver.PS2_STATE_0_IDLE s_ps2_transceiver.PS2_STATE_4_END_DELAYED 
+s_ps2_transceiver.PS2_STATE_0_IDLE 0 0 0 0 0 
+s_ps2_transceiver.PS2_STATE_1_DATA_IN 0 0 1 1 0 
+s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT 0 1 0 1 0 
+s_ps2_transceiver.PS2_STATE_3_END_TRANSFER 1 0 0 1 0 
+s_ps2_transceiver.PS2_STATE_4_END_DELAYED 0 0 0 1 1 
+
+State Machine - |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter
+Name s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION s_ps2_transmitter.PS2_STATE_0_IDLE 
+s_ps2_transmitter.PS2_STATE_0_IDLE 0 0 0 0 0 0 0 0 
+s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION 0 0 0 0 0 0 1 1 
+s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK 0 0 0 0 0 1 0 1 
+s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA 0 0 0 0 1 0 0 1 
+s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT 0 0 0 1 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT 0 0 1 0 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT 0 1 0 0 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR 1 0 0 0 0 0 0 1 
+
+State Machine - |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver
+Name s_ps2_receiver.PS2_STATE_3_PARITY_IN s_ps2_receiver.PS2_STATE_2_DATA_IN s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA s_ps2_receiver.PS2_STATE_0_IDLE s_ps2_receiver.PS2_STATE_4_STOP_IN 
+s_ps2_receiver.PS2_STATE_0_IDLE 0 0 0 0 0 
+s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA 0 0 1 1 0 
+s_ps2_receiver.PS2_STATE_2_DATA_IN 0 1 0 1 0 
+s_ps2_receiver.PS2_STATE_3_PARITY_IN 1 0 0 1 0 
+s_ps2_receiver.PS2_STATE_4_STOP_IN 0 0 0 1 1 
+
+State Machine - |run_pacman|control_master:game|pellet_shaper:pellet_shape|next_ani
+Name next_ani.ANI_1 
+next_ani.ANI_0 0 
+next_ani.ANI_1 1 
+
+State Machine - |run_pacman|control_master:game|control_pacman:pac_control|pac_shaper:p0|next_ani
 Name next_ani.downA next_ani.leftA next_ani.upA next_ani.rightA next_ani.upB next_ani.leftB next_ani.rightB next_ani.downB 
 next_ani.rightA 0 0 0 0 0 0 0 0 
 next_ani.upA 0 0 1 1 0 0 0 0 
@@ -17,10 +49,15 @@ next_ani.upB 0 0 0 1 1 0 0 0
 next_ani.downB 0 0 0 1 0 0 0 1 
 next_ani.downA 1 0 0 1 0 0 0 0 
 
-State Machine - |run_pacman|control_pacman:control|current_state
-Name current_state.RIGHT current_state.DOWN current_state.LEFT current_state.UP current_state.WAIT 
-current_state.WAIT 0 0 0 0 0 
-current_state.UP 0 0 0 1 1 
-current_state.LEFT 0 0 1 0 1 
-current_state.DOWN 0 1 0 0 1 
-current_state.RIGHT 1 0 0 0 1 
+State Machine - |run_pacman|control_master:game|control_game:control|current_state
+Name current_state.INIT_RAND current_state.G1 current_state.PAC current_state.PELLET current_state.ERASE_G1 current_state.ERASE_PAC current_state.ERASE_PELLET current_state.COMP current_state.LOAD current_state.WAIT 
+current_state.WAIT 0 0 0 0 0 0 0 0 0 0 
+current_state.LOAD 0 0 0 0 0 0 0 0 1 1 
+current_state.COMP 0 0 0 0 0 0 0 1 0 1 
+current_state.ERASE_PELLET 0 0 0 0 0 0 1 0 0 1 
+current_state.ERASE_PAC 0 0 0 0 0 1 0 0 0 1 
+current_state.ERASE_G1 0 0 0 0 1 0 0 0 0 1 
+current_state.PELLET 0 0 0 1 0 0 0 0 0 1 
+current_state.PAC 0 0 1 0 0 0 0 0 0 1 
+current_state.G1 0 1 0 0 0 0 0 0 0 1 
+current_state.INIT_RAND 1 0 0 0 0 0 0 0 0 1 

@@ -29,47 +29,176 @@ Z9 !s90 -reportprogress|300|-work|work|C:/Program Files/Git/csc258-project/run_p
 !i113 1
 Z10 o-work work
 Z11 tCvgOpt 0
-vcontrol_pacman
-!s110 1553468834
+vcontrol_game
+Z12 !s110 1553730155
 !i10b 1
-!s100 11PCRF[?D4R1Q0zZiTW2@0
-I]3hm@XIm2WGB=``Z;6L5_2
+!s100 j_GBDC5]gQgVjnIcPEW<Z1
+I03]OYh9T<1]C1f<_7mR=C0
+R1
+Z13 dC:/DESL/Quartus18/csc258-project
+Z14 w1553729259
+Z15 8wip.v
+Z16 Fwip.v
+L0 161
+R6
+r1
+!s85 0
+31
+Z17 !s108 1553730155.000000
+Z18 !s107 wip.v|
+Z19 !s90 -reportprogress|300|-timescale|1ns/1ns|wip.v|+incdir+./|
+!i113 1
+Z20 o-timescale 1ns/1ns
+Z21 !s92 -timescale 1ns/1ns +incdir+./
+R11
+vcontrol_ghost
+Z22 !s110 1553721595
+!i10b 1
+!s100 HI8XY7@0WXEX82m0lMbZC3
+IT9:if0F372c7LM[XaEIWI1
 R1
 R2
-w1553468816
-8C:/Program Files/Git/csc258-project/control_pacman.v
-FC:/Program Files/Git/csc258-project/control_pacman.v
+Z23 w1553721593
+R15
+R16
+L0 420
+R6
+r1
+!s85 0
+31
+Z24 !s108 1553721594.000000
+R18
+Z25 !s90 -reportprogress|300|-timescale|1ns/1ns|wip.v|
+!i113 1
+R20
+R11
+vcontrol_init
+!s110 1553706689
+!i10b 1
+!s100 OJ<e@ZNIWb3Y<cRUSHSMh3
+Ijdm8OVZF1hfg1QCQcf:3`1
+R1
+R2
+w1553706671
+R15
+R16
+L0 50
+R6
+r1
+!s85 0
+31
+!s108 1553706688.000000
+R18
+R25
+!i113 1
+R20
+R11
+vcontrol_master
+R12
+!i10b 1
+!s100 R[M5aFzSG0d2B1?@:onmV3
+IoOJlIWKjb5iI5F1oFcK5K3
+R1
+R13
+R14
+R15
+R16
 L0 1
 R6
 r1
 !s85 0
 31
-!s108 1553468834.000000
-!s107 C:/Program Files/Git/csc258-project/control_pacman.v|
-!s90 -reportprogress|300|-work|work|C:/Program Files/Git/csc258-project/control_pacman.v|
+R17
+R18
+R19
 !i113 1
-R10
+R20
+R21
 R11
-vcounter5x5
-R0
+vcontrol_pacman
+R22
 !i10b 1
-!s100 YL=ED=PQYZfG]R^[OCMVB2
-IioAP1L;X;a]d7>?QcNGEd1
+!s100 Ra^BkcW3=YYMeO6_z0RzF0
+IJz1oKBGK]90DIXc1iF_[l1
 R1
 R2
-R3
-R4
-R5
-L0 180
+R23
+R15
+R16
+L0 260
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R24
+R18
+R25
 !i113 1
-R10
+R20
+R11
+vcontrol_pellet
+R12
+!i10b 1
+!s100 L]CUQO>z5P2gk>IL:Y1OI2
+ILQe9He@K_o=ImTeaD;JM30
+R1
+R13
+R14
+R15
+R16
+L0 444
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R20
+R21
+R11
+vcounter5x5
+R22
+!i10b 1
+!s100 TJFKZ=2@;G6XJOg<Jb`jj0
+IfWN974ZZ@i8[bZ`IB1;NZ3
+R1
+R2
+R23
+R15
+R16
+L0 239
+R6
+r1
+!s85 0
+31
+R24
+R18
+R25
+!i113 1
+R20
+R11
+vcounter_n
+!s110 1553707511
+!i10b 1
+!s100 ;aHKHAfW?:TcXGEF>dA9E2
+IMI@e5>^Sc>lh1Ca[NF4<D3
+R1
+R2
+w1553707509
+R15
+R16
+L0 183
+R6
+r1
+!s85 0
+31
+!s108 1553707511.000000
+R18
+R25
+!i113 1
+R20
 R11
 vdata5x5
 R0
@@ -92,48 +221,88 @@ R9
 !i113 1
 R10
 R11
-vmap_lut
-Z12 !s110 1553468602
+vlfsr
+!s110 1553727607
 !i10b 1
-!s100 z<`nRO^WA>b8:g?ek<l<B3
-INd?3K?e[M2NKQ7FmGAS9D2
+!s100 7YXC36I@IN3QA>^;1^JKB0
+IULPVCFY=27Yf=:H[_HKd90
 R1
-R2
-Z13 w1553468406
-Z14 8run_pacman.v
-Z15 Frun_pacman.v
-L0 105
+R13
+w1553727604
+Z26 8random_generator.v
+Z27 Frandom_generator.v
+L0 7
 R6
 r1
 !s85 0
 31
-Z16 !s108 1553468602.000000
-Z17 !s107 run_pacman.v|
-Z18 !s90 -reportprogress|300|-timescale|1ns/1ns|run_pacman.v|+incdir+./|
+!s108 1553727606.000000
+!s107 random_generator.v|
+Z28 !s90 -reportprogress|300|-timescale|1ns/1ns|random_generator.v|
 !i113 1
-Z19 o-timescale 1ns/1ns
-Z20 !s92 -timescale 1ns/1ns +incdir+./
+R20
+R11
+vmap_lut
+R22
+!i10b 1
+!s100 E<kem[XW3>c_QA[ZGSN453
+IWGU3XjJJez8@NWdUc?oXd3
+R1
+R2
+R23
+R15
+R16
+L0 508
+R6
+r1
+!s85 0
+31
+R24
+R18
+R25
+!i113 1
+R20
+R11
+vmovement_handler
+R22
+!i10b 1
+!s100 0@;6MSY3iOH61NBoLY51l0
+IXJhoHddSHS4:kNM]S:^9P2
+R1
+R2
+R23
+R15
+R16
+L0 287
+R6
+r1
+!s85 0
+31
+R24
+R18
+R25
+!i113 1
+R20
 R11
 vpac_shaper
-R12
+R22
 !i10b 1
-!s100 EX2i33BlXIGHNFm;P1XB91
-ISWmj2O??dAXgNme7[<^7:0
+!s100 e`<aa@ikTLRg3SF3IChnB3
+I9RUNRK`X4;T6nA`zja9OT1
 R1
 R2
-R13
-R14
+R23
 R15
-L0 42
+R16
+L0 357
 R6
 r1
 !s85 0
 31
-R16
-R17
+R24
 R18
+R25
 !i113 1
-R19
 R20
 R11
 vpacShifter
@@ -144,18 +313,18 @@ I^G_4U6DhR3nSV6WLYBYkT1
 R1
 R2
 w1553100841
-R14
-R15
+8run_pacman.v
+Frun_pacman.v
 L0 88
 R6
 r1
 !s85 0
 31
 !s108 1553100843.000000
-R17
+!s107 run_pacman.v|
 !s90 -reportprogress|300|-timescale|1ns/1ns|run_pacman.v|
 !i113 1
-R19
+R20
 R11
 npac@shifter
 vpellet_map
@@ -177,28 +346,71 @@ r1
 !s107 pellet_map.v|
 !s90 -reportprogress|300|-timescale|1ns/1ns|pellet_map.v|
 !i113 1
-R19
+R20
 R11
-vrate_divider
-R0
+vpellet_shaper
+!s110 1553724739
 !i10b 1
-!s100 R;NM7XEBZi9AXE^V2EBT`2
-IZ6=NVTH`2>C:^<B[Gjef51
+!s100 A<F7@FgT4Y`BH?S18JRka0
+IPU@LbCCT>jP=dz[2J^f^>0
 R1
-R2
-R3
-R4
-R5
-L0 199
+R13
+w1553724738
+R15
+R16
+L0 220
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+!s108 1553724739.000000
+R18
+R19
 !i113 1
-R10
+R20
+R21
+R11
+vrandom_generator
+!s110 1553731920
+!i10b 1
+!s100 h1Dl7hUfaRYO:kBRD;^9l2
+I]ezAEX2e?3dRVSMe7@ceP1
+R1
+R13
+w1553731918
+R26
+R27
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1553731920.000000
+!s107 random_generator.v|
+R28
+!i113 1
+R20
+R11
+vrate_divider
+R22
+!i10b 1
+!s100 dCMIOKVVC0A;n64?cP@ko2
+Id=Q>b7`B386f0Il7?==DP3
+R1
+R2
+R23
+R15
+R16
+L0 219
+R6
+r1
+!s85 0
+31
+R24
+R18
+R25
+!i113 1
+R20
 R11
 vrun_pacman
 R0
@@ -221,6 +433,27 @@ R9
 !i113 1
 R10
 R11
+vscore_alu
+R22
+!i10b 1
+!s100 k7dHcV=fjjV:=bS@hEdOG1
+I0mjQ2`Mn`<hnGR798A=722
+R1
+R2
+R23
+R15
+R16
+L0 608
+R6
+r1
+!s85 0
+31
+R24
+R18
+R25
+!i113 1
+R20
+R11
 vtest
 R0
 !i10b 1
@@ -241,4 +474,25 @@ R8
 R9
 !i113 1
 R10
+R11
+vwip_test
+R22
+!i10b 1
+!s100 HKB@=7bHj]EY@M6nnS?nH2
+IzB=6CN2i3Zf1UBhYfcnTS3
+R1
+R2
+R23
+R15
+R16
+L0 1
+R6
+r1
+!s85 0
+31
+R24
+R18
+R25
+!i113 1
+R20
 R11

@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEMA5F31) Path("D:/project/output_files/") File("run_pacman.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSEMA5F31) Path("C:/DESL/Quartus18/csc258-project/output_files/") File("run_pacman.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

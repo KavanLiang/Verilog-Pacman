@@ -1,14 +1,25 @@
+#vlib work
+#vlog -timescale 1ns/1ns wip.v +incdir+./
+#vsim control_master
+#
+#log {/*}
+#add wave {/*}
+#
+#force {dir_in} 000 0
+#force {clock} 0 0, 1 5 -r 10
+#force {reset_n} 0 0, 1 10
+#
+#run 20000
+
 vlib work
-vlog -timescale 1ns/1ns pellet_map.v
-vsim pellet_map
+vlog -timescale 1ns/1ns random_generator.v
+vsim random_generator
 
 log {/*}
 add wave {/*}
 
-force {write_en} 0 0, 1 15
-force {x} 0 0, 10 15
-force {y} 0 0, 1 15
-force {clock} 0 0, 1 5 -r 10
+force {enable} 1 0
+force {clk} 0 0, 1 5 -r 10
 force {reset_n} 0 0, 1 10
 
-run 5000
+run 10000

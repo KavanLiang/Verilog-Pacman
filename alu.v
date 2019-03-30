@@ -14,7 +14,7 @@ module score_alu(score, alu_select, clk, reset_n, enable);
 	always @(posedge clk) begin
 		if(!reset_n) score_reg <= 24'd0;
 		else begin
-		   score_reg <= score_reg + 24'd5;
+		   score_reg <= score_reg + 24'd0;
 		   if(enable) begin
 				if(alu_select == 2'b00) score_reg <= score_reg + 24'd10;
 				else if(alu_select == 2'b01) score_reg <= score_reg + 24'd20;

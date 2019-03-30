@@ -1,7 +1,7 @@
 module random_generator(clk, enable, reset_n, q);
-  input clk, enable;
+
+  input clk, enable, reset_n;
   output [7:0] q;
-  input reset_n;
 
   reg [7:0] counter;
   reg [7:0] seed;
@@ -9,7 +9,8 @@ module random_generator(clk, enable, reset_n, q);
   reg [7:0] out;
 
   assign q = out;
-
+  
+  initial out <= 8'b10101010;
 
   always @(posedge clk) begin
     if(!reset_n) begin
@@ -29,13 +30,14 @@ module random_generator(clk, enable, reset_n, q);
       outNext <= seed;
     end
     else begin
-      outNext[7] <= out[7] ^ out[1];
-      outNext[6] <= out[6] ^ out[0];
-      outNext[5] <= out[5] ^ outNext[7];
-      outNext[4] <= out[4] ^ outNext[6];
-      outNext[3] <= out[3] ^ outNext[5];
-      outNext[2] <= out[2] ^ outNext[4];
-      outNext[1] <= out[1] ^ outNext[3];
+      outNext[7] <= out[3] ^ out[2];
+      outNext[6] <= out[2] ^ out[0];
+      outNext[5] <= out[7] ^ out[3];
+      outNext[4] <= out[4] ^ out[5];
+      outNext[3] <= out[3] ^ out[6];
+      outNext[2] <= out[4] ^ out[2];
+      outNext[1] <= out[1] ^ out[7];
+		outNext[0] <= out[5] ^ out[1];
     end
   end
 
@@ -44,7 +46,7 @@ module random_generator(clk, enable, reset_n, q);
         out <=  8'b10101010;
     end
     else begin
-        out <= outNext;
+		out <= outNext;
     end
   end
 endmodule
