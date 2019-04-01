@@ -65,7 +65,9 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 	                     .load(load),
 								.init_done(done_init),
 								.dead(dead));
-								
+	reg [7:0] x_pac_prev;
+   reg [6:0] y_pac_prev;
+	
 	wire [7:0] x_pac, x_pac_bus;
 	wire [6:0] y_pac, y_pac_bus;
 	wire [2:0] col_pac;
@@ -124,7 +126,9 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 											.x_out(x_pellet_bus), 
 											.y_out(y_pellet_bus), 
 											.enable(pellet_new));
-							  
+	reg [7:0] x_g1_prev;
+	reg [6:0] y_g1_prev;
+	
 	wire [7:0] x_g1, x_g1_bus;
 	wire [6:0] y_g1, y_g1_bus;
 	wire [2:0] col_g1;
@@ -185,6 +189,7 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 			end
 			COMP: begin
 				if(x_pac_bus == x_g1_bus && y_pac_bus == y_g1_bus) dead <= 1'b1;
+				else if(x_pac_prev == x_g1_bus && y_pac_prev == y_g1_bus && x_pac_bus == x_g1_prev && y_pac_bus == y_g1_prev) dead <= 1'b1;
 			end
 		endcase
 	end

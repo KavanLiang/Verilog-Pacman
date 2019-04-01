@@ -1,0 +1,10 @@
+
+
+C:/Program Files/Git/csc258-project/vga_pll.v
+
+Apr 01 04PM:57:19>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Program Files/Git/csc258-project/vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
