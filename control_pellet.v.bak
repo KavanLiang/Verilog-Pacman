@@ -1,0 +1,81 @@
+module control_pellet(done, clock, reset_n, go, x_out, y_out, enable);
+
+	input reset_n, clock, go, enable;
+	
+	output [7:0] x_out;
+	output [6:0] y_out;
+	
+	wire map_state;
+	reg rng_en;
+	
+	reg [7:0] x;
+	reg [6:0] y;
+	
+	initial begin
+		x <= 8'd0;
+		y <= 7'd0;
+	end
+	
+	wire [7:0] num_rand;
+	
+	localparam WAIT = 2'b00, SET = 2'b01, SEARCH = 2'b10;
+	
+	output reg done;
+	
+	reg [1:0] current_state, next_state;
+	
+	assign x_out = x;
+	assign y_out = y;
+	
+	always @(*) begin
+		case(current_state)
+			WAIT: next_state = go ? SET : WAIT;
+			SET: next_state = SEARCH;
+			SEARCH: next_state = done ? WAIT : SEARCH;
+		endcase
+	end
+	
+	always @(*) begin
+		case(current_state)
+			WAIT: begin
+				rng_en = 1'b0;
+				done <= 1'b0;
+			end
+			SEARCH: begin
+				rng_en = 1'b1;
+			end
+		endcase
+	end
+	
+	random_generator rng(.q(num_rand), .clock(clock), .reset_n(reset_n), .enable(1'b1));
+	
+	map_lut map(.q(map_state), 
+	            .x(x), 
+					.y(y));
+					
+	always @(posedge clock) begin
+		if(enable) begin
+			if(current_state == SET) begin
+				x <= num_rand % 27;
+				y <= num_rand % 24;
+			end
+			else
+			if(current_state == SEARCH) begin
+				if(map_state == 1'b1) begin
+					x <= num_rand % 27;
+					y <= num_rand % 24;
+				end
+				else begin
+					
+					done <= 1'b1;
+				end
+			end
+		end
+	end
+					
+	always @(posedge clock) begin
+		if(!reset_n) current_state <= WAIT;
+		else current_state <= next_state;
+	end
+	
+endmodule
