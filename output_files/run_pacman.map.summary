@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Mar 27 20:12:35 2019
+Analysis & Synthesis Status : Successful - Mon Apr 01 20:49:18 2019
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Standard Edition
 Revision Name : run_pacman
 Top-level Entity Name : run_pacman
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 268
+Total registers : 400
 Total pins : 94
 Total virtual pins : 0
 Total block memory bits : 57,600

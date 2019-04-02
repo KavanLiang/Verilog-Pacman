@@ -7,7 +7,7 @@ add wave {/*}
 
 force {dir_in} 000 0
 force {clock} 0 0, 1 5 -r 10
-force {reset_n} 0 0, 1 10, 0 1900, 1 1910
+force {reset_n} 0 0, 1 10
 
 run 20000
 
@@ -18,7 +18,6 @@ run 20000
 #log {/*}
 #add wave {/*}
 #
-#force {enable} 1 0
 #force {clock} 0 0, 1 5 -r 10
 #force {reset_n} 0 0, 1 10
 #

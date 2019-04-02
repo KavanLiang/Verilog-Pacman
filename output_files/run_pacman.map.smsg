@@ -1,7 +1,7 @@
-Warning (10268): Verilog HDL information at wip.v(137): always construct contains both blocking and non-blocking assignments File: C:/DESL/Quartus18/csc258-project/wip.v Line: 137
-Info (10281): Verilog HDL Declaration information at wip.v(11): object "LOAD" differs only in case from object "load" in the same scope File: C:/DESL/Quartus18/csc258-project/wip.v Line: 11
-Info (10281): Verilog HDL Declaration information at wip.v(167): object "load" differs only in case from object "LOAD" in the same scope File: C:/DESL/Quartus18/csc258-project/wip.v Line: 167
-Warning (10268): Verilog HDL information at wip.v(483): always construct contains both blocking and non-blocking assignments File: C:/DESL/Quartus18/csc258-project/wip.v Line: 483
+Info (10281): Verilog HDL Declaration information at control_pellet.v(9): object "done" differs only in case from object "DONE" in the same scope File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 9
+Warning (10268): Verilog HDL information at wip.v(213): always construct contains both blocking and non-blocking assignments File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
+Info (10281): Verilog HDL Declaration information at wip.v(25): object "load" differs only in case from object "LOAD" in the same scope File: C:/DESL/Quartus18/csc258-project/wip.v Line: 25
+Info (10281): Verilog HDL Declaration information at wip.v(262): object "load" differs only in case from object "LOAD" in the same scope File: C:/DESL/Quartus18/csc258-project/wip.v Line: 262
 Info (10281): Verilog HDL Declaration information at PS2_Mouse_Controller.v(310): object "HEX0" differs only in case from object "hex0" in the same scope File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 310
 Info (10281): Verilog HDL Declaration information at PS2_Mouse_Controller.v(311): object "HEX1" differs only in case from object "hex1" in the same scope File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 311
 Info (10281): Verilog HDL Declaration information at PS2_Mouse_Controller.v(312): object "HEX2" differs only in case from object "hex2" in the same scope File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 312

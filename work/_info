@@ -30,34 +30,34 @@ Z9 !s90 -reportprogress|300|-work|work|C:/Program Files/Git/csc258-project/run_p
 Z10 o-work work
 Z11 tCvgOpt 0
 vcontrol_game
-Z12 !s110 1554151632
+Z12 !s110 1554165546
 !i10b 1
-!s100 oM_4okdO0`[bl0587F43B1
-I8b15Aml?1bmgfF3FTULlF0
+!s100 3>anik7`1RAh<j?fm?T=R0
+Idnk;m>hRmA`c46<6_FD3[0
 R1
-R2
-Z13 w1554151576
-Z14 8wip.v
-Z15 Fwip.v
-L0 194
+Z13 dC:/DESL/Quartus18/csc258-project
+Z14 w1554165540
+Z15 8wip.v
+Z16 Fwip.v
+L0 258
 R6
 r1
 !s85 0
 31
-Z16 !s108 1554151632.000000
-Z17 !s107 wip.v|
-Z18 !s90 -reportprogress|300|-timescale|1ns/1ns|wip.v|
+Z17 !s108 1554165546.000000
+Z18 !s107 movement_handler.v|pellet_shaper.v|pac_shaper.v|run_pacman.v|alu.v|control_pacman.v|control_ghost.v|control_pellet.v|random_generator.v|map_lut.v|wip.v|
+Z19 !s90 -reportprogress|300|-timescale|1ns/1ns|wip.v|
 !i113 1
-Z19 o-timescale 1ns/1ns
+Z20 o-timescale 1ns/1ns
 R11
 vcontrol_ghost
-Z20 !s110 1554151359
+R12
 !i10b 1
-!s100 `@3llXkWTH=>BRm;@6P@e3
-I`I@3;mJ4gjBO:zcEo;n1=2
+!s100 14Id9<TJaXXjBkb`XbGjo1
+I7hB=fI>2Z`6nN2^`<lX2<1
 R1
-R2
-w1553731612
+R13
+w1554164868
 8control_ghost.v
 Fcontrol_ghost.v
 L0 1
@@ -65,11 +65,11 @@ R6
 r1
 !s85 0
 31
-Z21 !s108 1554151359.000000
-Z22 !s107 movement_handler.v|pellet_shaper.v|pac_shaper.v|run_pacman.v|alu.v|control_pacman.v|control_ghost.v|control_pellet.v|random_generator.v|map_lut.v|wip.v|
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vcontrol_init
 !s110 1553706689
@@ -79,47 +79,47 @@ Ijdm8OVZF1hfg1QCQcf:3`1
 R1
 R2
 w1553706671
-R14
 R15
+R16
 L0 50
 R6
 r1
 !s85 0
 31
 !s108 1553706688.000000
-R17
-R18
-!i113 1
+Z21 !s107 wip.v|
 R19
+!i113 1
+R20
 R11
 vcontrol_master
 R12
 !i10b 1
-!s100 =CffWW?>UL]J2n3^KmDGl1
-IMdcSjE_97Y6:6>TBc4UAS2
+!s100 NZ1RPQOjbA8Rz@4X<PN<`2
+IZHK1=I]mV<PPolB]]WTfV0
 R1
-R2
 R13
 R14
 R15
+R16
 L0 12
 R6
 r1
 !s85 0
 31
-R16
 R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vcontrol_pacman
-R20
+R12
 !i10b 1
 !s100 AmSG<b9KW4lIS1P:UJOc31
 I@82^T1OEF;Oc<[dIS=H<50
 R1
-R2
+R13
 w1553730278
 8control_pacman.v
 Fcontrol_pacman.v
@@ -128,20 +128,20 @@ R6
 r1
 !s85 0
 31
-R21
-R22
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vcontrol_pellet
-R20
+R12
 !i10b 1
-!s100 G>dc:RojOn_@RdKHb;?F92
-IfbJAXe3FCP6@_dKSeDio=3
+!s100 a@OHmKD`zT>ZELD^=NPU63
+I??FWj=<8Ee53VG<6Y7dWW1
 R1
-R2
-w1554151357
+R13
+w1554160735
 8control_pellet.v
 Fcontrol_pellet.v
 L0 1
@@ -149,32 +149,32 @@ R6
 r1
 !s85 0
 31
-R21
-R22
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vcounter5x5
-R20
+R12
 !i10b 1
 !s100 =BUThoO>L`MXzS2?J:k<X1
 IPjQ]bBYkL4gkRN6=BY4>o2
 R1
-R2
-Z23 w1554150982
-Z24 8run_pacman.v
-Z25 Frun_pacman.v
+R13
+Z22 w1554165539
+Z23 8run_pacman.v
+Z24 Frun_pacman.v
 L0 107
 R6
 r1
 !s85 0
 31
-R21
-R22
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vcounter_n
 !s110 1553707511
@@ -184,39 +184,39 @@ IMI@e5>^Sc>lh1Ca[NF4<D3
 R1
 R2
 w1553707509
-R14
 R15
+R16
 L0 183
 R6
 r1
 !s85 0
 31
 !s108 1553707511.000000
-R17
-R18
-!i113 1
+R21
 R19
+!i113 1
+R20
 R11
 vdata5x5
-R20
+R12
 !i10b 1
 !s100 Rool7zdY13mjAP@R08b?I3
 I:^SV15lW1UNJ9d=IVN<@o3
 R1
-R2
+R13
+R22
 R23
 R24
-R25
-Z26 L0 63
+Z25 L0 63
 R6
 r1
 !s85 0
 31
-R21
-R22
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vlfsr
 !s110 1553727607
@@ -224,10 +224,10 @@ vlfsr
 !s100 7YXC36I@IN3QA>^;1^JKB0
 IULPVCFY=27Yf=:H[_HKd90
 R1
-dC:/DESL/Quartus18/csc258-project
+R13
 w1553727604
-Z27 8random_generator.v
-Z28 Frandom_generator.v
+Z26 8random_generator.v
+Z27 Frandom_generator.v
 L0 7
 R6
 r1
@@ -237,15 +237,15 @@ r1
 !s107 random_generator.v|
 !s90 -reportprogress|300|-timescale|1ns/1ns|random_generator.v|
 !i113 1
-R19
+R20
 R11
 vmap_lut
-R20
+R12
 !i10b 1
 !s100 bXSUJ?7Y:D3[ML<BGH8lV1
 ICVOa6^JXd>>oQFCHmhNz72
 R1
-R2
+R13
 w1553722202
 8map_lut.v
 Fmap_lut.v
@@ -254,40 +254,40 @@ R6
 r1
 !s85 0
 31
-R21
-R22
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vmovement_handler
-R20
+R12
 !i10b 1
 !s100 ;^_M3G3mQkz`k?^@<an3h1
 I;?A[]I^i33RzE6cabB4ZL2
 R1
-R2
+R13
 w1553725384
 8movement_handler.v
 Fmovement_handler.v
-R26
+R25
 R6
 r1
 !s85 0
 31
-R21
-R22
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vpac_shaper
-R20
+R12
 !i10b 1
 !s100 GPNTNH`65K_:h>dBG2i_J0
 I1KZ5W303_GEm^cj0dUA4T2
 R1
-R2
+R13
 w1553639778
 8pac_shaper.v
 Fpac_shaper.v
@@ -296,11 +296,11 @@ R6
 r1
 !s85 0
 31
-R21
-R22
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vpacShifter
 !s110 1553100843
@@ -310,8 +310,8 @@ I^G_4U6DhR3nSV6WLYBYkT1
 R1
 R2
 w1553100841
+R23
 R24
-R25
 L0 88
 R6
 r1
@@ -321,7 +321,7 @@ r1
 !s107 run_pacman.v|
 !s90 -reportprogress|300|-timescale|1ns/1ns|run_pacman.v|
 !i113 1
-R19
+R20
 R11
 npac@shifter
 vpellet_map
@@ -343,15 +343,15 @@ r1
 !s107 pellet_map.v|
 !s90 -reportprogress|300|-timescale|1ns/1ns|pellet_map.v|
 !i113 1
-R19
+R20
 R11
 vpellet_shaper
-R20
+R12
 !i10b 1
 !s100 ilbVEZGU>NOdP4mnJ4Qc11
 IGR8^K1;G;?B^[ca6GDMjE3
 R1
-R2
+R13
 w1553725072
 8pellet_shaper.v
 Fpellet_shaper.v
@@ -360,82 +360,82 @@ R6
 r1
 !s85 0
 31
-R21
-R22
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vrandom_generator
-R20
+R12
 !i10b 1
-!s100 H5;d56CcAVzL3DH;AHJmR1
-I]T<Z6I@fj_iMo8XzG0@3Q2
+!s100 K<XKYTAi2JJ7g]bk]5]7E3
+I;n]n`gHj7kH67daMHAFWD0
 R1
-R2
-w1554150027
+R13
+w1554162700
+R26
 R27
-R28
-L0 54
-R6
-r1
-!s85 0
-31
-R21
-R22
-R18
-!i113 1
-R19
-R11
-vrate_divider
-R20
-!i10b 1
-!s100 O_k1gRjQkYhSO;hikIFiU0
-I4NP?8V]YX8HIU6Z_@d8U<1
-R1
-R2
-R23
-R24
-R25
-L0 128
-R6
-r1
-!s85 0
-31
-R21
-R22
-R18
-!i113 1
-R19
-R11
-vrun_pacman
-R20
-!i10b 1
-!s100 Xe8nnLRaB7iJG55L_GOmA3
-I9SCAW7VOaWcik?g<HD;RH0
-R1
-R2
-R23
-R24
-R25
 L0 1
 R6
 r1
 !s85 0
 31
-R21
-R22
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
+R11
+vrate_divider
+R12
+!i10b 1
+!s100 O_k1gRjQkYhSO;hikIFiU0
+I4NP?8V]YX8HIU6Z_@d8U<1
+R1
+R13
+R22
+R23
+R24
+L0 128
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R20
+R11
+vrun_pacman
+R12
+!i10b 1
+!s100 Xe8nnLRaB7iJG55L_GOmA3
+I9SCAW7VOaWcik?g<HD;RH0
+R1
+R13
+R22
+R23
+R24
+L0 1
+R6
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R20
 R11
 vscore_alu
-R20
+R12
 !i10b 1
 !s100 mAAI@gB7=`f>aYHCEGGo82
 I`kheiioS7E19z7;0YMOP;3
 R1
-R2
+R13
 w1553721158
 8alu.v
 Falu.v
@@ -444,11 +444,11 @@ R6
 r1
 !s85 0
 31
-R21
-R22
+R17
 R18
-!i113 1
 R19
+!i113 1
+R20
 R11
 vtest
 R0
@@ -479,16 +479,16 @@ IzB=6CN2i3Zf1UBhYfcnTS3
 R1
 R2
 w1553721593
-R14
 R15
+R16
 L0 1
 R6
 r1
 !s85 0
 31
 !s108 1553721594.000000
-R17
-R18
-!i113 1
+R21
 R19
+!i113 1
+R20
 R11

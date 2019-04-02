@@ -28,7 +28,8 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 	wire [7:0] num_rand;
 	
 	localparam WAIT = 4'b000, LOAD = 4'b0001, COMP = 4'b0010, ERASE_PELLET = 4'b0011, ERASE_PAC = 4'b0100, 
-				  ERASE_G1 = 4'b0101, PELLET = 4'b0110, PAC = 4'b0111, G1 = 4'b1000, INIT_RAND = 4'b1001;
+				  ERASE_G1 = 4'b0101, PELLET = 4'b0110, PAC = 4'b0111, G1 = 4'b1000, INIT_RAND = 4'b1001,
+				  ERASE_G2 = 4'b1010, G2 = 4'b1011;
 	
 	score_alu alu(.score(score),
 	              .alu_select(2'b00), 
@@ -44,7 +45,7 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 	                 .clock(clock),
 						  .reset_n(reset_n));
 	
-	reg go_init;
+	reg go_init, new_init;
 	
 	wire done_init;
 	
@@ -64,7 +65,8 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 								.loc(loc),
 	                     .load(load),
 								.init_done(done_init),
-								.dead(dead));
+								.dead(dead),
+								.new_init(new_init));
 	reg [7:0] x_pac_prev;
    reg [6:0] y_pac_prev;
 	
@@ -98,10 +100,6 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 	wire [2:0] col_pellet;
 	wire [24:0] shape_pellet_bus;
 	
-	reg pellet_new;
-	
-	initial pellet_new <= 1'b1;
-	
 	data5x5 pellet_data(.col_out(col_pellet),
     	                 .x_out(x_pellet), 
 							  .y_out(y_pellet), 
@@ -119,13 +117,12 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 	                           .clock(clock_div),
 										.reset_n(reset_n));  
 										
-	control_pellet pellet_control(.done_out(done_init), 
+	control_pellet pellet_control(.done_out(done_init),
 											.clock(clock), 
 											.reset_n(reset_n), 
 											.go(go_init), 
 											.x_out(x_pellet_bus), 
-											.y_out(y_pellet_bus), 
-											.enable(pellet_new));
+											.y_out(y_pellet_bus));
 	reg [7:0] x_g1_prev;
 	reg [6:0] y_g1_prev;
 	
@@ -135,17 +132,17 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 	wire [24:0] shape_g1_bus;
 	
 	data5x5 g1_data(.col_out(col_g1),
-	                    .x_out(x_g1),
-							  .y_out(y_g1),
-							  .x_in(x_g1_bus),
-							  .y_in(y_g1_bus),
-							  .load(load),
-							  .colour(3'b100),
-							  .clock(clock),
-							  .reset_n(reset_n),
-							  .loc(loc),
-							  .shape(shape_g1_bus),
-							  .erase(erase));
+						 .x_out(x_g1),
+						 .y_out(y_g1),
+						 .x_in(x_g1_bus),
+						 .y_in(y_g1_bus),
+						 .load(load),
+						 .colour(3'b100),
+						 .clock(clock),
+						 .reset_n(reset_n),
+						 .loc(loc),
+						 .shape(shape_g1_bus),
+						 .erase(erase));
 	
 	control_ghost g1_control(.clk(clock_div),
  	                         .random_in(num_rand), 
@@ -154,25 +151,72 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 									 .x_out(x_g1_bus),
 									 .y_out(y_g1_bus),
 									 .x_pac(x_pac_bus),
-									 .y_pac(y_pac_bus));
+									 .y_pac(y_pac_bus),
+									 .x_reset(8'd2),
+									 .y_reset(7'd1));
+									 
+	reg [7:0] x_g2_prev;
+	reg [6:0] y_g2_prev;
+	
+	wire [7:0] x_g2, x_g2_bus;
+	wire [6:0] y_g2, y_g2_bus;
+	wire [2:0] col_g2;
+	wire [24:0] shape_g2_bus;
+	
+	data5x5 g2_data(.col_out(col_g2),
+						 .x_out(x_g2),
+						 .y_out(y_g2),
+						 .x_in(x_g2_bus),
+						 .y_in(y_g2_bus),
+						 .load(load),
+						 .colour(3'b010),
+						 .clock(clock),
+						 .reset_n(reset_n),
+						 .loc(loc),
+						 .shape(shape_g2_bus),
+						 .erase(erase));
+	
+	control_ghost g2_control(.clk(clock_div),
+ 	                         .random_in(~num_rand), 
+									 .reset_n(reset_n), 
+									 .shape(shape_g2_bus), 
+									 .x_out(x_g2_bus),
+									 .y_out(y_g2_bus),
+									 .x_pac(x_pac_bus),
+									 .y_pac(y_pac_bus),
+									 .x_reset(8'd24),
+									 .y_reset(7'd1));
 							  
 	always @(posedge clock) begin
-		if(curr_state == COMP) begin
+		if(!reset_n) begin
+			new_init <= 1'b1;
+		end
+		else if(curr_state == ERASE_PELLET) begin
+			new_init <= 1'b0;
+		end
+		else if(curr_state == COMP) begin
+			x_pac_prev <= x_pac_bus;
+			y_pac_prev <= y_pac_bus;
+			x_g1_prev <= x_g1_bus;
+			y_g1_prev <= y_g1_bus;
+			x_g2_prev <= x_g2_bus;
+			y_g2_prev <= y_g2_bus;
 			if(x_pac_bus == x_pellet_bus && y_pac_bus == y_pellet_bus) begin
 				alu_en <= 1'b1;
-				pellet_new <= 1'b1;
+				new_init <= 1'b1;
 			end
 			else alu_en <= 1'b0;
 		end
 	end
 					
 	always @(*) begin
-		if(!reset_n) dead <= 1'b0;
+		if(!reset_n) begin
+			dead <= 1'b0;
+		end
 		case(curr_state)
 			WAIT:;
 			INIT_RAND:;
 			PELLET, ERASE_PELLET: begin
-			   pellet_new <= 1'b0;
 				x = x_pellet;
 				y = y_pellet;
 				colour = col_pellet;
@@ -187,25 +231,41 @@ module control_master(clock, plot_en, x, y, colour, reset_n, dir_in, score);
 				y = y_g1;
 				colour = col_g1;
 			end
+			G2, ERASE_G2: begin
+				x = x_g2;
+				y = y_g2;
+				colour = col_g2;
+			end
 			COMP: begin
-				if(x_pac_bus == x_g1_bus && y_pac_bus == y_g1_bus) dead <= 1'b1;
-				else if(x_pac_prev == x_g1_bus && y_pac_prev == y_g1_bus && x_pac_bus == x_g1_prev && y_pac_bus == y_g1_prev) dead <= 1'b1;
+				if(x_pac_bus == x_g1_bus && y_pac_bus == y_g1_bus) begin
+					dead <= 1'b1;
+				end
+				else if(x_pac_prev == x_g1_bus && y_pac_prev == y_g1_bus && x_pac_bus == x_g1_prev && y_pac_bus == y_g1_prev) begin
+					dead <= 1'b1;
+				end
+				else if(x_pac_bus == x_g2_bus && y_pac_bus == y_g2_bus) begin
+					dead <= 1'b1;
+				end
+				else if(x_pac_prev == x_g2_bus && y_pac_prev == y_g2_bus && x_pac_bus == x_g2_prev && y_pac_bus == y_g2_prev) begin
+					dead <= 1'b1;
+				end
 			end
 		endcase
 	end
 	
 endmodule
 
-module control_game(curr_state, plot_en, clock, reset_n, go, erase, loc, load, init_done, dead);
+module control_game(curr_state, plot_en, clock, reset_n, go, erase, loc, load, new_init, dead, init_done);
 
-	input clock, reset_n, go, init_done, dead;
+	input clock, reset_n, go, new_init, dead, init_done;
 	
 	output reg plot_en, erase, load;
 	output [3:0] curr_state;
 	output [5:0] loc;
 	
 	localparam WAIT = 4'b000, LOAD = 4'b0001, COMP = 4'b0010, ERASE_PELLET = 4'b0011, ERASE_PAC = 4'b0100, 
-				  ERASE_G1 = 4'b0101, PELLET = 4'b0110, PAC = 4'b0111, G1 = 4'b1000, INIT_RAND = 4'b1001, 
+				  ERASE_G1 = 4'b0101, PELLET = 4'b0110, PAC = 4'b0111, G1 = 4'b1000, INIT_RAND = 4'b1001,
+				  ERASE_G2 = 4'b1010, G2 = 4'b1011,
 				  LOC_MAX = 6'b100100;
 	
 	reg [3:0] current_state, next_state;
@@ -218,14 +278,16 @@ module control_game(curr_state, plot_en, clock, reset_n, go, erase, loc, load, i
 	
 	always @(*) begin
 		case(current_state)
-			WAIT: next_state = go ? INIT_RAND : WAIT;
+			WAIT: next_state = go ? (new_init ? INIT_RAND : ERASE_PELLET) : WAIT;
 			INIT_RAND: next_state = init_done ? ERASE_PELLET : INIT_RAND;
 			ERASE_PELLET: next_state = (loc == LOC_MAX) ? ERASE_PAC : ERASE_PELLET;
-			ERASE_PAC: next_state = (loc == LOC_MAX) ? ERASE_G1 : ERASE_PAC;
-			ERASE_G1: next_state = dead ? ERASE_PELLET : ((loc == LOC_MAX) ? LOAD : ERASE_G1);
+			ERASE_PAC: next_state = (loc == LOC_MAX) ? ERASE_G2 : ERASE_PAC;
+			ERASE_G2: next_state = (loc == LOC_MAX) ? ERASE_G1 : ERASE_G2;
+			ERASE_G1: next_state = (loc == LOC_MAX) ? (dead ? ERASE_PELLET : LOAD) : ERASE_G1;
 			LOAD: next_state = PELLET;
 			PELLET: next_state = (loc == LOC_MAX) ? PAC : PELLET;
-		   PAC: next_state = (loc == LOC_MAX) ? G1 : PAC;
+		   PAC: next_state = (loc == LOC_MAX) ? G2 : PAC;
+			G2: next_state = (loc == LOC_MAX) ? G1 : G2;
 			G1: next_state = (loc == LOC_MAX) ? COMP : G1;
 			COMP: next_state = dead ? ERASE_PELLET : WAIT;
 		endcase
@@ -238,13 +300,13 @@ module control_game(curr_state, plot_en, clock, reset_n, go, erase, loc, load, i
 		load = 1'b0;
 		case(current_state)
 			WAIT:;
-			ERASE_PAC, ERASE_PELLET, ERASE_G1: begin
+			ERASE_PAC, ERASE_PELLET, ERASE_G1, ERASE_G2: begin
 				count5x5_en = 1'b1;
 				plot_en = 1'b1;
 				erase = 1'b1;
 			end
 			LOAD: load = 1'b1;
-			PELLET, PAC, G1: begin
+			PELLET, PAC, G1, G2: begin
 				count5x5_en = 1'b1;
 				plot_en = 1'b1;
 			end

@@ -133,7 +133,7 @@ module rate_divider(q, clock, reset_n);
 	reg [25:0] count;
 	
 	//TODO: Make game faster as score increases
-	localparam rate = 26'd200;
+	localparam rate = 26'd20000000;
 	
 	always @(posedge clock) begin
 		if(!reset_n) count <= rate;

@@ -1,0 +1,38 @@
+module controlable_ghost(clk, random_in, reset_n, shape, x_out, y_out, x_pac, y_pac);
+
+  input clk, reset_n;
+  input [7:0] random_in;
+  input [7:0] x_pac;
+  input [6:0] y_pac;
+  
+  output [7:0] x_out;
+  output [6:0] y_out;
+  output [24:0] shape;
+  
+  localparam  GHOST_SHAPE = 25'b1111110101101011111110101, DEFAULT_X = 8'd2, DEFAULT_Y = 7'd1;
+  
+   reg [2:0] dir;
+	
+	wire rand2;
+	
+	assign rand2 = random_in % 2;
+
+  assign shape = GHOST_SHAPE;
+  
+  wire x_diff, y_diff;
+  
+  assign x_diff = x_pac > x_out;
+  assign y_diff = y_pac > y_out;
+  
+  always @(*) begin
+	case({y_diff, x_diff})
+		2'b00: dir = rand2 ? 3'b010 : 3'b001;
+		2'b01: dir = rand2 ? 3'b000 : 3'b001;
+		2'b10: dir = rand2 ? 3'b010 : 3'b011;
+		2'b11: dir = rand2 ? 3'b000 : 3'b011;
+	endcase
+  end
+  
+  movement_handler ghost_move(.clk(clk), .dir_in(dir), .reset_n(reset_n), .reset_x(DEFAULT_X), .reset_y(DEFAULT_Y), .x_out(x_out), .y_out(y_out));
+
+endmodule

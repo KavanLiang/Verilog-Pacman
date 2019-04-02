@@ -1,15 +1,15 @@
-module control_ghost(clk, random_in, reset_n, shape, x_out, y_out, x_pac, y_pac);
+module control_ghost(clk, random_in, reset_n, shape, x_out, y_out, x_pac, y_pac, x_reset, y_reset);
 
   input clk, reset_n;
   input [7:0] random_in;
-  input [7:0] x_pac;
-  input [6:0] y_pac;
+  input [7:0] x_pac, x_reset;
+  input [6:0] y_pac, y_reset;
   
   output [7:0] x_out;
   output [6:0] y_out;
   output [24:0] shape;
   
-  localparam  GHOST_SHAPE = 25'b1111110101101011111110101, DEFAULT_X = 8'd2, DEFAULT_Y = 7'd1;
+  localparam  GHOST_SHAPE = 25'b1111110101101011111110101;
   
    reg [2:0] dir;
 	
@@ -33,6 +33,6 @@ module control_ghost(clk, random_in, reset_n, shape, x_out, y_out, x_pac, y_pac)
 	endcase
   end
   
-  movement_handler ghost_move(.clk(clk), .dir_in(dir), .reset_n(reset_n), .reset_x(DEFAULT_X), .reset_y(DEFAULT_Y), .x_out(x_out), .y_out(y_out));
+  movement_handler ghost_move(.clk(clk), .dir_in(dir), .reset_n(reset_n), .reset_x(x_reset), .reset_y(y_reset), .x_out(x_out), .y_out(y_out));
 
 endmodule
