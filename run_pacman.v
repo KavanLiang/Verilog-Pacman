@@ -144,3 +144,24 @@ module rate_divider(q, clock, reset_n);
 	assign q = (count == rate) ? 1'b1 : 1'b0;
 	
 endmodule
+
+module counter_ghost(toggle, clock, reset_n, period);
+	
+	input clock, reset_n;
+	input [9:0] period;
+	
+	reg [5:0] q;
+	
+	output toggle;
+	
+	assign toggle = q > 2*period;
+	
+	initial q <= 6'd0;
+	
+	always @(posedge clock) begin
+		if(!reset_n) q <= 0;
+		else if(q == 3*period) q <= 6'd0;
+		else q <= q + 1'b1;
+	end
+	
+endmodule

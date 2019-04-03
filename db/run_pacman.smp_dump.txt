@@ -57,16 +57,20 @@ next_ani.downB 0 0 0 1 0 0 0 1
 next_ani.downA 1 0 0 1 0 0 0 0 
 
 State Machine - |run_pacman|control_master:game|control_game:control|current_state
-Name current_state.G2 current_state.ERASE_G2 current_state.INIT_RAND current_state.G1 current_state.PAC current_state.PELLET current_state.ERASE_G1 current_state.ERASE_PAC current_state.ERASE_PELLET current_state.COMP current_state.LOAD current_state.WAIT 
-current_state.WAIT 0 0 0 0 0 0 0 0 0 0 0 0 
-current_state.LOAD 0 0 0 0 0 0 0 0 0 0 1 1 
-current_state.COMP 0 0 0 0 0 0 0 0 0 1 0 1 
-current_state.ERASE_PELLET 0 0 0 0 0 0 0 0 1 0 0 1 
-current_state.ERASE_PAC 0 0 0 0 0 0 0 1 0 0 0 1 
-current_state.ERASE_G1 0 0 0 0 0 0 1 0 0 0 0 1 
-current_state.PELLET 0 0 0 0 0 1 0 0 0 0 0 1 
-current_state.PAC 0 0 0 0 1 0 0 0 0 0 0 1 
-current_state.G1 0 0 0 1 0 0 0 0 0 0 0 1 
-current_state.INIT_RAND 0 0 1 0 0 0 0 0 0 0 0 1 
-current_state.ERASE_G2 0 1 0 0 0 0 0 0 0 0 0 1 
-current_state.G2 1 0 0 0 0 0 0 0 0 0 0 1 
+Name current_state.G4 current_state.ERASE_G4 current_state.G3 current_state.ERASE_G3 current_state.G2 current_state.ERASE_G2 current_state.INIT_RAND current_state.G1 current_state.PAC current_state.PELLET current_state.ERASE_G1 current_state.ERASE_PAC current_state.ERASE_PELLET current_state.COMP current_state.LOAD current_state.WAIT 
+current_state.WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+current_state.LOAD 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+current_state.COMP 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+current_state.ERASE_PELLET 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+current_state.ERASE_PAC 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+current_state.ERASE_G1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+current_state.PELLET 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+current_state.PAC 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+current_state.G1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+current_state.INIT_RAND 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+current_state.ERASE_G2 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+current_state.G2 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+current_state.ERASE_G3 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.G3 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.ERASE_G4 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.G4 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

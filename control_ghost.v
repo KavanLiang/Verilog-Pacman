@@ -1,9 +1,9 @@
-module control_ghost(clk, random_in, reset_n, shape, x_out, y_out, x_pac, y_pac, x_reset, y_reset);
+module control_ghost(clk, random_in, reset_n, shape, x_out, y_out, x_dest, y_dest, x_reset, y_reset);
 
   input clk, reset_n;
   input [7:0] random_in;
-  input [7:0] x_pac, x_reset;
-  input [6:0] y_pac, y_reset;
+  input [7:0] x_dest, x_reset;
+  input [6:0] y_dest, y_reset;
   
   output [7:0] x_out;
   output [6:0] y_out;
@@ -13,7 +13,7 @@ module control_ghost(clk, random_in, reset_n, shape, x_out, y_out, x_pac, y_pac,
   
    reg [2:0] dir;
 	
-	wire rand2;
+	wire rand2, map_right, map_left, map_down, map_up;
 	
 	assign rand2 = random_in % 2;
 
@@ -21,8 +21,8 @@ module control_ghost(clk, random_in, reset_n, shape, x_out, y_out, x_pac, y_pac,
   
   wire x_diff, y_diff;
   
-  assign x_diff = x_pac > x_out;
-  assign y_diff = y_pac > y_out;
+  assign x_diff = x_dest > x_out;
+  assign y_diff = y_dest > y_out;
   
   always @(*) begin
 	case({y_diff, x_diff})
@@ -33,6 +33,12 @@ module control_ghost(clk, random_in, reset_n, shape, x_out, y_out, x_pac, y_pac,
 	endcase
   end
   
-  movement_handler ghost_move(.clk(clk), .dir_in(dir), .reset_n(reset_n), .reset_x(x_reset), .reset_y(y_reset), .x_out(x_out), .y_out(y_out));
+  movement_handler ghost_move(.clk(clk), 
+										.dir_in(dir), 
+										.reset_n(reset_n), 
+										.reset_x(x_reset), 
+										.reset_y(y_reset), 
+										.x_out(x_out), 
+										.y_out(y_out));
 
 endmodule

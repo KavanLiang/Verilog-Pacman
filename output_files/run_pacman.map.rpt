@@ -1,5 +1,5 @@
 Analysis & Synthesis report for run_pacman
-Mon Apr 01 20:49:18 2019
+Tue Apr 02 20:12:25 2019
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
 
 
@@ -44,20 +44,26 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
  36. altpll Parameter Settings by Entity Instance
  37. Port Connectivity Checks: "keyboard_tracker:tester|PS2_Controller:core_driver"
  38. Port Connectivity Checks: "keyboard_tracker:tester"
- 39. Port Connectivity Checks: "control_master:game|control_ghost:g2_control"
- 40. Port Connectivity Checks: "control_master:game|data5x5:g2_data"
- 41. Port Connectivity Checks: "control_master:game|control_ghost:g1_control|movement_handler:ghost_move"
- 42. Port Connectivity Checks: "control_master:game|control_ghost:g1_control"
- 43. Port Connectivity Checks: "control_master:game|data5x5:g1_data"
- 44. Port Connectivity Checks: "control_master:game|data5x5:pellet_data"
- 45. Port Connectivity Checks: "control_master:game|control_pacman:pac_control|movement_handler:pac_move"
- 46. Port Connectivity Checks: "control_master:game|data5x5:pac_data"
- 47. Port Connectivity Checks: "control_master:game|score_alu:alu"
- 48. Port Connectivity Checks: "control_master:game"
- 49. Post-Synthesis Netlist Statistics for Top Partition
- 50. Elapsed Time Per Partition
- 51. Analysis & Synthesis Messages
- 52. Analysis & Synthesis Suppressed Messages
+ 39. Port Connectivity Checks: "control_master:game|control_ghost:g4_control"
+ 40. Port Connectivity Checks: "control_master:game|data5x5:g4_data"
+ 41. Port Connectivity Checks: "control_master:game|counter_ghost:g4_count"
+ 42. Port Connectivity Checks: "control_master:game|control_ghost:g3_control"
+ 43. Port Connectivity Checks: "control_master:game|data5x5:g3_data"
+ 44. Port Connectivity Checks: "control_master:game|control_ghost:g2_control"
+ 45. Port Connectivity Checks: "control_master:game|data5x5:g2_data"
+ 46. Port Connectivity Checks: "control_master:game|control_ghost:g1_control|movement_handler:ghost_move"
+ 47. Port Connectivity Checks: "control_master:game|control_ghost:g1_control"
+ 48. Port Connectivity Checks: "control_master:game|data5x5:g1_data"
+ 49. Port Connectivity Checks: "control_master:game|counter_ghost:g1_count"
+ 50. Port Connectivity Checks: "control_master:game|data5x5:pellet_data"
+ 51. Port Connectivity Checks: "control_master:game|control_pacman:pac_control|movement_handler:pac_move"
+ 52. Port Connectivity Checks: "control_master:game|data5x5:pac_data"
+ 53. Port Connectivity Checks: "control_master:game|score_alu:alu"
+ 54. Port Connectivity Checks: "control_master:game"
+ 55. Post-Synthesis Netlist Statistics for Top Partition
+ 56. Elapsed Time Per Partition
+ 57. Analysis & Synthesis Messages
+ 58. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -83,13 +89,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Apr 01 20:49:18 2019           ;
+; Analysis & Synthesis Status     ; Successful - Tue Apr 02 20:12:25 2019           ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
 ; Revision Name                   ; run_pacman                                      ;
 ; Top-level Entity Name           ; run_pacman                                      ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 400                                             ;
+; Total registers                 ; 501                                             ;
 ; Total pins                      ; 94                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 57,600                                          ;
@@ -209,57 +215,57 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                            ;
-+----------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path             ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                  ; Library ;
-+----------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------+---------+
-; control_pellet.v                             ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/control_pellet.v                             ;         ;
-; wip.v                                        ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/wip.v                                        ;         ;
-; random_generator.v                           ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/random_generator.v                           ;         ;
-; pellet_shaper.v                              ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/pellet_shaper.v                              ;         ;
-; movement_handler.v                           ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/movement_handler.v                           ;         ;
-; control_ghost.v                              ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/control_ghost.v                              ;         ;
-; control_pacman.v                             ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/control_pacman.v                             ;         ;
-; alu.v                                        ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/alu.v                                        ;         ;
-; PS2MouseKeyboard/PS2_Mouse_Controller.v      ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Mouse_Controller.v      ;         ;
-; PS2MouseKeyboard/PS2_Keyboard_Controller.v   ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Keyboard_Controller.v   ;         ;
-; PS2MouseKeyboard/PS2_Controller.v            ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Controller.v            ;         ;
-; PS2MouseKeyboard/Altera_UP_PS2_Data_In.v     ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/Altera_UP_PS2_Data_In.v     ;         ;
-; PS2MouseKeyboard/Altera_UP_PS2_Command_Out.v ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/Altera_UP_PS2_Command_Out.v ;         ;
-; vga_pll.v                                    ; yes             ; User Wizard-Generated File             ; C:/DESL/Quartus18/csc258-project/vga_pll.v                                    ;         ;
-; vga_controller.v                             ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/vga_controller.v                             ;         ;
-; vga_address_translator.v                     ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/vga_address_translator.v                     ;         ;
-; vga_adapter.v                                ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/vga_adapter.v                                ;         ;
-; run_pacman.v                                 ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/run_pacman.v                                 ;         ;
-; map_lut.v                                    ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/map_lut.v                                    ;         ;
-; pac_shaper.v                                 ; yes             ; User Verilog HDL File                  ; C:/DESL/Quartus18/csc258-project/pac_shaper.v                                 ;         ;
-; altsyncram.tdf                               ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altsyncram.tdf              ;         ;
-; stratix_ram_block.inc                        ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratix_ram_block.inc       ;         ;
-; lpm_mux.inc                                  ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/lpm_mux.inc                 ;         ;
-; lpm_decode.inc                               ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/lpm_decode.inc              ;         ;
-; aglobal180.inc                               ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/aglobal180.inc              ;         ;
-; a_rdenreg.inc                                ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/a_rdenreg.inc               ;         ;
-; altrom.inc                                   ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altrom.inc                  ;         ;
-; altram.inc                                   ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altram.inc                  ;         ;
-; altdpram.inc                                 ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altdpram.inc                ;         ;
-; db/altsyncram_6nm1.tdf                       ; yes             ; Auto-Generated Megafunction            ; C:/DESL/Quartus18/csc258-project/db/altsyncram_6nm1.tdf                       ;         ;
-; pacman_map.mif                               ; yes             ; Auto-Found Memory Initialization File  ; C:/DESL/Quartus18/csc258-project/pacman_map.mif                               ;         ;
-; db/decode_7la.tdf                            ; yes             ; Auto-Generated Megafunction            ; C:/DESL/Quartus18/csc258-project/db/decode_7la.tdf                            ;         ;
-; db/decode_01a.tdf                            ; yes             ; Auto-Generated Megafunction            ; C:/DESL/Quartus18/csc258-project/db/decode_01a.tdf                            ;         ;
-; db/mux_ifb.tdf                               ; yes             ; Auto-Generated Megafunction            ; C:/DESL/Quartus18/csc258-project/db/mux_ifb.tdf                               ;         ;
-; altpll.tdf                                   ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altpll.tdf                  ;         ;
-; stratix_pll.inc                              ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratix_pll.inc             ;         ;
-; stratixii_pll.inc                            ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratixii_pll.inc           ;         ;
-; cycloneii_pll.inc                            ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/cycloneii_pll.inc           ;         ;
-; db/altpll_80u.tdf                            ; yes             ; Auto-Generated Megafunction            ; C:/DESL/Quartus18/csc258-project/db/altpll_80u.tdf                            ;         ;
-; lpm_divide.tdf                               ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/lpm_divide.tdf              ;         ;
-; abs_divider.inc                              ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/abs_divider.inc             ;         ;
-; sign_div_unsign.inc                          ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/sign_div_unsign.inc         ;         ;
-; db/lpm_divide_92m.tdf                        ; yes             ; Auto-Generated Megafunction            ; C:/DESL/Quartus18/csc258-project/db/lpm_divide_92m.tdf                        ;         ;
-; db/sign_div_unsign_ckh.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/DESL/Quartus18/csc258-project/db/sign_div_unsign_ckh.tdf                   ;         ;
-; db/alt_u_div_use.tdf                         ; yes             ; Auto-Generated Megafunction            ; C:/DESL/Quartus18/csc258-project/db/alt_u_div_use.tdf                         ;         ;
-+----------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                           ;
++----------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path             ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; control_master.v                             ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/control_master.v                             ;         ;
+; control_pellet.v                             ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/control_pellet.v                             ;         ;
+; random_generator.v                           ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/random_generator.v                           ;         ;
+; pellet_shaper.v                              ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/pellet_shaper.v                              ;         ;
+; movement_handler.v                           ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/movement_handler.v                           ;         ;
+; control_ghost.v                              ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/control_ghost.v                              ;         ;
+; control_pacman.v                             ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/control_pacman.v                             ;         ;
+; alu.v                                        ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/alu.v                                        ;         ;
+; PS2MouseKeyboard/PS2_Mouse_Controller.v      ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Mouse_Controller.v      ;         ;
+; PS2MouseKeyboard/PS2_Keyboard_Controller.v   ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Keyboard_Controller.v   ;         ;
+; PS2MouseKeyboard/PS2_Controller.v            ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Controller.v            ;         ;
+; PS2MouseKeyboard/Altera_UP_PS2_Data_In.v     ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/Altera_UP_PS2_Data_In.v     ;         ;
+; PS2MouseKeyboard/Altera_UP_PS2_Command_Out.v ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/Altera_UP_PS2_Command_Out.v ;         ;
+; vga_pll.v                                    ; yes             ; User Wizard-Generated File             ; W:/CSC258/CSC258-Project-master/vga_pll.v                                    ;         ;
+; vga_controller.v                             ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/vga_controller.v                             ;         ;
+; vga_address_translator.v                     ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/vga_address_translator.v                     ;         ;
+; vga_adapter.v                                ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/vga_adapter.v                                ;         ;
+; run_pacman.v                                 ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/run_pacman.v                                 ;         ;
+; map_lut.v                                    ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/map_lut.v                                    ;         ;
+; pac_shaper.v                                 ; yes             ; User Verilog HDL File                  ; W:/CSC258/CSC258-Project-master/pac_shaper.v                                 ;         ;
+; altsyncram.tdf                               ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altsyncram.tdf             ;         ;
+; stratix_ram_block.inc                        ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratix_ram_block.inc      ;         ;
+; lpm_mux.inc                                  ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/lpm_mux.inc                ;         ;
+; lpm_decode.inc                               ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/lpm_decode.inc             ;         ;
+; aglobal180.inc                               ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/aglobal180.inc             ;         ;
+; a_rdenreg.inc                                ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/a_rdenreg.inc              ;         ;
+; altrom.inc                                   ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altrom.inc                 ;         ;
+; altram.inc                                   ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altram.inc                 ;         ;
+; altdpram.inc                                 ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altdpram.inc               ;         ;
+; db/altsyncram_6nm1.tdf                       ; yes             ; Auto-Generated Megafunction            ; W:/CSC258/CSC258-Project-master/db/altsyncram_6nm1.tdf                       ;         ;
+; pacman_map.mif                               ; yes             ; Auto-Found Memory Initialization File  ; W:/CSC258/CSC258-Project-master/pacman_map.mif                               ;         ;
+; db/decode_7la.tdf                            ; yes             ; Auto-Generated Megafunction            ; W:/CSC258/CSC258-Project-master/db/decode_7la.tdf                            ;         ;
+; db/decode_01a.tdf                            ; yes             ; Auto-Generated Megafunction            ; W:/CSC258/CSC258-Project-master/db/decode_01a.tdf                            ;         ;
+; db/mux_ifb.tdf                               ; yes             ; Auto-Generated Megafunction            ; W:/CSC258/CSC258-Project-master/db/mux_ifb.tdf                               ;         ;
+; altpll.tdf                                   ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/altpll.tdf                 ;         ;
+; stratix_pll.inc                              ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratix_pll.inc            ;         ;
+; stratixii_pll.inc                            ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/stratixii_pll.inc          ;         ;
+; cycloneii_pll.inc                            ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/cycloneii_pll.inc          ;         ;
+; db/altpll_80u.tdf                            ; yes             ; Auto-Generated Megafunction            ; W:/CSC258/CSC258-Project-master/db/altpll_80u.tdf                            ;         ;
+; lpm_divide.tdf                               ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/lpm_divide.tdf             ;         ;
+; abs_divider.inc                              ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/abs_divider.inc            ;         ;
+; sign_div_unsign.inc                          ; yes             ; Megafunction                           ; c:/desl/quartus18/quartus/libraries/megafunctions/sign_div_unsign.inc        ;         ;
+; db/lpm_divide_92m.tdf                        ; yes             ; Auto-Generated Megafunction            ; W:/CSC258/CSC258-Project-master/db/lpm_divide_92m.tdf                        ;         ;
+; db/sign_div_unsign_ckh.tdf                   ; yes             ; Auto-Generated Megafunction            ; W:/CSC258/CSC258-Project-master/db/sign_div_unsign_ckh.tdf                   ;         ;
+; db/alt_u_div_use.tdf                         ; yes             ; Auto-Generated Megafunction            ; W:/CSC258/CSC258-Project-master/db/alt_u_div_use.tdf                         ;         ;
++----------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -267,16 +273,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 771            ;
+; Estimate of Logic utilization (ALMs needed) ; 1027           ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 1232           ;
-;     -- 7 input functions                    ; 9              ;
-;     -- 6 input functions                    ; 292            ;
-;     -- 5 input functions                    ; 154            ;
-;     -- 4 input functions                    ; 190            ;
-;     -- <=3 input functions                  ; 587            ;
+; Combinational ALUT usage for logic          ; 1613           ;
+;     -- 7 input functions                    ; 25             ;
+;     -- 6 input functions                    ; 402            ;
+;     -- 5 input functions                    ; 225            ;
+;     -- 4 input functions                    ; 210            ;
+;     -- <=3 input functions                  ; 751            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 400            ;
+; Dedicated logic registers                   ; 501            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 94             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -288,9 +294,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 287            ;
-; Total fan-out                               ; 6594           ;
-; Average fan-out                             ; 3.60           ;
+; Maximum fan-out                             ; 352            ;
+; Total fan-out                               ; 8610           ;
+; Average fan-out                             ; 3.72           ;
 +---------------------------------------------+----------------+
 
 
@@ -299,21 +305,27 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                           ; Entity Name               ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |run_pacman                                             ; 1232 (4)            ; 400 (0)                   ; 57600             ; 0          ; 94   ; 0            ; |run_pacman                                                                                                                                                   ; run_pacman                ; work         ;
-;    |control_master:game|                                ; 1009 (84)           ; 275 (47)                  ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game                                                                                                                               ; control_master            ; work         ;
-;       |control_game:control|                            ; 32 (24)             ; 18 (12)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_game:control                                                                                                          ; control_game              ; work         ;
+; |run_pacman                                             ; 1613 (3)            ; 501 (0)                   ; 57600             ; 0          ; 94   ; 0            ; |run_pacman                                                                                                                                                   ; run_pacman                ; work         ;
+;    |control_master:game|                                ; 1390 (115)          ; 376 (78)                  ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game                                                                                                                               ; control_master            ; work         ;
+;       |control_game:control|                            ; 36 (28)             ; 22 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_game:control                                                                                                          ; control_game              ; work         ;
 ;          |counter5x5:c0|                                ; 8 (8)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_game:control|counter5x5:c0                                                                                            ; counter5x5                ; work         ;
-;       |control_ghost:g1_control|                        ; 197 (13)            ; 15 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g1_control                                                                                                      ; control_ghost             ; work         ;
-;          |movement_handler:ghost_move|                  ; 184 (122)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g1_control|movement_handler:ghost_move                                                                          ; movement_handler          ; work         ;
-;             |map_lut:map|                               ; 62 (62)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g1_control|movement_handler:ghost_move|map_lut:map                                                              ; map_lut                   ; work         ;
-;       |control_ghost:g2_control|                        ; 193 (15)            ; 15 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g2_control                                                                                                      ; control_ghost             ; work         ;
-;          |movement_handler:ghost_move|                  ; 178 (120)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move                                                                          ; movement_handler          ; work         ;
-;             |map_lut:map|                               ; 58 (58)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move|map_lut:map                                                              ; map_lut                   ; work         ;
-;       |control_pacman:pac_control|                      ; 179 (0)             ; 23 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pacman:pac_control                                                                                                    ; control_pacman            ; work         ;
-;          |movement_handler:pac_move|                    ; 155 (103)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move                                                                          ; movement_handler          ; work         ;
-;             |map_lut:map|                               ; 52 (52)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move|map_lut:map                                                              ; map_lut                   ; work         ;
+;       |control_ghost:g1_control|                        ; 197 (19)            ; 15 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g1_control                                                                                                      ; control_ghost             ; work         ;
+;          |movement_handler:ghost_move|                  ; 178 (122)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g1_control|movement_handler:ghost_move                                                                          ; movement_handler          ; work         ;
+;             |map_lut:map|                               ; 56 (56)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g1_control|movement_handler:ghost_move|map_lut:map                                                              ; map_lut                   ; work         ;
+;       |control_ghost:g2_control|                        ; 187 (15)            ; 15 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g2_control                                                                                                      ; control_ghost             ; work         ;
+;          |movement_handler:ghost_move|                  ; 172 (115)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move                                                                          ; movement_handler          ; work         ;
+;             |map_lut:map|                               ; 57 (57)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move|map_lut:map                                                              ; map_lut                   ; work         ;
+;       |control_ghost:g3_control|                        ; 179 (12)            ; 15 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g3_control                                                                                                      ; control_ghost             ; work         ;
+;          |movement_handler:ghost_move|                  ; 167 (110)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g3_control|movement_handler:ghost_move                                                                          ; movement_handler          ; work         ;
+;             |map_lut:map|                               ; 57 (57)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g3_control|movement_handler:ghost_move|map_lut:map                                                              ; map_lut                   ; work         ;
+;       |control_ghost:g4_control|                        ; 132 (5)             ; 15 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g4_control                                                                                                      ; control_ghost             ; work         ;
+;          |movement_handler:ghost_move|                  ; 127 (97)            ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g4_control|movement_handler:ghost_move                                                                          ; movement_handler          ; work         ;
+;             |map_lut:map|                               ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_ghost:g4_control|movement_handler:ghost_move|map_lut:map                                                              ; map_lut                   ; work         ;
+;       |control_pacman:pac_control|                      ; 175 (0)             ; 23 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pacman:pac_control                                                                                                    ; control_pacman            ; work         ;
+;          |movement_handler:pac_move|                    ; 151 (101)           ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move                                                                          ; movement_handler          ; work         ;
+;             |map_lut:map|                               ; 50 (50)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move|map_lut:map                                                              ; map_lut                   ; work         ;
 ;          |pac_shaper:p0|                                ; 24 (24)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pacman:pac_control|pac_shaper:p0                                                                                      ; pac_shaper                ; work         ;
-;       |control_pellet:pellet_control|                   ; 146 (6)             ; 31 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control                                                                                                 ; control_pellet            ; work         ;
+;       |control_pellet:pellet_control|                   ; 148 (6)             ; 31 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control                                                                                                 ; control_pellet            ; work         ;
 ;          |lpm_divide:Mod0|                              ; 48 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control|lpm_divide:Mod0                                                                                 ; lpm_divide                ; work         ;
 ;             |lpm_divide_92m:auto_generated|             ; 48 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control|lpm_divide:Mod0|lpm_divide_92m:auto_generated                                                   ; lpm_divide_92m            ; work         ;
 ;                |sign_div_unsign_ckh:divider|            ; 48 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control|lpm_divide:Mod0|lpm_divide_92m:auto_generated|sign_div_unsign_ckh:divider                       ; sign_div_unsign_ckh       ; work         ;
@@ -322,10 +334,13 @@ refer to the applicable agreement for further details.
 ;             |lpm_divide_92m:auto_generated|             ; 49 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control|lpm_divide:Mod1|lpm_divide_92m:auto_generated                                                   ; lpm_divide_92m            ; work         ;
 ;                |sign_div_unsign_ckh:divider|            ; 49 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control|lpm_divide:Mod1|lpm_divide_92m:auto_generated|sign_div_unsign_ckh:divider                       ; sign_div_unsign_ckh       ; work         ;
 ;                   |alt_u_div_use:divider|               ; 49 (49)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control|lpm_divide:Mod1|lpm_divide_92m:auto_generated|sign_div_unsign_ckh:divider|alt_u_div_use:divider ; alt_u_div_use             ; work         ;
-;          |map_lut:map|                                  ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control|map_lut:map                                                                                     ; map_lut                   ; work         ;
+;          |map_lut:map|                                  ; 26 (26)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control|map_lut:map                                                                                     ; map_lut                   ; work         ;
 ;          |random_generator:rng|                         ; 19 (19)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|control_pellet:pellet_control|random_generator:rng                                                                            ; random_generator          ; work         ;
-;       |data5x5:g1_data|                                 ; 12 (12)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|data5x5:g1_data                                                                                                               ; data5x5                   ; work         ;
-;       |data5x5:g2_data|                                 ; 44 (44)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|data5x5:g2_data                                                                                                               ; data5x5                   ; work         ;
+;       |counter_ghost:g1_count|                          ; 7 (7)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|counter_ghost:g1_count                                                                                                        ; counter_ghost             ; work         ;
+;       |data5x5:g1_data|                                 ; 11 (11)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|data5x5:g1_data                                                                                                               ; data5x5                   ; work         ;
+;       |data5x5:g2_data|                                 ; 11 (11)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|data5x5:g2_data                                                                                                               ; data5x5                   ; work         ;
+;       |data5x5:g3_data|                                 ; 12 (12)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|data5x5:g3_data                                                                                                               ; data5x5                   ; work         ;
+;       |data5x5:g4_data|                                 ; 58 (58)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|data5x5:g4_data                                                                                                               ; data5x5                   ; work         ;
 ;       |data5x5:pac_data|                                ; 18 (18)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|data5x5:pac_data                                                                                                              ; data5x5                   ; work         ;
 ;       |data5x5:pellet_data|                             ; 19 (19)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|data5x5:pellet_data                                                                                                           ; data5x5                   ; work         ;
 ;       |pellet_shaper:pellet_shape|                      ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|control_master:game|pellet_shaper:pellet_shape                                                                                                    ; pellet_shaper             ; work         ;
@@ -338,7 +353,7 @@ refer to the applicable agreement for further details.
 ;    |hex_decoder:h3|                                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|hex_decoder:h3                                                                                                                                    ; hex_decoder               ; work         ;
 ;    |hex_decoder:h4|                                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|hex_decoder:h4                                                                                                                                    ; hex_decoder               ; work         ;
 ;    |hex_decoder:h5|                                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|hex_decoder:h5                                                                                                                                    ; hex_decoder               ; work         ;
-;    |keyboard_tracker:tester|                            ; 114 (8)             ; 95 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|keyboard_tracker:tester                                                                                                                           ; keyboard_tracker          ; work         ;
+;    |keyboard_tracker:tester|                            ; 115 (9)             ; 95 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|keyboard_tracker:tester                                                                                                                           ; keyboard_tracker          ; work         ;
 ;       |PS2_Controller:core_driver|                      ; 106 (6)             ; 90 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver                                                                                                ; PS2_Controller            ; work         ;
 ;          |Altera_UP_PS2_Command_Out:PS2_Command_Out|    ; 86 (86)             ; 60 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out                                                      ; Altera_UP_PS2_Command_Out ; work         ;
 ;          |Altera_UP_PS2_Data_In:PS2_Data_In|            ; 14 (14)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Data_In:PS2_Data_In                                                              ; Altera_UP_PS2_Data_In     ; work         ;
@@ -467,24 +482,28 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |run_pacman|control_master:game|control_game:control|current_state                                                                                                                                                                                                                            ;
-+----------------------------+------------------+------------------------+-------------------------+------------------+-------------------+----------------------+------------------------+-------------------------+----------------------------+--------------------+--------------------+--------------------+
-; Name                       ; current_state.G2 ; current_state.ERASE_G2 ; current_state.INIT_RAND ; current_state.G1 ; current_state.PAC ; current_state.PELLET ; current_state.ERASE_G1 ; current_state.ERASE_PAC ; current_state.ERASE_PELLET ; current_state.COMP ; current_state.LOAD ; current_state.WAIT ;
-+----------------------------+------------------+------------------------+-------------------------+------------------+-------------------+----------------------+------------------------+-------------------------+----------------------------+--------------------+--------------------+--------------------+
-; current_state.WAIT         ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 0                  ;
-; current_state.LOAD         ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 1                  ; 1                  ;
-; current_state.COMP         ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 1                  ; 0                  ; 1                  ;
-; current_state.ERASE_PELLET ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 1                          ; 0                  ; 0                  ; 1                  ;
-; current_state.ERASE_PAC    ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 1                       ; 0                          ; 0                  ; 0                  ; 1                  ;
-; current_state.ERASE_G1     ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 1                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
-; current_state.PELLET       ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 1                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
-; current_state.PAC          ; 0                ; 0                      ; 0                       ; 0                ; 1                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
-; current_state.G1           ; 0                ; 0                      ; 0                       ; 1                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
-; current_state.INIT_RAND    ; 0                ; 0                      ; 1                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
-; current_state.ERASE_G2     ; 0                ; 1                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
-; current_state.G2           ; 1                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
-+----------------------------+------------------+------------------------+-------------------------+------------------+-------------------+----------------------+------------------------+-------------------------+----------------------------+--------------------+--------------------+--------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |run_pacman|control_master:game|control_game:control|current_state                                                                                                                                                                                                                                                                                                                    ;
++----------------------------+------------------+------------------------+------------------+------------------------+------------------+------------------------+-------------------------+------------------+-------------------+----------------------+------------------------+-------------------------+----------------------------+--------------------+--------------------+--------------------+
+; Name                       ; current_state.G4 ; current_state.ERASE_G4 ; current_state.G3 ; current_state.ERASE_G3 ; current_state.G2 ; current_state.ERASE_G2 ; current_state.INIT_RAND ; current_state.G1 ; current_state.PAC ; current_state.PELLET ; current_state.ERASE_G1 ; current_state.ERASE_PAC ; current_state.ERASE_PELLET ; current_state.COMP ; current_state.LOAD ; current_state.WAIT ;
++----------------------------+------------------+------------------------+------------------+------------------------+------------------+------------------------+-------------------------+------------------+-------------------+----------------------+------------------------+-------------------------+----------------------------+--------------------+--------------------+--------------------+
+; current_state.WAIT         ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 0                  ;
+; current_state.LOAD         ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 1                  ; 1                  ;
+; current_state.COMP         ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 1                  ; 0                  ; 1                  ;
+; current_state.ERASE_PELLET ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 1                          ; 0                  ; 0                  ; 1                  ;
+; current_state.ERASE_PAC    ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 1                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.ERASE_G1     ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 1                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.PELLET       ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 1                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.PAC          ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 1                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.G1           ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 1                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.INIT_RAND    ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 1                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.ERASE_G2     ; 0                ; 0                      ; 0                ; 0                      ; 0                ; 1                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.G2           ; 0                ; 0                      ; 0                ; 0                      ; 1                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.ERASE_G3     ; 0                ; 0                      ; 0                ; 1                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.G3           ; 0                ; 0                      ; 1                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.ERASE_G4     ; 0                ; 1                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
+; current_state.G4           ; 1                ; 0                      ; 0                ; 0                      ; 0                ; 0                      ; 0                       ; 0                ; 0                 ; 0                    ; 0                      ; 0                       ; 0                          ; 0                  ; 0                  ; 1                  ;
++----------------------------+------------------+------------------------+------------------+------------------------+------------------+------------------------+-------------------------+------------------+-------------------+----------------------+------------------------+-------------------------+----------------------------+--------------------+--------------------+--------------------+
 
 
 +---------------------------------------------------------------------------------------------------------+
@@ -506,7 +525,7 @@ Encoding Type:  One-Hot
 ; control_master:game|x[3]                            ; control_master:game|Mux0 ; yes                    ;
 ; control_master:game|x[4]                            ; control_master:game|Mux0 ; yes                    ;
 ; control_master:game|colour[1]                       ; control_master:game|Mux0 ; yes                    ;
-; control_master:game|dead                            ; control_master:game|dead ; yes                    ;
+; control_master:game|colour[0]                       ; control_master:game|Mux0 ; yes                    ;
 ; control_master:game|y[0]                            ; control_master:game|Mux0 ; yes                    ;
 ; control_master:game|y[1]                            ; control_master:game|Mux0 ; yes                    ;
 ; control_master:game|y[2]                            ; control_master:game|Mux0 ; yes                    ;
@@ -525,6 +544,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; control_master:game|control_pellet:pellet_control|x[6,7]                                                                                      ; Merged with control_master:game|control_pellet:pellet_control|x[5]                                                      ;
 ; control_master:game|control_pellet:pellet_control|y[5,6]                                                                                      ; Merged with control_master:game|control_pellet:pellet_control|x[5]                                                      ;
 ; keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[1..7]                                ; Merged with keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0] ;
+; control_master:game|counter_ghost:g4_count|q[5]                                                                                               ; Merged with control_master:game|counter_ghost:g1_count|q[5]                                                             ;
+; control_master:game|counter_ghost:g4_count|q[4]                                                                                               ; Merged with control_master:game|counter_ghost:g1_count|q[4]                                                             ;
+; control_master:game|counter_ghost:g4_count|q[3]                                                                                               ; Merged with control_master:game|counter_ghost:g1_count|q[3]                                                             ;
+; control_master:game|counter_ghost:g4_count|q[2]                                                                                               ; Merged with control_master:game|counter_ghost:g1_count|q[2]                                                             ;
+; control_master:game|counter_ghost:g4_count|q[1]                                                                                               ; Merged with control_master:game|counter_ghost:g1_count|q[1]                                                             ;
+; control_master:game|counter_ghost:g4_count|q[0]                                                                                               ; Merged with control_master:game|counter_ghost:g1_count|q[0]                                                             ;
 ; keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0]                                   ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; control_master:game|control_pellet:pellet_control|x[5]                                                                                        ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; keyboard_tracker:tester|curr_state~5                                                                                                          ; Lost fanout                                                                                                             ;
@@ -599,7 +624,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_0_IDLE               ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT   ; Lost fanout                                                                                                             ;
 ; keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR ; Lost fanout                                                                                                             ;
-; Total Number of Removed Registers = 94                                                                                                        ;                                                                                                                         ;
+; Total Number of Removed Registers = 100                                                                                                       ;                                                                                                                         ;
 +-----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -629,12 +654,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 400   ;
-; Number of registers using Synchronous Clear  ; 160   ;
-; Number of registers using Synchronous Load   ; 12    ;
+; Total registers                              ; 501   ;
+; Number of registers using Synchronous Clear  ; 167   ;
+; Number of registers using Synchronous Load   ; 13    ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 276   ;
+; Number of registers using Clock Enable       ; 369   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -651,6 +676,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; control_master:game|control_pellet:pellet_control|x[3]                              ; 22      ;
 ; control_master:game|control_pellet:pellet_control|random_generator:rng|curr_rand[1] ; 7       ;
 ; control_master:game|control_pellet:pellet_control|random_generator:rng|curr_rand[3] ; 8       ;
+; control_master:game|random_generator:rng|curr_rand[1]                               ; 159     ;
 ; control_master:game|control_pellet:pellet_control|random_generator:rng|curr_rand[7] ; 8       ;
 ; control_master:game|control_pellet:pellet_control|random_generator:rng|counter[0]   ; 3       ;
 ; control_master:game|random_generator:rng|curr_rand[7]                               ; 4       ;
@@ -658,48 +684,56 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; control_master:game|control_pellet:pellet_control|random_generator:rng|curr_rand[5] ; 6       ;
 ; control_master:game|random_generator:rng|curr_rand[5]                               ; 1       ;
 ; control_master:game|random_generator:rng|curr_rand[3]                               ; 1       ;
-; control_master:game|random_generator:rng|curr_rand[1]                               ; 1       ;
 ; Total number of inverted registers = 15                                             ;         ;
 +-------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[0]                     ;
-; 3:1                ; 18 bits   ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |run_pacman|control_master:game|rate_divider:div|count[25]                                                                            ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |run_pacman|control_master:game|rate_divider:div|count[10]                                                                            ;
-; 3:1                ; 23 bits   ; 46 LEs        ; 0 LEs                ; 46 LEs                 ; Yes        ; |run_pacman|control_master:game|score_alu:alu|score_reg[5]                                                                            ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[2]                    ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |run_pacman|vga_adapter:VGA|vga_controller:controller|yCounter[9]                                                                     ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[13] ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[2]           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[2]                   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[1]                        ;
-; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[12]         ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |run_pacman|control_master:game|control_game:control|counter5x5:c0|q[0]                                                               ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |run_pacman|control_master:game|control_game:control|counter5x5:c0|q[2]                                                               ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move|x[0]                                             ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move|x[4]                                             ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g1_control|movement_handler:ghost_move|x[5]                                             ;
-; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move|y[1]                                             ;
-; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |run_pacman|control_master:game|control_ghost:g1_control|movement_handler:ghost_move|y[5]                                             ;
-; 10:1               ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move|x[5]                                             ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move|x[2]                                             ;
-; 11:1               ; 5 bits    ; 35 LEs        ; 20 LEs               ; 15 LEs                 ; Yes        ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move|y[2]                                             ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move|y[1]                                             ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |run_pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|mux_ifb:mux3|result_node[1]                         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |run_pacman|keyboard_tracker:tester|curr_state                                                                                        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_master:game|control_game:control|current_state                                                                    ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move|Mux4                                             ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_master:game|control_ghost:g1_control|movement_handler:ghost_move|Mux1                                             ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |run_pacman|keyboard_tracker:tester|curr_state                                                                                        ;
-; 8:1                ; 21 bits   ; 105 LEs       ; 0 LEs                ; 105 LEs                ; No         ; |run_pacman|control_master:game|Mux12                                                                                                 ;
-; 8:1                ; 15 bits   ; 75 LEs        ; 30 LEs               ; 45 LEs                 ; No         ; |run_pacman|control_master:game|data5x5:g2_data|Add3                                                                                  ;
-; 14:1               ; 2 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |run_pacman|control_master:game|control_pacman:pac_control|pac_shaper:p0|next_ani                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[6]                    ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |run_pacman|control_master:game|rate_divider:div|count[7]                                                                            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |run_pacman|control_master:game|rate_divider:div|count[16]                                                                           ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 0 LEs                ; 46 LEs                 ; Yes        ; |run_pacman|control_master:game|score_alu:alu|score_reg[15]                                                                          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[0]                   ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |run_pacman|vga_adapter:VGA|vga_controller:controller|yCounter[9]                                                                    ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[2] ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[1]          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[3]                  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[3]                       ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |run_pacman|keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[3]         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |run_pacman|control_master:game|control_game:control|counter5x5:c0|q[1]                                                              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |run_pacman|control_master:game|control_game:control|counter5x5:c0|q[5]                                                              ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g4_control|movement_handler:ghost_move|x[7]                                            ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g4_control|movement_handler:ghost_move|x[4]                                            ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g3_control|movement_handler:ghost_move|x[6]                                            ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move|x[7]                                            ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move|x[4]                                            ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g1_control|movement_handler:ghost_move|x[7]                                            ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g4_control|movement_handler:ghost_move|y[0]                                            ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g4_control|movement_handler:ghost_move|y[4]                                            ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g3_control|movement_handler:ghost_move|y[6]                                            ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |run_pacman|control_master:game|control_ghost:g3_control|movement_handler:ghost_move|y[4]                                            ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move|y[6]                                            ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |run_pacman|control_master:game|control_ghost:g1_control|movement_handler:ghost_move|y[6]                                            ;
+; 10:1               ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move|x[7]                                            ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move|x[0]                                            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 20 LEs               ; 15 LEs                 ; Yes        ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move|y[2]                                            ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |run_pacman|control_master:game|control_pacman:pac_control|movement_handler:pac_move|y[1]                                            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |run_pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|mux_ifb:mux3|result_node[0]                        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |run_pacman|keyboard_tracker:tester|curr_state                                                                                       ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_master:game|control_game:control|current_state                                                                   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_master:game|control_ghost:g4_control|movement_handler:ghost_move|Mux6                                            ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_master:game|control_ghost:g3_control|movement_handler:ghost_move|Mux5                                            ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_master:game|control_ghost:g2_control|movement_handler:ghost_move|Mux1                                            ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |run_pacman|control_master:game|control_ghost:g1_control|movement_handler:ghost_move|Mux0                                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |run_pacman|keyboard_tracker:tester|curr_state                                                                                       ;
+; 12:1               ; 21 bits   ; 168 LEs       ; 0 LEs                ; 168 LEs                ; No         ; |run_pacman|control_master:game|Mux12                                                                                                ;
+; 12:1               ; 15 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; No         ; |run_pacman|control_master:game|data5x5:g4_data|Add3                                                                                 ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |run_pacman|control_master:game|control_pacman:pac_control|pac_shaper:p0|next_ani                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------+
@@ -1354,6 +1388,76 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control_master:game|control_ghost:g4_control"                                                                                                            ;
++-----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type  ; Severity ; Details                                                                                                                                        ;
++-----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; random_in[7..1] ; Input ; Info     ; Stuck at GND                                                                                                                                   ;
+; y_dest          ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (7 bits) it drives.  Extra input bit(s) "y_dest[6..1]" will be connected to GND. ;
+; x_reset[4..3]   ; Input ; Info     ; Stuck at VCC                                                                                                                                   ;
+; x_reset[7..5]   ; Input ; Info     ; Stuck at GND                                                                                                                                   ;
+; x_reset[2..0]   ; Input ; Info     ; Stuck at GND                                                                                                                                   ;
+; y_reset[2..1]   ; Input ; Info     ; Stuck at VCC                                                                                                                                   ;
+; y_reset[6..5]   ; Input ; Info     ; Stuck at GND                                                                                                                                   ;
+; y_reset[4]      ; Input ; Info     ; Stuck at VCC                                                                                                                                   ;
+; y_reset[3]      ; Input ; Info     ; Stuck at GND                                                                                                                                   ;
+; y_reset[0]      ; Input ; Info     ; Stuck at GND                                                                                                                                   ;
++-----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "control_master:game|data5x5:g4_data" ;
++--------------+-------+----------+-------------------------------+
+; Port         ; Type  ; Severity ; Details                       ;
++--------------+-------+----------+-------------------------------+
+; colour[1..0] ; Input ; Info     ; Stuck at VCC                  ;
+; colour[2]    ; Input ; Info     ; Stuck at GND                  ;
++--------------+-------+----------+-------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "control_master:game|counter_ghost:g4_count" ;
++--------------+-------+----------+--------------------------------------+
+; Port         ; Type  ; Severity ; Details                              ;
++--------------+-------+----------+--------------------------------------+
+; period[3..2] ; Input ; Info     ; Stuck at VCC                         ;
+; period[9..6] ; Input ; Info     ; Stuck at GND                         ;
+; period[5]    ; Input ; Info     ; Stuck at VCC                         ;
+; period[4]    ; Input ; Info     ; Stuck at GND                         ;
+; period[1]    ; Input ; Info     ; Stuck at GND                         ;
+; period[0]    ; Input ; Info     ; Stuck at VCC                         ;
++--------------+-------+----------+--------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "control_master:game|control_ghost:g3_control" ;
++-----------------+-------+----------+-------------------------------------+
+; Port            ; Type  ; Severity ; Details                             ;
++-----------------+-------+----------+-------------------------------------+
+; random_in[7..1] ; Input ; Info     ; Stuck at GND                        ;
+; x_reset[7..2]   ; Input ; Info     ; Stuck at GND                        ;
+; x_reset[1]      ; Input ; Info     ; Stuck at VCC                        ;
+; x_reset[0]      ; Input ; Info     ; Stuck at GND                        ;
+; y_reset[2..1]   ; Input ; Info     ; Stuck at VCC                        ;
+; y_reset[6..5]   ; Input ; Info     ; Stuck at GND                        ;
+; y_reset[4]      ; Input ; Info     ; Stuck at VCC                        ;
+; y_reset[3]      ; Input ; Info     ; Stuck at GND                        ;
+; y_reset[0]      ; Input ; Info     ; Stuck at GND                        ;
++-----------------+-------+----------+-------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "control_master:game|data5x5:g3_data" ;
++-----------+-------+----------+----------------------------------+
+; Port      ; Type  ; Severity ; Details                          ;
++-----------+-------+----------+----------------------------------+
+; colour[2] ; Input ; Info     ; Stuck at VCC                     ;
+; colour[1] ; Input ; Info     ; Stuck at GND                     ;
+; colour[0] ; Input ; Info     ; Stuck at VCC                     ;
++-----------+-------+----------+----------------------------------+
+
+
 +--------------------------------------------------------------------------+
 ; Port Connectivity Checks: "control_master:game|control_ghost:g2_control" ;
 +---------------+-------+----------+---------------------------------------+
@@ -1408,6 +1512,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; colour[1..0] ; Input ; Info     ; Stuck at GND                  ;
 ; colour[2]    ; Input ; Info     ; Stuck at VCC                  ;
 +--------------+-------+----------+-------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "control_master:game|counter_ghost:g1_count" ;
++--------------+-------+----------+--------------------------------------+
+; Port         ; Type  ; Severity ; Details                              ;
++--------------+-------+----------+--------------------------------------+
+; period[4..1] ; Input ; Info     ; Stuck at VCC                         ;
+; period[9..5] ; Input ; Info     ; Stuck at GND                         ;
+; period[0]    ; Input ; Info     ; Stuck at GND                         ;
++--------------+-------+----------+--------------------------------------+
 
 
 +---------------------------------------------------------------------+
@@ -1470,33 +1585,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 400                         ;
+; arriav_ff             ; 501                         ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 177                         ;
+;     ENA               ; 270                         ;
 ;     ENA CLR SCLR      ; 10                          ;
 ;     ENA SCLR          ; 89                          ;
-;     SCLR              ; 51                          ;
-;     SLD               ; 12                          ;
+;     SCLR              ; 58                          ;
+;     SLD               ; 13                          ;
 ;     plain             ; 51                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 1240                        ;
-;     arith             ; 383                         ;
+; arriav_lcell_comb     ; 1622                        ;
+;     arith             ; 502                         ;
 ;         0 data inputs ; 10                          ;
-;         1 data inputs ; 187                         ;
-;         2 data inputs ; 59                          ;
-;         3 data inputs ; 74                          ;
-;         4 data inputs ; 38                          ;
-;         5 data inputs ; 15                          ;
-;     extend            ; 9                           ;
-;         7 data inputs ; 9                           ;
-;     normal            ; 822                         ;
+;         1 data inputs ; 208                         ;
+;         2 data inputs ; 90                          ;
+;         3 data inputs ; 134                         ;
+;         4 data inputs ; 39                          ;
+;         5 data inputs ; 21                          ;
+;     extend            ; 25                          ;
+;         7 data inputs ; 25                          ;
+;     normal            ; 1069                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 16                          ;
-;         2 data inputs ; 76                          ;
-;         3 data inputs ; 145                         ;
-;         4 data inputs ; 152                         ;
-;         5 data inputs ; 139                         ;
-;         6 data inputs ; 292                         ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 92                          ;
+;         3 data inputs ; 181                         ;
+;         4 data inputs ; 171                         ;
+;         5 data inputs ; 204                         ;
+;         6 data inputs ; 402                         ;
 ;     shared            ; 26                          ;
 ;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 9                           ;
@@ -1506,8 +1621,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.30                       ;
-; Average LUT depth     ; 5.04                        ;
+; Max LUT depth         ; 12.40                       ;
+; Average LUT depth     ; 5.69                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1516,7 +1631,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:08     ;
 +----------------+--------------+
 
 
@@ -1526,126 +1641,128 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
-    Info: Processing started: Mon Apr 01 20:49:03 2019
+    Info: Processing started: Tue Apr 02 20:11:40 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off run_pacman -c run_pacman
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 2 entities, in source file control_master.v
+    Info (12023): Found entity 1: control_master File: W:/CSC258/CSC258-Project-master/control_master.v Line: 12
+    Info (12023): Found entity 2: control_game File: W:/CSC258/CSC258-Project-master/control_master.v Line: 389
 Warning (12019): Can't analyze file -- file pellet_datapath.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file control_pellet.v
-    Info (12023): Found entity 1: control_pellet File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 1
-Info (12021): Found 2 design units, including 2 entities, in source file wip.v
-    Info (12023): Found entity 1: control_master File: C:/DESL/Quartus18/csc258-project/wip.v Line: 12
-    Info (12023): Found entity 2: control_game File: C:/DESL/Quartus18/csc258-project/wip.v Line: 258
+    Info (12023): Found entity 1: control_pellet File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file random_generator.v
-    Info (12023): Found entity 1: random_generator File: C:/DESL/Quartus18/csc258-project/random_generator.v Line: 1
+    Info (12023): Found entity 1: random_generator File: W:/CSC258/CSC258-Project-master/random_generator.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file pellet_shaper.v
-    Info (12023): Found entity 1: pellet_shaper File: C:/DESL/Quartus18/csc258-project/pellet_shaper.v Line: 1
+    Info (12023): Found entity 1: pellet_shaper File: W:/CSC258/CSC258-Project-master/pellet_shaper.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file movement_handler.v
-    Info (12023): Found entity 1: movement_handler File: C:/DESL/Quartus18/csc258-project/movement_handler.v Line: 63
+    Info (12023): Found entity 1: movement_handler File: W:/CSC258/CSC258-Project-master/movement_handler.v Line: 63
 Info (12021): Found 1 design units, including 1 entities, in source file control_ghost.v
-    Info (12023): Found entity 1: control_ghost File: C:/DESL/Quartus18/csc258-project/control_ghost.v Line: 1
+    Info (12023): Found entity 1: control_ghost File: W:/CSC258/CSC258-Project-master/control_ghost.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file control_pacman.v
-    Info (12023): Found entity 1: control_pacman File: C:/DESL/Quartus18/csc258-project/control_pacman.v Line: 1
+    Info (12023): Found entity 1: control_pacman File: W:/CSC258/CSC258-Project-master/control_pacman.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
-    Info (12023): Found entity 1: score_alu File: C:/DESL/Quartus18/csc258-project/alu.v Line: 1
+    Info (12023): Found entity 1: score_alu File: W:/CSC258/CSC258-Project-master/alu.v Line: 1
 Info (12021): Found 3 design units, including 3 entities, in source file ps2mousekeyboard/ps2_mouse_controller.v
-    Info (12023): Found entity 1: mouse_tracker File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 120
-    Info (12023): Found entity 2: mouse_interface_test File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 303
-    Info (12023): Found entity 3: hex_decoder File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 374
+    Info (12023): Found entity 1: mouse_tracker File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 120
+    Info (12023): Found entity 2: mouse_interface_test File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 303
+    Info (12023): Found entity 3: hex_decoder File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Mouse_Controller.v Line: 374
 Info (12021): Found 3 design units, including 3 entities, in source file ps2mousekeyboard/ps2_keyboard_controller.v
-    Info (12023): Found entity 1: keyboard_tracker File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 117
-    Info (12023): Found entity 2: keyboard_interface_test_mode0 File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 333
-    Info (12023): Found entity 3: keyboard_interface_test_mode1 File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 367
+    Info (12023): Found entity 1: keyboard_tracker File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 117
+    Info (12023): Found entity 2: keyboard_interface_test_mode0 File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 333
+    Info (12023): Found entity 3: keyboard_interface_test_mode1 File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 367
 Info (12021): Found 1 design units, including 1 entities, in source file ps2mousekeyboard/ps2_controller.v
-    Info (12023): Found entity 1: PS2_Controller File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Controller.v Line: 9
+    Info (12023): Found entity 1: PS2_Controller File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file ps2mousekeyboard/altera_up_ps2_data_in.v
-    Info (12023): Found entity 1: Altera_UP_PS2_Data_In File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/Altera_UP_PS2_Data_In.v Line: 10
+    Info (12023): Found entity 1: Altera_UP_PS2_Data_In File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/Altera_UP_PS2_Data_In.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file ps2mousekeyboard/altera_up_ps2_command_out.v
-    Info (12023): Found entity 1: Altera_UP_PS2_Command_Out File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/Altera_UP_PS2_Command_Out.v Line: 10
+    Info (12023): Found entity 1: Altera_UP_PS2_Command_Out File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/Altera_UP_PS2_Command_Out.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file vga_pll.v
-    Info (12023): Found entity 1: vga_pll File: C:/DESL/Quartus18/csc258-project/vga_pll.v Line: 36
+    Info (12023): Found entity 1: vga_pll File: W:/CSC258/CSC258-Project-master/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.v
-    Info (12023): Found entity 1: vga_controller File: C:/DESL/Quartus18/csc258-project/vga_controller.v Line: 9
+    Info (12023): Found entity 1: vga_controller File: W:/CSC258/CSC258-Project-master/vga_controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file vga_address_translator.v
-    Info (12023): Found entity 1: vga_address_translator File: C:/DESL/Quartus18/csc258-project/vga_address_translator.v Line: 4
+    Info (12023): Found entity 1: vga_address_translator File: W:/CSC258/CSC258-Project-master/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter.v
-    Info (12023): Found entity 1: vga_adapter File: C:/DESL/Quartus18/csc258-project/vga_adapter.v Line: 78
-Info (12021): Found 4 design units, including 4 entities, in source file run_pacman.v
-    Info (12023): Found entity 1: run_pacman File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 1
-    Info (12023): Found entity 2: data5x5 File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 63
-    Info (12023): Found entity 3: counter5x5 File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 107
-    Info (12023): Found entity 4: rate_divider File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 128
+    Info (12023): Found entity 1: vga_adapter File: W:/CSC258/CSC258-Project-master/vga_adapter.v Line: 78
+Info (12021): Found 5 design units, including 5 entities, in source file run_pacman.v
+    Info (12023): Found entity 1: run_pacman File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 1
+    Info (12023): Found entity 2: data5x5 File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 63
+    Info (12023): Found entity 3: counter5x5 File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 107
+    Info (12023): Found entity 4: rate_divider File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 128
+    Info (12023): Found entity 5: counter_ghost File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 148
 Warning (12019): Can't analyze file -- file pacShifter.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file map_lut.v
-    Info (12023): Found entity 1: map_lut File: C:/DESL/Quartus18/csc258-project/map_lut.v Line: 1
+    Info (12023): Found entity 1: map_lut File: W:/CSC258/CSC258-Project-master/map_lut.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file pac_shaper.v
-    Info (12023): Found entity 1: pac_shaper File: C:/DESL/Quartus18/csc258-project/pac_shaper.v Line: 1
+    Info (12023): Found entity 1: pac_shaper File: W:/CSC258/CSC258-Project-master/pac_shaper.v Line: 1
 Warning (12019): Can't analyze file -- file pellet_map.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file test_ghost.v
-    Info (12023): Found entity 1: controlable_ghost File: C:/DESL/Quartus18/csc258-project/test_ghost.v Line: 1
+    Info (12023): Found entity 1: controlable_ghost File: W:/CSC258/CSC258-Project-master/test_ghost.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at control_master.v(289): created implicit net for "y_g4_de3st" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 289
 Info (12127): Elaborating entity "run_pacman" for the top level hierarchy
-Info (10264): Verilog HDL Case Statement information at run_pacman.v(25): all case item expressions in this case statement are onehot File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 25
-Warning (10034): Output port "LEDR" at run_pacman.v(10) has no driver File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
-Info (12128): Elaborating entity "control_master" for hierarchy "control_master:game" File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 43
-Warning (10270): Verilog HDL Case Statement warning at wip.v(216): incomplete case statement has no default case item File: C:/DESL/Quartus18/csc258-project/wip.v Line: 216
-Warning (10240): Verilog HDL Always Construct warning at wip.v(213): inferring latch(es) for variable "dead", which holds its previous value in one or more paths through the always construct File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Warning (10240): Verilog HDL Always Construct warning at wip.v(213): inferring latch(es) for variable "x", which holds its previous value in one or more paths through the always construct File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Warning (10240): Verilog HDL Always Construct warning at wip.v(213): inferring latch(es) for variable "y", which holds its previous value in one or more paths through the always construct File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Warning (10240): Verilog HDL Always Construct warning at wip.v(213): inferring latch(es) for variable "colour", which holds its previous value in one or more paths through the always construct File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "colour[0]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "colour[1]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "colour[2]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "y[0]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "y[1]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "y[2]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "y[3]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "y[4]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "y[5]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "y[6]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "x[0]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "x[1]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "x[2]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "x[3]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "x[4]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "x[5]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "x[6]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "x[7]" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (10041): Inferred latch for "dead" at wip.v(213) File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-Info (12128): Elaborating entity "score_alu" for hierarchy "control_master:game|score_alu:alu" File: C:/DESL/Quartus18/csc258-project/wip.v Line: 38
-Info (12128): Elaborating entity "random_generator" for hierarchy "control_master:game|random_generator:rng" File: C:/DESL/Quartus18/csc258-project/wip.v Line: 42
-Info (12128): Elaborating entity "rate_divider" for hierarchy "control_master:game|rate_divider:div" File: C:/DESL/Quartus18/csc258-project/wip.v Line: 46
-Info (12128): Elaborating entity "control_game" for hierarchy "control_master:game|control_game:control" File: C:/DESL/Quartus18/csc258-project/wip.v Line: 69
-Warning (10270): Verilog HDL Case Statement warning at wip.v(301): incomplete case statement has no default case item File: C:/DESL/Quartus18/csc258-project/wip.v Line: 301
-Info (10264): Verilog HDL Case Statement information at wip.v(301): all case item expressions in this case statement are onehot File: C:/DESL/Quartus18/csc258-project/wip.v Line: 301
-Info (12128): Elaborating entity "counter5x5" for hierarchy "control_master:game|control_game:control|counter5x5:c0" File: C:/DESL/Quartus18/csc258-project/wip.v Line: 277
-Info (12128): Elaborating entity "data5x5" for hierarchy "control_master:game|data5x5:pac_data" File: C:/DESL/Quartus18/csc258-project/wip.v Line: 89
-Info (12128): Elaborating entity "control_pacman" for hierarchy "control_master:game|control_pacman:pac_control" File: C:/DESL/Quartus18/csc258-project/wip.v Line: 96
-Info (12128): Elaborating entity "pac_shaper" for hierarchy "control_master:game|control_pacman:pac_control|pac_shaper:p0" File: C:/DESL/Quartus18/csc258-project/control_pacman.v Line: 15
-Info (12128): Elaborating entity "movement_handler" for hierarchy "control_master:game|control_pacman:pac_control|movement_handler:pac_move" File: C:/DESL/Quartus18/csc258-project/control_pacman.v Line: 24
-Warning (10855): Verilog HDL warning at movement_handler.v(80): initial value for variable x should be constant File: C:/DESL/Quartus18/csc258-project/movement_handler.v Line: 80
-Warning (10855): Verilog HDL warning at movement_handler.v(80): initial value for variable y should be constant File: C:/DESL/Quartus18/csc258-project/movement_handler.v Line: 80
-Warning (10270): Verilog HDL Case Statement warning at movement_handler.v(88): incomplete case statement has no default case item File: C:/DESL/Quartus18/csc258-project/movement_handler.v Line: 88
-Warning (10230): Verilog HDL assignment warning at movement_handler.v(115): truncated value with size 8 to match size of target (7) File: C:/DESL/Quartus18/csc258-project/movement_handler.v Line: 115
-Warning (10230): Verilog HDL assignment warning at movement_handler.v(125): truncated value with size 8 to match size of target (7) File: C:/DESL/Quartus18/csc258-project/movement_handler.v Line: 125
-Info (12128): Elaborating entity "map_lut" for hierarchy "control_master:game|control_pacman:pac_control|movement_handler:pac_move|map_lut:map" File: C:/DESL/Quartus18/csc258-project/movement_handler.v Line: 96
-Info (12128): Elaborating entity "pellet_shaper" for hierarchy "control_master:game|pellet_shaper:pellet_shape" File: C:/DESL/Quartus18/csc258-project/wip.v Line: 118
-Info (12128): Elaborating entity "control_pellet" for hierarchy "control_master:game|control_pellet:pellet_control" File: C:/DESL/Quartus18/csc258-project/wip.v Line: 125
-Warning (10270): Verilog HDL Case Statement warning at control_pellet.v(38): incomplete case statement has no default case item File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 38
-Info (10264): Verilog HDL Case Statement information at control_pellet.v(38): all case item expressions in this case statement are onehot File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 38
-Warning (10230): Verilog HDL assignment warning at control_pellet.v(53): truncated value with size 32 to match size of target (8) File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 53
-Warning (10230): Verilog HDL assignment warning at control_pellet.v(54): truncated value with size 32 to match size of target (7) File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 54
-Warning (10230): Verilog HDL assignment warning at control_pellet.v(60): truncated value with size 32 to match size of target (8) File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 60
-Warning (10230): Verilog HDL assignment warning at control_pellet.v(61): truncated value with size 32 to match size of target (7) File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 61
-Warning (10230): Verilog HDL assignment warning at control_pellet.v(66): truncated value with size 32 to match size of target (8) File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 66
-Warning (10230): Verilog HDL assignment warning at control_pellet.v(67): truncated value with size 32 to match size of target (7) File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 67
-Info (12128): Elaborating entity "control_ghost" for hierarchy "control_master:game|control_ghost:g1_control" File: C:/DESL/Quartus18/csc258-project/wip.v Line: 156
-Warning (10230): Verilog HDL assignment warning at control_ghost.v(18): truncated value with size 32 to match size of target (1) File: C:/DESL/Quartus18/csc258-project/control_ghost.v Line: 18
-Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:h5" File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 45
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 54
-Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/DESL/Quartus18/csc258-project/vga_adapter.v Line: 192
-Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/DESL/Quartus18/csc258-project/vga_adapter.v Line: 213
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/DESL/Quartus18/csc258-project/vga_adapter.v Line: 213
-Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: C:/DESL/Quartus18/csc258-project/vga_adapter.v Line: 213
+Info (10264): Verilog HDL Case Statement information at run_pacman.v(25): all case item expressions in this case statement are onehot File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 25
+Warning (10034): Output port "LEDR" at run_pacman.v(10) has no driver File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
+Info (12128): Elaborating entity "control_master" for hierarchy "control_master:game" File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 43
+Warning (10036): Verilog HDL or VHDL warning at control_master.v(243): object "y_g4_dest" assigned a value but never read File: W:/CSC258/CSC258-Project-master/control_master.v Line: 243
+Warning (10270): Verilog HDL Case Statement warning at control_master.v(350): incomplete case statement has no default case item File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Warning (10240): Verilog HDL Always Construct warning at control_master.v(350): inferring latch(es) for variable "x", which holds its previous value in one or more paths through the always construct File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Warning (10240): Verilog HDL Always Construct warning at control_master.v(350): inferring latch(es) for variable "y", which holds its previous value in one or more paths through the always construct File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Warning (10240): Verilog HDL Always Construct warning at control_master.v(350): inferring latch(es) for variable "colour", which holds its previous value in one or more paths through the always construct File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "colour[0]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "colour[1]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "colour[2]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "y[0]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "y[1]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "y[2]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "y[3]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "y[4]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "y[5]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "y[6]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "x[0]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "x[1]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "x[2]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "x[3]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "x[4]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "x[5]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "x[6]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (10041): Inferred latch for "x[7]" at control_master.v(350) File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+Info (12128): Elaborating entity "score_alu" for hierarchy "control_master:game|score_alu:alu" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 39
+Info (12128): Elaborating entity "random_generator" for hierarchy "control_master:game|random_generator:rng" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 43
+Info (12128): Elaborating entity "rate_divider" for hierarchy "control_master:game|rate_divider:div" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 47
+Info (12128): Elaborating entity "control_game" for hierarchy "control_master:game|control_game:control" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 70
+Warning (10270): Verilog HDL Case Statement warning at control_master.v(437): incomplete case statement has no default case item File: W:/CSC258/CSC258-Project-master/control_master.v Line: 437
+Info (10264): Verilog HDL Case Statement information at control_master.v(437): all case item expressions in this case statement are onehot File: W:/CSC258/CSC258-Project-master/control_master.v Line: 437
+Info (12128): Elaborating entity "counter5x5" for hierarchy "control_master:game|control_game:control|counter5x5:c0" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 409
+Info (12128): Elaborating entity "data5x5" for hierarchy "control_master:game|data5x5:pac_data" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 90
+Info (12128): Elaborating entity "control_pacman" for hierarchy "control_master:game|control_pacman:pac_control" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 97
+Info (12128): Elaborating entity "pac_shaper" for hierarchy "control_master:game|control_pacman:pac_control|pac_shaper:p0" File: W:/CSC258/CSC258-Project-master/control_pacman.v Line: 15
+Info (12128): Elaborating entity "movement_handler" for hierarchy "control_master:game|control_pacman:pac_control|movement_handler:pac_move" File: W:/CSC258/CSC258-Project-master/control_pacman.v Line: 24
+Warning (10855): Verilog HDL warning at movement_handler.v(80): initial value for variable x should be constant File: W:/CSC258/CSC258-Project-master/movement_handler.v Line: 80
+Warning (10855): Verilog HDL warning at movement_handler.v(80): initial value for variable y should be constant File: W:/CSC258/CSC258-Project-master/movement_handler.v Line: 80
+Warning (10270): Verilog HDL Case Statement warning at movement_handler.v(88): incomplete case statement has no default case item File: W:/CSC258/CSC258-Project-master/movement_handler.v Line: 88
+Warning (10230): Verilog HDL assignment warning at movement_handler.v(115): truncated value with size 8 to match size of target (7) File: W:/CSC258/CSC258-Project-master/movement_handler.v Line: 115
+Warning (10230): Verilog HDL assignment warning at movement_handler.v(125): truncated value with size 8 to match size of target (7) File: W:/CSC258/CSC258-Project-master/movement_handler.v Line: 125
+Info (12128): Elaborating entity "map_lut" for hierarchy "control_master:game|control_pacman:pac_control|movement_handler:pac_move|map_lut:map" File: W:/CSC258/CSC258-Project-master/movement_handler.v Line: 96
+Info (12128): Elaborating entity "pellet_shaper" for hierarchy "control_master:game|pellet_shaper:pellet_shape" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 119
+Info (12128): Elaborating entity "control_pellet" for hierarchy "control_master:game|control_pellet:pellet_control" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 126
+Warning (10270): Verilog HDL Case Statement warning at control_pellet.v(38): incomplete case statement has no default case item File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 38
+Info (10264): Verilog HDL Case Statement information at control_pellet.v(38): all case item expressions in this case statement are onehot File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 38
+Warning (10230): Verilog HDL assignment warning at control_pellet.v(53): truncated value with size 32 to match size of target (8) File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 53
+Warning (10230): Verilog HDL assignment warning at control_pellet.v(54): truncated value with size 32 to match size of target (7) File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 54
+Warning (10230): Verilog HDL assignment warning at control_pellet.v(60): truncated value with size 32 to match size of target (8) File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 60
+Warning (10230): Verilog HDL assignment warning at control_pellet.v(61): truncated value with size 32 to match size of target (7) File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 61
+Warning (10230): Verilog HDL assignment warning at control_pellet.v(66): truncated value with size 32 to match size of target (8) File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 66
+Warning (10230): Verilog HDL assignment warning at control_pellet.v(67): truncated value with size 32 to match size of target (7) File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 67
+Info (12128): Elaborating entity "counter_ghost" for hierarchy "control_master:game|counter_ghost:g1_count" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 139
+Info (12128): Elaborating entity "control_ghost" for hierarchy "control_master:game|control_ghost:g1_control" File: W:/CSC258/CSC258-Project-master/control_master.v Line: 176
+Warning (10230): Verilog HDL assignment warning at control_ghost.v(18): truncated value with size 32 to match size of target (1) File: W:/CSC258/CSC258-Project-master/control_ghost.v Line: 18
+Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:h5" File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 45
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 54
+Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: W:/CSC258/CSC258-Project-master/vga_adapter.v Line: 192
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: W:/CSC258/CSC258-Project-master/vga_adapter.v Line: 213
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: W:/CSC258/CSC258-Project-master/vga_adapter.v Line: 213
+Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: W:/CSC258/CSC258-Project-master/vga_adapter.v Line: 213
     Info (12134): Parameter "WIDTH_A" = "3"
     Info (12134): Parameter "WIDTH_B" = "3"
     Info (12134): Parameter "INTENDED_DEVICE_FAMILY" = "Cyclone II"
@@ -1662,21 +1779,21 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
     Info (12134): Parameter "POWER_UP_UNINITIALIZED" = "FALSE"
     Info (12134): Parameter "INIT_FILE" = "pacman_map.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_6nm1.tdf
-    Info (12023): Found entity 1: altsyncram_6nm1 File: C:/DESL/Quartus18/csc258-project/db/altsyncram_6nm1.tdf Line: 33
+    Info (12023): Found entity 1: altsyncram_6nm1 File: W:/CSC258/CSC258-Project-master/db/altsyncram_6nm1.tdf Line: 33
 Info (12128): Elaborating entity "altsyncram_6nm1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated" File: c:/desl/quartus18/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_7la.tdf
-    Info (12023): Found entity 1: decode_7la File: C:/DESL/Quartus18/csc258-project/db/decode_7la.tdf Line: 22
-Info (12128): Elaborating entity "decode_7la" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|decode_7la:decode2" File: C:/DESL/Quartus18/csc258-project/db/altsyncram_6nm1.tdf Line: 46
+    Info (12023): Found entity 1: decode_7la File: W:/CSC258/CSC258-Project-master/db/decode_7la.tdf Line: 22
+Info (12128): Elaborating entity "decode_7la" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|decode_7la:decode2" File: W:/CSC258/CSC258-Project-master/db/altsyncram_6nm1.tdf Line: 46
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_01a.tdf
-    Info (12023): Found entity 1: decode_01a File: C:/DESL/Quartus18/csc258-project/db/decode_01a.tdf Line: 22
-Info (12128): Elaborating entity "decode_01a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|decode_01a:rden_decode_b" File: C:/DESL/Quartus18/csc258-project/db/altsyncram_6nm1.tdf Line: 47
+    Info (12023): Found entity 1: decode_01a File: W:/CSC258/CSC258-Project-master/db/decode_01a.tdf Line: 22
+Info (12128): Elaborating entity "decode_01a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|decode_01a:rden_decode_b" File: W:/CSC258/CSC258-Project-master/db/altsyncram_6nm1.tdf Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ifb.tdf
-    Info (12023): Found entity 1: mux_ifb File: C:/DESL/Quartus18/csc258-project/db/mux_ifb.tdf Line: 22
-Info (12128): Elaborating entity "mux_ifb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|mux_ifb:mux3" File: C:/DESL/Quartus18/csc258-project/db/altsyncram_6nm1.tdf Line: 49
-Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: C:/DESL/Quartus18/csc258-project/vga_adapter.v Line: 231
-Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/DESL/Quartus18/csc258-project/vga_pll.v Line: 53
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/DESL/Quartus18/csc258-project/vga_pll.v Line: 53
-Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: C:/DESL/Quartus18/csc258-project/vga_pll.v Line: 53
+    Info (12023): Found entity 1: mux_ifb File: W:/CSC258/CSC258-Project-master/db/mux_ifb.tdf Line: 22
+Info (12128): Elaborating entity "mux_ifb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_6nm1:auto_generated|mux_ifb:mux3" File: W:/CSC258/CSC258-Project-master/db/altsyncram_6nm1.tdf Line: 49
+Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: W:/CSC258/CSC258-Project-master/vga_adapter.v Line: 231
+Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: W:/CSC258/CSC258-Project-master/vga_pll.v Line: 53
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: W:/CSC258/CSC258-Project-master/vga_pll.v Line: 53
+Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: W:/CSC258/CSC258-Project-master/vga_pll.v Line: 53
     Info (12134): Parameter "operation_mode" = "NORMAL"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
     Info (12134): Parameter "lpm_type" = "altpll"
@@ -1689,53 +1806,53 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_80u.tdf
-    Info (12023): Found entity 1: altpll_80u File: C:/DESL/Quartus18/csc258-project/db/altpll_80u.tdf Line: 25
+    Info (12023): Found entity 1: altpll_80u File: W:/CSC258/CSC258-Project-master/db/altpll_80u.tdf Line: 25
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/desl/quartus18/quartus/libraries/megafunctions/altpll.tdf Line: 897
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/DESL/Quartus18/csc258-project/vga_adapter.v Line: 252
-Info (12128): Elaborating entity "keyboard_tracker" for hierarchy "keyboard_tracker:tester" File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 59
-Info (12128): Elaborating entity "PS2_Controller" for hierarchy "keyboard_tracker:tester|PS2_Controller:core_driver" File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 197
-Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Data_In:PS2_Data_In" File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Controller.v Line: 246
-Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/DESL/Quartus18/csc258-project/PS2MouseKeyboard/PS2_Controller.v Line: 266
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: W:/CSC258/CSC258-Project-master/vga_adapter.v Line: 252
+Info (12128): Elaborating entity "keyboard_tracker" for hierarchy "keyboard_tracker:tester" File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 59
+Info (12128): Elaborating entity "PS2_Controller" for hierarchy "keyboard_tracker:tester|PS2_Controller:core_driver" File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Keyboard_Controller.v Line: 197
+Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Data_In:PS2_Data_In" File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Controller.v Line: 246
+Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "keyboard_tracker:tester|PS2_Controller:core_driver|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: W:/CSC258/CSC258-Project-master/PS2MouseKeyboard/PS2_Controller.v Line: 266
 Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "control_master:game|control_pellet:pellet_control|Mod0" File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 66
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "control_master:game|control_pellet:pellet_control|Mod1" File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 67
-Info (12130): Elaborated megafunction instantiation "control_master:game|control_pellet:pellet_control|lpm_divide:Mod0" File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 66
-Info (12133): Instantiated megafunction "control_master:game|control_pellet:pellet_control|lpm_divide:Mod0" with the following parameter: File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 66
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "control_master:game|control_pellet:pellet_control|Mod0" File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 66
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "control_master:game|control_pellet:pellet_control|Mod1" File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 67
+Info (12130): Elaborated megafunction instantiation "control_master:game|control_pellet:pellet_control|lpm_divide:Mod0" File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 66
+Info (12133): Instantiated megafunction "control_master:game|control_pellet:pellet_control|lpm_divide:Mod0" with the following parameter: File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 66
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_92m.tdf
-    Info (12023): Found entity 1: lpm_divide_92m File: C:/DESL/Quartus18/csc258-project/db/lpm_divide_92m.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_92m File: W:/CSC258/CSC258-Project-master/db/lpm_divide_92m.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_ckh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_ckh File: C:/DESL/Quartus18/csc258-project/db/sign_div_unsign_ckh.tdf Line: 24
+    Info (12023): Found entity 1: sign_div_unsign_ckh File: W:/CSC258/CSC258-Project-master/db/sign_div_unsign_ckh.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_use.tdf
-    Info (12023): Found entity 1: alt_u_div_use File: C:/DESL/Quartus18/csc258-project/db/alt_u_div_use.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "control_master:game|control_pellet:pellet_control|lpm_divide:Mod1" File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 67
-Info (12133): Instantiated megafunction "control_master:game|control_pellet:pellet_control|lpm_divide:Mod1" with the following parameter: File: C:/DESL/Quartus18/csc258-project/control_pellet.v Line: 67
+    Info (12023): Found entity 1: alt_u_div_use File: W:/CSC258/CSC258-Project-master/db/alt_u_div_use.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "control_master:game|control_pellet:pellet_control|lpm_divide:Mod1" File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 67
+Info (12133): Instantiated megafunction "control_master:game|control_pellet:pellet_control|lpm_divide:Mod1" with the following parameter: File: W:/CSC258/CSC258-Project-master/control_pellet.v Line: 67
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13012): Latch control_master:game|colour[2] has unsafe behavior File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control_master:game|control_game:control|WideOr13 File: C:/DESL/Quartus18/csc258-project/wip.v Line: 322
-Warning (13012): Latch control_master:game|colour[1] has unsafe behavior File: C:/DESL/Quartus18/csc258-project/wip.v Line: 213
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control_master:game|control_game:control|WideOr13 File: C:/DESL/Quartus18/csc258-project/wip.v Line: 322
-Warning (13012): Latch control_master:game|dead has unsafe behavior File: C:/DESL/Quartus18/csc258-project/wip.v Line: 23
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal control_master:game|control_game:control|WideOr13 File: C:/DESL/Quartus18/csc258-project/wip.v Line: 322
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch control_master:game|colour[2] has unsafe behavior File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control_master:game|control_game:control|WideOr17 File: W:/CSC258/CSC258-Project-master/control_master.v Line: 458
+Warning (13012): Latch control_master:game|colour[1] has unsafe behavior File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control_master:game|control_game:control|WideOr19 File: W:/CSC258/CSC258-Project-master/control_master.v Line: 458
+Warning (13012): Latch control_master:game|colour[0] has unsafe behavior File: W:/CSC258/CSC258-Project-master/control_master.v Line: 350
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control_master:game|control_game:control|WideOr17 File: W:/CSC258/CSC258-Project-master/control_master.v Line: 458
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 9
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 10
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 9
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 10
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 75 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not exist in design
@@ -2124,32 +2241,32 @@ Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[7] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS -entity DE1_SoC was ignored
-Info (144001): Generated suppressed messages file C:/DESL/Quartus18/csc258-project/output_files/run_pacman.map.smsg
+Info (144001): Generated suppressed messages file W:/CSC258/CSC258-Project-master/output_files/run_pacman.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/DESL/Quartus18/csc258-project/db/altpll_80u.tdf Line: 33
+Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: W:/CSC258/CSC258-Project-master/db/altpll_80u.tdf Line: 33
     Info: Must be connected
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 5
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 5
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/DESL/Quartus18/csc258-project/run_pacman.v Line: 5
-Info (21057): Implemented 1420 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "KEY[1]" File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 5
+    Warning (15610): No output dependent on input pin "KEY[2]" File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 5
+    Warning (15610): No output dependent on input pin "KEY[3]" File: W:/CSC258/CSC258-Project-master/run_pacman.v Line: 5
+Info (21057): Implemented 1839 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 87 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1316 logic cells
+    Info (21061): Implemented 1735 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 434 warnings
-    Info: Peak virtual memory: 748 megabytes
-    Info: Processing ended: Mon Apr 01 20:49:18 2019
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:27
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 435 warnings
+    Info: Peak virtual memory: 761 megabytes
+    Info: Processing ended: Tue Apr 02 20:12:25 2019
+    Info: Elapsed time: 00:00:45
+    Info: Total CPU time (on all processors): 00:00:35
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/DESL/Quartus18/csc258-project/output_files/run_pacman.map.smsg.
+The suppressed messages can be found in W:/CSC258/CSC258-Project-master/output_files/run_pacman.map.smsg.
 
 
